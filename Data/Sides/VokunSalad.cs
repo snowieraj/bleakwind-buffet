@@ -1,51 +1,53 @@
 ﻿/*
 * Author: Andrew Yi
-* Class name: MadOtarGrits.cs
+* Class name: VokunSalad.cs
 * Purpose: Menu item
 */
+using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using BleakwindBuffet.Data.Enums;
 
-namespace BleakwindBuffet.Data.Side
+namespace BleakwindBuffet.Data.Sides
 {
-    public class MadOtarGrits
+    public class VokunSalad
     {
         /// <summary>
-        /// Default item sizes 
+        /// Default menu size
         /// </summary>
-        MadOtarGrits()
+        VokunSalad()
         {
             Size = Size.Small;
         }
 
-
+        /// <summary>
+        /// Size reference
+        /// </summary>
         public Size Size { get; set; }
         /// <summary>
-        /// Prices for different sizes
+        /// Prices for different menu items
         /// </summary>
         public double Price
         {
             get
             {
-                if (Size == Size.Small) return 1.22;
-                if (Size == Size.Medium) return 1.58;
-                if (Size == Size.Large) return 2.88;
+                if (Size == Size.Small) return 0.93;
+                if (Size == Size.Medium) return 1.28;
+                if (Size == Size.Large) return 1.82;
                 throw new NotImplementedException($"Unknown size of {Size}");//Dollar sign allows the {}
             }
 
         }
         /// <summary>
-        /// Calories for different sizes
+        /// Calories for different menu items
         /// </summary>
         public uint Calories
         {
             get
             {
-                if (Size == Size.Small) return 151;
-                if (Size == Size.Medium) return 236;
-                if (Size == Size.Large) return 306;
+                if (Size == Size.Small) return 41;
+                if (Size == Size.Medium) return 52;
+                if (Size == Size.Large) return 73;
                 throw new NotImplementedException($"Unknown calories of {Size}");
             }
         }
@@ -55,24 +57,25 @@ namespace BleakwindBuffet.Data.Side
         /// </summary>
         private List<string> specialInstructions = new List<string>();
         /// <summary>
-        /// Special instructions for menu item
+        /// Special instructions for menu items 
         /// </summary>
         public List<string> SpecialInstructions
         {
             get
             {
                 List<string> instructions = new List<string>();
-
+ 
                 return instructions;
             }
         }
         /// <summary>
         /// Override basic ToString method to return class
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Menu item name</returns>
         public override string ToString()
         {
-            return $"{Size} Mad Otar Grits";
+            return $"{Size} Vokun Salad";
         }
+
     }
 }

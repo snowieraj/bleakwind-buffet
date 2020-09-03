@@ -1,41 +1,36 @@
 ﻿/*
 * Author: Andrew Yi
-* Class name: GardenOrcOmelette.cs
+* Class name: PhillyPoacher.cs
 * Purpose: Menu item
 */
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BleakwindBuffet.Data.Entree
+namespace BleakwindBuffet.Data.Entrees
 {
-    public class GardenOrcOmelette
+    public class PhillyPoacher
     {
         /// <summary>
-        /// Gets the price
+        /// Gets price
         /// </summary>
-        private double Price => 4.57;
+        private double Price => 7.23;
         /// <summary>
-        /// Gets the cals
+        /// Gets calories
         /// </summary>
-        private uint Calories => 404;
+        public uint Calories => 784;
         /// <summary>
-        /// Broccoli bool
+        /// Sirloin choice
         /// </summary>
-        public bool Broccoli { get; set; } = true;
+        public bool Sirloin { get; set; } = true;
         /// <summary>
-        /// Mushroom bool value
+        /// Onion choice
         /// </summary>
-        public bool Mushrooms { get; set; } = true;
+        public bool Onion { get; set; } = true;
         /// <summary>
-        /// Tomato bool value
+        /// Roll choice
         /// </summary>
-        public bool Tomato { get; set; } = true;
-        /// <summary>
-        /// Cheddar bool value
-        /// </summary>
-        public bool Cheddar { get; set; } = true;
-
+        public bool Roll { get; set; } = true;
         /// <summary>
         /// Private backing variable for specials
         /// </summary>
@@ -48,21 +43,19 @@ namespace BleakwindBuffet.Data.Entree
             get
             {
                 List<string> instructions = new List<string>();
-                if (!Broccoli) instructions.Add("Hold broccoli");
-                if (!Mushrooms) instructions.Add("Hold mushrooms");
-                if (!Tomato) instructions.Add("Hold tomato");
-                if (!Cheddar) instructions.Add("Hold cheddar");
-
+                if (!Sirloin) instructions.Add("Hold sirloin");
+                if (!Onion) instructions.Add("Hold onions");
+                if (!Roll) instructions.Add("Hold roll");
                 return instructions;
             }
         }
         /// <summary>
         /// Override basic ToString method to return class
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Menu item name</returns>
         public override string ToString()
         {
-            return "Garden Orc Omelette";
+            return "Philly Poacher";
         }
     }
 }

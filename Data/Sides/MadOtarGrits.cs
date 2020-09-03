@@ -1,6 +1,6 @@
 ﻿/*
 * Author: Andrew Yi
-* Class name: ArentinoAppleJuice.cs
+* Class name: MadOtarGrits.cs
 * Purpose: Menu item
 */
 using System;
@@ -8,33 +8,30 @@ using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 
-namespace BleakwindBuffet.Data.Drink
+namespace BleakwindBuffet.Data.Sides
 {
-
-    public class AretinoAppleJuice
+    public class MadOtarGrits
     {
         /// <summary>
-        /// Default item size
+        /// Default item sizes 
         /// </summary>
-        AretinoAppleJuice()
+        MadOtarGrits()
         {
             Size = Size.Small;
         }
 
-        /// <summary>
-        /// Size reference
-        /// </summary>
+
         public Size Size { get; set; }
         /// <summary>
-        /// Price for differents sizes
+        /// Prices for different sizes
         /// </summary>
         public double Price
         {
             get
             {
-                if (Size == Size.Small) return 0.62;
-                if (Size == Size.Medium) return 0.87;
-                if (Size == Size.Large) return 1.01;
+                if (Size == Size.Small) return 1.22;
+                if (Size == Size.Medium) return 1.58;
+                if (Size == Size.Large) return 2.88;
                 throw new NotImplementedException($"Unknown size of {Size}");//Dollar sign allows the {}
             }
 
@@ -46,17 +43,12 @@ namespace BleakwindBuffet.Data.Drink
         {
             get
             {
-                if (Size == Size.Small) return 44;
-                if (Size == Size.Medium) return 88;
-                if (Size == Size.Large) return 132;
+                if (Size == Size.Small) return 151;
+                if (Size == Size.Medium) return 236;
+                if (Size == Size.Large) return 306;
                 throw new NotImplementedException($"Unknown calories of {Size}");
             }
         }
-        /// <summary>
-        /// Ice property - option
-        /// </summary>
-        public bool Ice { get; set; } = false;
-  
 
         /// <summary>
         /// Private backing variable for specials
@@ -70,17 +62,17 @@ namespace BleakwindBuffet.Data.Drink
             get
             {
                 List<string> instructions = new List<string>();
-                if (Ice) instructions.Add("Add ice");
+
                 return instructions;
             }
         }
         /// <summary>
         /// Override basic ToString method to return class
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Menu item name</returns>
         public override string ToString()
         {
-            return $"{Size} Aretino Apple Juice";
+            return $"{Size} Mad Otar Grits";
         }
     }
 }

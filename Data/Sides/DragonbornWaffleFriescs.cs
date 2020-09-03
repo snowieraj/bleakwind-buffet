@@ -1,27 +1,28 @@
 ﻿/*
 * Author: Andrew Yi
-* Class name: SailorsSoda.cs
+* Class name: DragonbornWaffleFries.cs
 * Purpose: Menu item
 */
 using System;
 using System.Collections.Generic;
 using System.Text;
+using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data.Enums;
 
-namespace BleakwindBuffet.Data.Drink
+namespace BleakwindBuffet.Data.Sides
 {
-    public class SailorsSoda
+    public class DragonbornWaffleFriescs
     {
         /// <summary>
-        /// Default item size
+        /// Setting default size
         /// </summary>
-        SailorsSoda()
+        DragonbornWaffleFriescs()
         {
             Size = Size.Small;
         }
 
         /// <summary>
-        /// Size reference
+        /// Sizing for item
         /// </summary>
         public Size Size { get; set; }
         /// <summary>
@@ -30,59 +31,51 @@ namespace BleakwindBuffet.Data.Drink
         public double Price
         {
             get
-            {                
-                if (Size == Size.Small) return 1.42;
-                if (Size == Size.Medium) return 1.74;
-                if (Size == Size.Large) return 2.07;
+            {
+                if (Size == Size.Small) return 0.42;
+                if (Size == Size.Medium) return 0.76;
+                if (Size == Size.Large) return 0.96;
                 throw new NotImplementedException($"Unknown size of {Size}");//Dollar sign allows the {}
             }
 
         }
         /// <summary>
-        /// Calories for different sizes
+        /// Calories vor different sizes
         /// </summary>
-        public uint Calories 
+        public uint Calories
         {
             get
             {
-                if (Size == Size.Small) return 117;
-                if (Size == Size.Medium) return 153;
-                if (Size == Size.Large) return 205;
+                if (Size == Size.Small) return 77;
+                if (Size == Size.Medium) return 89;
+                if (Size == Size.Large) return 100;
                 throw new NotImplementedException($"Unknown calories of {Size}");
             }
         }
-        /// <summary>
-        /// Ice option defaulted to tr0ue
-        /// </summary>
-        public bool Ice { get; set; } = true;
-        /// <summary>
-        /// Soda flavor defaulted to cherry
-        /// </summary>
-        public SodaFlavor Soda { get; set; } = SodaFlavor.Cherry;
 
         /// <summary>
         /// Private backing variable for specials
         /// </summary>
         private List<string> specialInstructions = new List<string>();
         /// <summary>
-        /// Special instructions for menu item
+        /// Special instructions for item
         /// </summary>
         public List<string> SpecialInstructions
         {
             get
             {
                 List<string> instructions = new List<string>();
-                if (!Ice) instructions.Add("Hold ice");
+
                 return instructions;
             }
         }
         /// <summary>
         /// Override basic ToString method to return class
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Menu item name</returns>
         public override string ToString()
         {
-            return $"{Size} {Soda} Sailor Soda";
+            return $"{Size} Dragonborn Waffle Fries";
         }
     }
 }

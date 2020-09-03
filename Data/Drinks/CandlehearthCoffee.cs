@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 
-namespace BleakwindBuffet.Data.Drink
+namespace BleakwindBuffet.Data.Drinks
 {
     public class CandlehearthCoffee
     {
@@ -83,7 +83,7 @@ namespace BleakwindBuffet.Data.Drink
         /// <summary>
         /// Override basic ToString method to return class
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Menu item name</returns>
         public override string ToString()
         {
             if (!Decaf) return $"Candlehearth Coffee";

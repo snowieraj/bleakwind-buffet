@@ -6,7 +6,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BleakwindBuffet.Data.Entree
+namespace BleakwindBuffet.Data.Entrees
 {
     public class SmokehouseSkeleton
     {
@@ -78,7 +78,7 @@ namespace BleakwindBuffet.Data.Entree
         /// <summary>
         /// Override basic ToString method to return class
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Menu item name</returns>
         public override string ToString()
         {
             return "Smokehouse Skeleton";

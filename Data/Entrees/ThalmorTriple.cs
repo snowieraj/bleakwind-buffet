@@ -1,26 +1,23 @@
 ﻿/*
 * Author: Andrew Yi
-* Class name: DoubleDraugr.cs
+* Class name: ThalmorTriple.cs
 * Purpose: Menu item
-*/
-using System;
+*/using System;
 using System.Collections.Generic;
-using System.Net.Http.Headers;
 using System.Text;
-using System.Xml.Schema;
 
-namespace BleakwindBuffet.Data.Entree
+namespace BleakwindBuffet.Data.Entrees
 {
-    public class DoubleDraugr
+    public class ThalmorTriple
     {
         /// <summary>
-        /// Gets the price of the burger
+        /// Gets the price for the burger
         /// </summary>
-        private double Price => 7.32;
+        private double Price => 8.32;
         /// <summary>
-        /// Gets the calories of the burger
+        /// Gets the calories for the burger
         /// </summary>
-        public uint Calories => 843;
+        private uint Calories => 943;
         /// <summary>
         /// Gets the Bun option
         /// </summary>
@@ -97,13 +94,30 @@ namespace BleakwindBuffet.Data.Entree
             get => mayo;
             set => mayo = value;
         }
-
+        /// <summary>
+        /// Gets the option for bacon
+        /// </summary>
+        private bool bacon = true;
+        public bool Bacon
+        {
+            get => bacon;
+            set => bacon = value;
+        }
+        /// <summary>
+        /// Gets the option for egg
+        /// </summary>
+        private bool egg = true;
+        public bool Egg
+        {
+            get => egg;
+            set => egg = value;
+        }
         /// <summary>
         /// Private backing variable for specials
         /// </summary>
         private List<string> specialInstructions = new List<string>();
         /// <summary>
-        /// Special instruction for menu item
+        /// Special instructions for menu item
         /// </summary>
         public List<string> SpecialInstructions
         {
@@ -117,16 +131,18 @@ namespace BleakwindBuffet.Data.Entree
                 if (!Tomato) instructions.Add("Hold tomato");
                 if (!Lettuce) instructions.Add("Hold lettuce");
                 if (!Mayo) instructions.Add("Hold mayo");
+                if (!Bacon) instructions.Add("Hold bacon");
+                if (!Egg) instructions.Add("Hold eggs");
                 return instructions;
             }
         }
         /// <summary>
         /// Override basic ToString method to return class
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Menu item name</returns>
         public override string ToString()
         {
-            return "Double Draugr";
+            return "Thalmor Triple";
         }
     }
 }

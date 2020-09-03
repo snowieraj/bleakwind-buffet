@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 
-namespace BleakwindBuffet.Data.Side
+namespace BleakwindBuffet.Data.Sides
 {
     public class FriedMiraak
     {
@@ -69,7 +69,7 @@ namespace BleakwindBuffet.Data.Side
         /// <summary>
         /// Override basic ToString method to return class
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Menu item name</returns>
         public override string ToString()
         {
             return $"{Size} Fried Miraak";

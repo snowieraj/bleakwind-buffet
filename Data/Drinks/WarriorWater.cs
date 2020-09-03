@@ -1,6 +1,6 @@
 ﻿/*
 * Author: Andrew Yi
-* Class name: MarkarthMilk.cs
+* Class name: WarriorWater.cs
 * Purpose: Menu item
 */
 using System;
@@ -8,14 +8,14 @@ using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 
-namespace BleakwindBuffet.Data.Drink
+namespace BleakwindBuffet.Data.Drinks
 {
-    public class MarkarthMilk
+    public class WarriorWater
     {
         /// <summary>
-        /// Default menu size
+        /// Default menu item size
         /// </summary>
-        MarkarthMilk()
+        WarriorWater()
         {
             Size = Size.Small;
         }
@@ -25,40 +25,40 @@ namespace BleakwindBuffet.Data.Drink
         /// </summary>
         public Size Size { get; set; }
         /// <summary>
-        /// Price for different size
+        /// Prices for different menu items
         /// </summary>
         public double Price
         {
             get
             {
-                if (Size == Size.Small) return 1.05;
-                if (Size == Size.Medium) return 1.11;
-                if (Size == Size.Large) return 1.22;
+                if (Size == Size.Small) return 0;
+                if (Size == Size.Medium) return 0;
+                if (Size == Size.Large) return 0;
                 throw new NotImplementedException($"Unknown size of {Size}");//Dollar sign allows the {}
             }
 
         }
         /// <summary>
-        /// Calories for different sizes
+        /// Calories for different menu items
         /// </summary>
         public uint Calories
         {
             get
             {
-                if (Size == Size.Small) return 56;
-                if (Size == Size.Medium) return 72;
-                if (Size == Size.Large) return 93;
+                if (Size == Size.Small) return 0;
+                if (Size == Size.Medium) return 0;
+                if (Size == Size.Large) return 0;
                 throw new NotImplementedException($"Unknown calories of {Size}");
             }
         }
         /// <summary>
-        /// Ice option fault is false
+        /// Ice option default
         /// </summary>
-        public bool Ice { get; set; } = false;
+        public bool Ice { get; set; } = true;
         /// <summary>
-        /// Default soda flavor
+        /// Lemon option defualt
         /// </summary>
-        public SodaFlavor Soda { get; set; } = SodaFlavor.Cherry;
+        public bool Lemon { get; set; } = false;
 
         /// <summary>
         /// Private backing variable for specials
@@ -72,17 +72,18 @@ namespace BleakwindBuffet.Data.Drink
             get
             {
                 List<string> instructions = new List<string>();
-                if (Ice) instructions.Add("Add ice");
+                if (!Ice) instructions.Add("Hold ice");
+                if (Lemon) instructions.Add("Add lemon");
                 return instructions;
             }
         }
         /// <summary>
         /// Override basic ToString method to return class
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Menu item name</returns>
         public override string ToString()
         {
-            return $"{Size} Markarth Milk";
+            return $"{Size} Warrior Water";
         }
     }
 }
