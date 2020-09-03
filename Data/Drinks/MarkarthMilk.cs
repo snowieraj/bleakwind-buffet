@@ -10,6 +10,9 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Drinks
 {
+    /// <summary>
+    /// 2% Milk
+    /// </summary>
     public class MarkarthMilk
     {
         /// <summary>

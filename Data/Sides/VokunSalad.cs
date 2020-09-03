@@ -10,6 +10,9 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Sides
 {
+    /// <summary>
+    /// A Fruit Salad
+    /// </summary>
     public class VokunSalad
     {
         /// <summary>

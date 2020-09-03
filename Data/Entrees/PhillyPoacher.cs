@@ -9,6 +9,9 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
+    /// <summary>
+    /// Cheesesteak sandwich made from grilled sirloin, topped with onions on a fried roll.
+    /// </summary>
     public class PhillyPoacher
     {
         /// <summary>

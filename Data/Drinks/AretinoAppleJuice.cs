@@ -10,7 +10,9 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Drinks
 {
-
+    /// <summary>
+    /// Apple Juice
+    /// </summary>
     public class AretinoAppleJuice
     {
         /// <summary>

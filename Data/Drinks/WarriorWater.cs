@@ -10,6 +10,9 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Drinks
 {
+    /// <summary>
+    /// Water
+    /// </summary>
     public class WarriorWater
     {
         /// <summary>

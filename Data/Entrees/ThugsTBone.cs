@@ -8,6 +8,9 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
+    /// <summary>
+    /// Juicy T-Bone not much else to say
+    /// </summary>
     public class ThugsTBone
     {
         /// <summary>

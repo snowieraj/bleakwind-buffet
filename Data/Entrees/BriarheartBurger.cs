@@ -9,6 +9,9 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
+    /// <summary>
+    /// Single patty burger on a brioche bun. Comes with ketchup, mustard, pickle, and cheese.
+    /// </summary>
     public class BriarheartBurger
     {
         /// <summary>

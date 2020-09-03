@@ -11,6 +11,9 @@ using System.Xml.Schema;
 
 namespace BleakwindBuffet.Data.Entrees
 {
+    /// <summary>
+    /// Double patty burger on a brioche bun. Comes with ketchup, mustard, pickle, cheese, tomato, lettuce, and mayo.
+    /// </summary>
     public class DoubleDraugr
     {
         /// <summary>

@@ -11,6 +11,9 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Sides
 {
+    /// <summary>
+    /// Cajun Fries
+    /// </summary>
     public class DragonbornWaffleFriescs
     {
         /// <summary>

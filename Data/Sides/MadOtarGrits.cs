@@ -10,6 +10,9 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Sides
 {
+    /// <summary>
+    /// Cheesy Grits
+    /// </summary>
     public class MadOtarGrits
     {
         /// <summary>

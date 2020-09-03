@@ -10,6 +10,9 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Drinks
 {
+    /// <summary>
+    /// Coffee
+    /// </summary>
     public class CandlehearthCoffee
     {
         /// <summary>
