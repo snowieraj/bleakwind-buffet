@@ -18,7 +18,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Default size for menu item
         /// </summary>
-        CandlehearthCoffee()
+        public CandlehearthCoffee()
         {
             Size = Size.Small;
         }

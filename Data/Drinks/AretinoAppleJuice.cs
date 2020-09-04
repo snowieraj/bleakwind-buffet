@@ -18,7 +18,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Default item size
         /// </summary>
-        AretinoAppleJuice()
+        public AretinoAppleJuice()
         {
             Size = Size.Small;
         }

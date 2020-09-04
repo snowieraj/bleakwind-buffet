@@ -18,7 +18,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Default menu item size
         /// </summary>
-        WarriorWater()
+        public WarriorWater()
         {
             Size = Size.Small;
         }

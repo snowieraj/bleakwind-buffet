@@ -18,7 +18,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// Default item sizes 
         /// </summary>
-        MadOtarGrits()
+        public MadOtarGrits()
         {
             Size = Size.Small;
         }
