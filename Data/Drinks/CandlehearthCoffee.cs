@@ -89,7 +89,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <returns>Menu item name</returns>
         public override string ToString()
         {
-            if (!Decaf) return $"Candlehearth Coffee";
+            if (!Decaf) return $"{Size} Candlehearth Coffee";
             else
             {
                 return $"{Size} Decaf Candlehearth Coffee";
