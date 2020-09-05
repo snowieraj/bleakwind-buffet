@@ -18,7 +18,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// Default menu size
         /// </summary>
-        VokunSalad()
+        public VokunSalad()
         {
             Size = Size.Small;
         }

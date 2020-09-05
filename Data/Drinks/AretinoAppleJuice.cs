@@ -15,18 +15,20 @@ namespace BleakwindBuffet.Data.Drinks
     /// </summary>
     public class AretinoAppleJuice
     {
+        
         /// <summary>
         /// Default item size
         /// </summary>
-        AretinoAppleJuice()
+        public AretinoAppleJuice()
         {
             Size = Size.Small;
         }
+        
 
         /// <summary>
         /// Size reference
         /// </summary>
-        public Size Size { get; set; }
+        public Size Size { get; set; } = Size.Small;
         /// <summary>
         /// Price for differents sizes
         /// </summary>

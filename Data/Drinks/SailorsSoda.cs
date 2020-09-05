@@ -18,7 +18,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Default item size
         /// </summary>
-        SailorsSoda()
+        public SailorsSoda()
         {
             Size = Size.Small;
         }

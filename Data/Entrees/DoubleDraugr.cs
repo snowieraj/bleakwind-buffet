@@ -19,7 +19,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Gets the price of the burger
         /// </summary>
-        private double Price => 7.32;
+        public double Price => 7.32;
         /// <summary>
         /// Gets the calories of the burger
         /// </summary>
@@ -71,7 +71,7 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Cheese
         {
             get => cheese;
-            set => cheese = true;
+            set => cheese = value;
         }
         /// <summary>
         /// Gets the tomato option
@@ -120,6 +120,7 @@ namespace BleakwindBuffet.Data.Entrees
                 if (!Tomato) instructions.Add("Hold tomato");
                 if (!Lettuce) instructions.Add("Hold lettuce");
                 if (!Mayo) instructions.Add("Hold mayo");
+                if (!mustard) instructions.Add("Hold mustard");
                 return instructions;
             }
         }

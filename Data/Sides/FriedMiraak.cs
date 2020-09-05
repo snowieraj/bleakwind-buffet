@@ -18,7 +18,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// Default item size
         /// </summary>
-        FriedMiraak()
+        public FriedMiraak()
         {
             Size = Size.Small;
         }

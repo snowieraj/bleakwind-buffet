@@ -17,11 +17,11 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Gets the price
         /// </summary>
-        private double Price => 4.57;
+        public double Price => 4.57;
         /// <summary>
         /// Gets the cals
         /// </summary>
-        private uint Calories => 404;
+        public uint Calories => 404;
         /// <summary>
         /// Broccoli bool
         /// </summary>

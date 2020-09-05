@@ -18,7 +18,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Default menu size
         /// </summary>
-        MarkarthMilk()
+        public MarkarthMilk()
         {
             Size = Size.Small;
         }

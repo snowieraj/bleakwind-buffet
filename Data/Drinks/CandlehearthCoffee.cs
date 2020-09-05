@@ -18,7 +18,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Default size for menu item
         /// </summary>
-        CandlehearthCoffee()
+        public CandlehearthCoffee()
         {
             Size = Size.Small;
         }
@@ -77,9 +77,13 @@ namespace BleakwindBuffet.Data.Drinks
             get
             {
                 List<string> instructions = new List<string>();
+
                 if (Ice) instructions.Add("Add ice");
+
                 if (RoomForCream) instructions.Add("Add cream");
+
                 
+
                 return instructions;
             }
         }
@@ -89,7 +93,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <returns>Menu item name</returns>
         public override string ToString()
         {
-            if (!Decaf) return $"Candlehearth Coffee";
+            if (!Decaf) return $"{Size} Candlehearth Coffee";
             else
             {
                 return $"{Size} Decaf Candlehearth Coffee";

@@ -17,7 +17,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Gets the price of the burger
         /// </summary>
-        private double Price => 6.32; //lamba syntac property for price
+        public double Price => 6.32; //lamba syntac property for price
         /// <summary>
         /// Gets the calories of the burger
         /// </summary>
@@ -72,7 +72,7 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Cheese
         {
             get => cheese;
-            set => cheese = true;
+            set => cheese = value;
         }
         /// <summary>
         /// Private backing variable
@@ -87,6 +87,7 @@ namespace BleakwindBuffet.Data.Entrees
             {
                 List<string> instructions = new List<string>();
                 if (!Bun) instructions.Add("Hold bun");
+                if (!mustard) instructions.Add("Hold mustard");
                 if (!ketchup) instructions.Add("Hold ketchup");
                 if (!Pickle) instructions.Add("Hold pickle");
                 if (!Cheese) instructions.Add("Hold cheese");
