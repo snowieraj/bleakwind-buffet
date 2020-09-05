@@ -17,7 +17,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Gets the price
         /// </summary>
-        private double Price => 4.57;
+        public double Price => 4.57;
         /// <summary>
         /// Gets the cals
         /// </summary>

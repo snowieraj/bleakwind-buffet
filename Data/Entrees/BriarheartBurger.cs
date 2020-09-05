@@ -17,7 +17,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Gets the price of the burger
         /// </summary>
-        private double Price => 6.32; //lamba syntac property for price
+        public double Price => 6.32; //lamba syntac property for price
         /// <summary>
         /// Gets the calories of the burger
         /// </summary>
