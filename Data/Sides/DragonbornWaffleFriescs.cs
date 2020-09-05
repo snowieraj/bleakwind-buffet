@@ -19,11 +19,10 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// Setting default size
         /// </summary>
-<<<<<<< HEAD
-       public DragonbornWaffleFriescs()
-=======
+
+      
         public DragonbornWaffleFriescs()
->>>>>>> e97323d64f3deee291c433ef5f40bc9501b165ff
+
         {
             Size = Size.Small;
         }
