@@ -34,7 +34,7 @@ namespace BleakwindBuffet.Data.Sides
             {
                 if (Size == Size.Small) return 1.22;
                 if (Size == Size.Medium) return 1.58;
-                if (Size == Size.Large) return 2.88;
+                if (Size == Size.Large) return 1.93;
                 throw new NotImplementedException($"Unknown size of {Size}");//Dollar sign allows the {}
             }
 
@@ -46,9 +46,9 @@ namespace BleakwindBuffet.Data.Sides
         {
             get
             {
-                if (Size == Size.Small) return 151;
-                if (Size == Size.Medium) return 236;
-                if (Size == Size.Large) return 306;
+                if (Size == Size.Small) return 105;
+                if (Size == Size.Medium) return 142;
+                if (Size == Size.Large) return 179;
                 throw new NotImplementedException($"Unknown calories of {Size}");
             }
         }

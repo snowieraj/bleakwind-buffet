@@ -1,6 +1,6 @@
 ﻿/*
 * Author: Andrew Yi
-* Class name: thusTBone.cs
+* Class name: ThugsTBone.cs
 * Purpose: Menu item
 */using System;
 using System.Collections.Generic;

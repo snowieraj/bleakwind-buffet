@@ -21,7 +21,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Gets the cals
         /// </summary>
-        private uint Calories => 404;
+        public uint Calories => 404;
         /// <summary>
         /// Broccoli bool
         /// </summary>
