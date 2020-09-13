@@ -6,22 +6,23 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using BleakwindBuffet.Data.Menu;
 
 namespace BleakwindBuffet.Data.Entrees
 {
     /// <summary>
     /// Cheesesteak sandwich made from grilled sirloin, topped with onions on a fried roll.
     /// </summary>
-    public class PhillyPoacher
+    public class PhillyPoacher : Entree, IOrderItem
     {
         /// <summary>
         /// Gets price
         /// </summary>
-        public double Price => 7.23;
+        public override double Price => 7.23;
         /// <summary>
         /// Gets calories
         /// </summary>
-        public uint Calories => 784;
+        public override uint Calories => 784;
         /// <summary>
         /// Sirloin choice
         /// </summary>
@@ -41,7 +42,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Special instructions for menu item
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

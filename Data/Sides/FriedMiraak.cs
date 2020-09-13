@@ -7,13 +7,14 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
+using BleakwindBuffet.Data.Menu;
 
 namespace BleakwindBuffet.Data.Sides
 {
     /// <summary>
     /// Hash Brown Pancakes
     /// </summary>
-    public class FriedMiraak
+    public class FriedMiraak : Side, IOrderItem
     {
         /// <summary>
         /// Default item size
@@ -24,11 +25,10 @@ namespace BleakwindBuffet.Data.Sides
         }
 
 
-        public Size Size { get; set; }
         /// <summary>
         /// Prices for different sizes
         /// </summary>
-        public double Price
+        public override double Price
         {
             get
             {
@@ -42,7 +42,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// Calories for different sizes
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
@@ -56,11 +56,11 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// Private backing variable for specials
         /// </summary>
-        private List<string> specialInstructions = new List<string>();
+        //private List<string> specialInstructions = new List<string>();
         /// <summary>
         /// Special instructions for menu item
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

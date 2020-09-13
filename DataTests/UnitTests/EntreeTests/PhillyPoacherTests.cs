@@ -7,11 +7,28 @@
 using Xunit;
 using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data;
+using BleakwindBuffet.Data.Menu;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
     public class PhillyPoacherTests
     {
+        [Fact]
+        public void ShouldBeAEntree()
+        {
+            PhillyPoacher foodOrder = new PhillyPoacher();
+            Assert.IsAssignableFrom<Entree>(foodOrder);
+        }
+       
+
+        [Fact]
+        public void ShouldBeAssignableToIOrderItemEntreeClass()
+        {
+           
+            PhillyPoacher test3 = new PhillyPoacher();
+            Assert.IsAssignableFrom<IOrderItem>(test3);
+       
+        } 
         [Fact]
         public void ShouldInlcudeSirloinByDefault()
         {

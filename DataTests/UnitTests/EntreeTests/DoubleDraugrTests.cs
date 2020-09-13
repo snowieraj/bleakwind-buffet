@@ -7,11 +7,27 @@
 using Xunit;
 using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data;
+using BleakwindBuffet.Data.Menu;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
     public class DoubleDraugrTests
     {   
+        [Fact]
+        public void ShouldBeAEntree()
+        {
+            DoubleDraugr foodOrder = new DoubleDraugr();
+            Assert.IsAssignableFrom<Entree>(foodOrder);
+        }
+
+        [Fact]
+        public void ShouldBeAssignableToIOrderItemEntreeClass()
+        {
+       
+            DoubleDraugr test1 = new DoubleDraugr();
+            Assert.IsAssignableFrom<IOrderItem>(test1);
+  
+        }
         [Fact]
         public void ShouldIncludeBunByDefault()
         {
@@ -177,6 +193,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             foodOrder.Cheese = includeCheese;
             foodOrder.Lettuce = includeLettuce;
             foodOrder.Mayo = includeMayo;
+            foodOrder.Tomato = includeTomato;
 
             if (!includeBun) Assert.Contains("Hold bun", foodOrder.SpecialInstructions);
             if (!includeCheese) Assert.Contains("Hold cheese", foodOrder.SpecialInstructions);
@@ -185,6 +202,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             if (!includePickle) Assert.Contains("Hold pickle", foodOrder.SpecialInstructions);
             if (!includeMayo) Assert.Contains("Hold mayo", foodOrder.SpecialInstructions);
             if (!includeLettuce) Assert.Contains("Hold lettuce", foodOrder.SpecialInstructions);
+            if (!includeTomato) Assert.Contains("Hold tomato", foodOrder.SpecialInstructions);
             else Assert.Empty(foodOrder.SpecialInstructions);
         }
 

@@ -8,33 +8,29 @@ using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data.Enums;
+using BleakwindBuffet.Data.Menu;
 
 namespace BleakwindBuffet.Data.Sides
 {
     /// <summary>
     /// Cajun Fries
     /// </summary>
-    public class DragonbornWaffleFriescs
+    public class DragonbornWaffleFries : Side, IOrderItem
     {
+        
         /// <summary>
         /// Setting default size
         /// </summary>
-
-      
-        public DragonbornWaffleFriescs()
+        public DragonbornWaffleFries()
 
         {
             Size = Size.Small;
         }
 
         /// <summary>
-        /// Sizing for item
-        /// </summary>
-        public Size Size { get; set; }
-        /// <summary>
         /// Prices for different sizes
         /// </summary>
-        public double Price
+        public override double Price
         {
             get
             {
@@ -48,7 +44,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// Calories vor different sizes
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
@@ -62,11 +58,11 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// Private backing variable for specials
         /// </summary>
-        private List<string> specialInstructions = new List<string>();
+        //private List<string> specialInstructions = new List<string>();
         /// <summary>
         /// Special instructions for item
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

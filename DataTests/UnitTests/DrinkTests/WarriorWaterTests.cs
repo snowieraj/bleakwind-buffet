@@ -9,12 +9,27 @@ using Xunit;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
+using BleakwindBuffet.Data.Menu;
 using System.Runtime.InteropServices.ComTypes;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
     public class WarriorWaterTests
     {
+        [Fact]
+        public void ShouldBeADrink()
+        {
+            WarriorWater drinkOrder = new WarriorWater();
+            Assert.IsAssignableFrom<Drink>(drinkOrder);
+        }
+        [Fact]
+        public void ShouldBeAssignableToIOrderItemDrinkClass()
+        {
+            
+            WarriorWater test4 = new WarriorWater();
+            Assert.IsAssignableFrom<IOrderItem>(test4);
+
+        }
         [Fact]
         public void ShouldIncludeIceByDefault()
         {
@@ -33,7 +48,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [Fact]
         public void ShouldBeAbleToSetIce()
         {
-            SailorsSoda drinkOrder = new SailorsSoda();
+            SailorSoda drinkOrder = new SailorSoda();
             drinkOrder.Ice = true;
             Assert.True(drinkOrder.Ice);
             drinkOrder.Ice = false;

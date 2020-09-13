@@ -7,11 +7,26 @@
 using Xunit;
 using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data;
+using BleakwindBuffet.Data.Menu;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
-    public class ThugsTBoneTests
+    public class IOrderItemTests
     {
+        [Fact]
+        public void ShouldBeAEntree()
+        {
+            ThugsTBone foodOrder = new ThugsTBone();
+            Assert.IsAssignableFrom<Entree>(foodOrder);
+        }
+
+        [Fact]
+        public void ShouldBeAssignableToIOrderItemEntreeClass()
+        {
+          
+            ThugsTBone test6 = new ThugsTBone();
+            Assert.IsAssignableFrom<IOrderItem>(test6);
+        }
         [Fact]
         public void ShouldReturnCorrectPrice()
         {

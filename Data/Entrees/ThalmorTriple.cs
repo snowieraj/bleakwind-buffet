@@ -5,22 +5,23 @@
 */using System;
 using System.Collections.Generic;
 using System.Text;
+using BleakwindBuffet.Data.Menu;
 
 namespace BleakwindBuffet.Data.Entrees
 {
     /// <summary>
     /// Think you are strong enough to take on the Thalmor? Inlcudes two 1/4lb patties with a 1/2lb patty inbetween with ketchup, mustard, pickle, cheese, tomato, lettuce, mayo, bacon, and an egg.
     /// </summary>
-    public class ThalmorTriple
+    public class ThalmorTriple : Entree, IOrderItem
     {
         /// <summary>
         /// Gets the price for the burger
         /// </summary>
-        public double Price => 8.32;
+        public override double Price => 8.32;
         /// <summary>
         /// Gets the calories for the burger
         /// </summary>
-        public uint Calories => 943;
+        public override uint Calories => 943;
         /// <summary>
         /// Gets the Bun option
         /// </summary>
@@ -28,21 +29,8 @@ namespace BleakwindBuffet.Data.Entrees
 
         /// <summary>
         /// Gets the ketchup option
-        /// </summary>
-        private bool ketchup = true;
-        public bool Ketchup
-        {
-            get
-            {
-                return ketchup;
-            }
-            set
-            {
-                if (!value) specialInstructions.Add("Hold ketchup");
-                else specialInstructions.Remove("Hold ketchup");
-                ketchup = value;
-            }
-        }
+        /// </summary>       
+        public bool Ketchup { get; set; } = true;
         /// <summary>
         /// Gets the mustard option
         /// </summary>
@@ -118,25 +106,25 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Private backing variable for specials
         /// </summary>
-        private List<string> specialInstructions = new List<string>();
+        //private List<string> specialInstructions = new List<string>();
         /// <summary>
         /// Special instructions for menu item
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {
                 List<string> instructions = new List<string>();
                 if (!Bun) instructions.Add("Hold bun");
-                if (!ketchup) instructions.Add("Hold ketchup");
+                if (!Ketchup) instructions.Add("Hold ketchup");
                 if (!Pickle) instructions.Add("Hold pickle");
                 if (!Cheese) instructions.Add("Hold cheese");
                 if (!Tomato) instructions.Add("Hold tomato");
                 if (!Lettuce) instructions.Add("Hold lettuce");
                 if (!Mayo) instructions.Add("Hold mayo");
                 if (!Bacon) instructions.Add("Hold bacon");
-                if (!Egg) instructions.Add("Hold eggs");
-                if (!mustard) instructions.Add("Hold mustard");
+                if (!Egg) instructions.Add("Hold egg");
+                if (!Mustard) instructions.Add("Hold mustard");
                 return instructions;
             }
         }

@@ -10,11 +10,26 @@ using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Drinks;
 using System.ComponentModel;
+using BleakwindBuffet.Data.Menu;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
     public class MarkarthMilkTests
     {
+        [Fact]
+        public void ShouldBeADrink()
+        {
+            MarkarthMilk drinkOrder = new MarkarthMilk();
+            Assert.IsAssignableFrom<Drink>(drinkOrder);
+        }
+        [Fact]
+        public void ShouldBeAssignableToIOrderItemDrinkClass()
+        {
+
+            MarkarthMilk test2 = new MarkarthMilk();
+            Assert.IsAssignableFrom<IOrderItem>(test2);
+  
+        }
         [Fact]
         public void ShouldNotIncludeIceByDefault()
         {

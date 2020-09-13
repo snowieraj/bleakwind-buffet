@@ -7,11 +7,27 @@
 using Xunit;
 using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data;
+using BleakwindBuffet.Data.Menu;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
     public class ThalmorTripleTests
     {
+        [Fact]
+        public void ShouldBeAEntree()
+        {
+            ThalmorTriple foodOrder = new ThalmorTriple();
+            Assert.IsAssignableFrom<Entree>(foodOrder);
+        }
+
+        [Fact]
+        public void ShouldBeAssignableToIOrderItemEntreeClass()
+        {
+          
+            ThalmorTriple test5 = new ThalmorTriple();
+            Assert.IsAssignableFrom<IOrderItem>(test5);
+        
+        }
         [Fact]
         public void ShouldIncludeBunByDefault()
         {
@@ -224,7 +240,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             if (!includeMayo) Assert.Contains("Hold mayo", foodOrder.SpecialInstructions);
             if (!includeLettuce) Assert.Contains("Hold lettuce", foodOrder.SpecialInstructions);
             if (!includeTomato) Assert.Contains("Hold tomato", foodOrder.SpecialInstructions);
-            if (!includeEgg) Assert.Contains("Hold eggs", foodOrder.SpecialInstructions);
+            if (!includeEgg) Assert.Contains("Hold egg", foodOrder.SpecialInstructions);
             if (!includeBacon) Assert.Contains("Hold bacon", foodOrder.SpecialInstructions);
             else Assert.Empty(foodOrder.SpecialInstructions);
         }

@@ -8,22 +8,23 @@ using System.Collections.Generic;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Xml.Schema;
+using BleakwindBuffet.Data.Menu;
 
 namespace BleakwindBuffet.Data.Entrees
 {
     /// <summary>
     /// Double patty burger on a brioche bun. Comes with ketchup, mustard, pickle, cheese, tomato, lettuce, and mayo.
     /// </summary>
-    public class DoubleDraugr
+    public class DoubleDraugr : Entree, IOrderItem
     {
         /// <summary>
         /// Gets the price of the burger
         /// </summary>
-        public double Price => 7.32;
+        public override double Price => 7.32;
         /// <summary>
         /// Gets the calories of the burger
         /// </summary>
-        public uint Calories => 843;
+        public override uint Calories => 843;
         /// <summary>
         /// Gets the Bun option
         /// </summary>
@@ -31,21 +32,8 @@ namespace BleakwindBuffet.Data.Entrees
 
         /// <summary>
         /// Gets the ketchup option
-        /// </summary>
-        private bool ketchup = true;
-        public bool Ketchup
-        {
-            get
-            {
-                return ketchup;
-            }
-            set
-            {
-                if (!value) specialInstructions.Add("Hold ketchup");
-                else specialInstructions.Remove("Hold ketchup");
-                ketchup = value;
-            }
-        }
+        /// </summary>       
+        public bool Ketchup { get; set; } = true;
         /// <summary>
         /// Gets the mustard option
         /// </summary>
@@ -104,23 +92,23 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Private backing variable for specials
         /// </summary>
-        private List<string> specialInstructions = new List<string>();
+        //private List<string> specialInstructions = new List<string>();
         /// <summary>
         /// Special instruction for menu item
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {
                 List<string> instructions = new List<string>();
                 if (!Bun) instructions.Add("Hold bun");
-                if (!ketchup) instructions.Add("Hold ketchup");
+                if (!Ketchup) instructions.Add("Hold ketchup");
                 if (!Pickle) instructions.Add("Hold pickle");
                 if (!Cheese) instructions.Add("Hold cheese");
                 if (!Tomato) instructions.Add("Hold tomato");
                 if (!Lettuce) instructions.Add("Hold lettuce");
                 if (!Mayo) instructions.Add("Hold mayo");
-                if (!mustard) instructions.Add("Hold mustard");
+                if (!Mustard) instructions.Add("Hold mustard");
                 return instructions;
             }
         }

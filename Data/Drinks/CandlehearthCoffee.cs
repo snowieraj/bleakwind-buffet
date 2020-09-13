@@ -7,13 +7,14 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
+using BleakwindBuffet.Data.Menu;
 
 namespace BleakwindBuffet.Data.Drinks
 {
     /// <summary>
     /// Coffee
     /// </summary>
-    public class CandlehearthCoffee
+    public class CandlehearthCoffee : Drink, IOrderItem
     {
         /// <summary>
         /// Default size for menu item
@@ -24,11 +25,10 @@ namespace BleakwindBuffet.Data.Drinks
         }
 
 
-        public Size Size { get; set; }
         /// <summary>
         /// Prices for different sizes
         /// </summary>
-        public double Price
+        public override double Price
         {
             get
             {
@@ -42,7 +42,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Calories for different sizes 
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
@@ -68,11 +68,11 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Private backing variable for specials
         /// </summary>
-        private List<string> specialInstructions = new List<string>();
+        //private List<string> specialInstructions = new List<string>();
         /// <summary>
         /// Special instructions for menu items
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

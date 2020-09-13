@@ -5,22 +5,23 @@
 */using System;
 using System.Collections.Generic;
 using System.Text;
+using BleakwindBuffet.Data.Menu;
 
 namespace BleakwindBuffet.Data.Entrees
 {
     /// <summary>
     /// Put some meat on those bones with a small stack of pancakes. Includes sausage links, eggs, and hash browns on the side. Topped with the syrup of your choice.
     /// </summary>
-    public class SmokehouseSkeleton
+    public class SmokehouseSkeleton : Entree, IOrderItem
     {
         /// <summary>
         /// Gets the price for the breakfast combo
         /// </summary>
-        public double Price => 5.62;
+        public override double Price => 5.62;
         /// <summary>
         /// Gets the calories for the meal
         /// </summary>
-        public uint Calories => 602;
+        public override uint Calories => 602;
         /// <summary>
         /// Get the sausage value
         /// </summary>
@@ -65,7 +66,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Special instructions for menu item
         /// </summary>
-        public List<string> SpecialInstructions
+        public override  List<string> SpecialInstructions
         {
             get
             {

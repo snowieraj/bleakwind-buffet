@@ -10,11 +10,27 @@ using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
 using System.Reflection.Metadata;
 using System.ComponentModel.Design;
+using BleakwindBuffet.Data.Menu;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
     public class CandlehearthCoffeeTests
     {
+        [Fact]
+        public void ShouldBeADrink()
+        {
+            CandlehearthCoffee drinkOrder = new CandlehearthCoffee();
+            Assert.IsAssignableFrom<Drink>(drinkOrder);
+        }
+        [Fact]
+        public void ShouldBeAssignableToIOrderItemDrinkClass()
+        {
+
+            CandlehearthCoffee test1 = new CandlehearthCoffee();
+            Assert.IsAssignableFrom<IOrderItem>(test1);
+        
+        }
+
         [Fact]
         public void ShouldNotIncludeIceByDefault()
         {

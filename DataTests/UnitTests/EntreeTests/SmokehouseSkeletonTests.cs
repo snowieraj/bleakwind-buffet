@@ -7,11 +7,27 @@
 using Xunit;
 using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data;
+using BleakwindBuffet.Data.Menu;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
     public class SmokehouseSkeletonTests
     {        
+        [Fact]
+        public void ShouldBeAEntree()
+        {
+            SmokehouseSkeleton foodOrder = new SmokehouseSkeleton();
+            Assert.IsAssignableFrom<Entree>(foodOrder);
+        }
+
+        [Fact]
+        public void ShouldBeAssignableToIOrderItemEntreeClass()
+        {
+          
+            SmokehouseSkeleton test4 = new SmokehouseSkeleton();
+            Assert.IsAssignableFrom<IOrderItem>(test4);
+        
+        }
         [Fact]
         public void ShouldInlcudeSausageByDefault()
         {

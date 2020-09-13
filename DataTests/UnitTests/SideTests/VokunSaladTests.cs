@@ -7,11 +7,26 @@ using Xunit;
 using BleakwindBuffet.Data.Sides;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
+using BleakwindBuffet.Data.Menu;
 
 namespace BleakwindBuffet.DataTests.UnitTests.SideTests
 {
     public class VokunSaladTests
     {
+        [Fact]
+        public void ShouldBeASide()
+        {
+            VokunSalad foodOrder = new VokunSalad();
+            Assert.IsAssignableFrom<Side>(foodOrder);
+        }
+        [Fact]
+        public void ShouldBeAssignableToIOrderItemSideClass()
+        {
+          
+            VokunSalad test3 = new VokunSalad();
+           Assert.IsAssignableFrom<IOrderItem>(test3);
+
+        }
         [Fact]
         public void ShouldBeSmallByDefault()
         {

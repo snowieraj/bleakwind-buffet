@@ -8,12 +8,26 @@ using Xunit;
 using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data;
 using System.Net.Http;
+using BleakwindBuffet.Data.Menu;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
     public class BriarheartBurgerTests
     {
-        
+        [Fact]
+        public void ShouldBeAEntree()
+        {
+            BriarheartBurger foodOrder = new BriarheartBurger();
+            Assert.IsAssignableFrom<Entree>(foodOrder);
+        }
+
+        [Fact]
+        public void ShouldBeAssignableToIOrderItemEntreeClass()
+        {
+            BriarheartBurger test0 = new BriarheartBurger();
+            Assert.IsAssignableFrom<IOrderItem>(test0);
+  
+        }
         [Fact]
         public void ShouldIncludeBunByDefault()
         {
@@ -52,8 +66,10 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         [Fact]
         public void ShouldBeAbleToSetBun()
         {
-            BriarheartBurger foodOrder = new BriarheartBurger();
-            foodOrder.Bun = true;
+            BriarheartBurger foodOrder = new BriarheartBurger
+            {
+                Bun = true
+            };
             Assert.True(foodOrder.Bun);
             foodOrder.Bun = false;
             Assert.False(foodOrder.Bun);
@@ -62,8 +78,10 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         [Fact]
         public void ShouldBeAbleToSetKetchup()
         {
-            BriarheartBurger foodOrder = new BriarheartBurger();
-            foodOrder.Ketchup = true;
+            BriarheartBurger foodOrder = new BriarheartBurger
+            {
+                Ketchup = true
+            };
             Assert.True(foodOrder.Ketchup);
             foodOrder.Ketchup = false;
             Assert.False(foodOrder.Ketchup);
@@ -72,8 +90,10 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         [Fact]
         public void ShouldBeAbleToSetMustard()
         {
-            BriarheartBurger foodOrder = new BriarheartBurger();
-            foodOrder.Mustard = true;
+            BriarheartBurger foodOrder = new BriarheartBurger
+            {
+                Mustard = true
+            };
             Assert.True(foodOrder.Mustard);
             foodOrder.Mustard = false;
             Assert.False(foodOrder.Mustard);
@@ -110,7 +130,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         public void ShouldReturnCorrectCalories()
         {
             BriarheartBurger foodOrder = new BriarheartBurger();
-            Assert.Equal((uint)732, foodOrder.Calories);
+            Assert.Equal((uint)743, foodOrder.Calories);
         }
 
         [Theory]

@@ -6,22 +6,23 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using BleakwindBuffet.Data.Menu;
 
 namespace BleakwindBuffet.Data.Entrees
 {
     /// <summary>
     /// Vegetarian. Two egg omelette packed with a mix of broccoli, mushrooms, and tomatoes. Topped with cheddar cheese.
     /// </summary>
-    public class GardenOrcOmelette
+    public class GardenOrcOmelette : Entree, IOrderItem
     {
         /// <summary>
         /// Gets the price
         /// </summary>
-        public double Price => 4.57;
+        public override double Price => 4.57;
         /// <summary>
         /// Gets the cals
         /// </summary>
-        public uint Calories => 404;
+        public override uint Calories => 404;
         /// <summary>
         /// Broccoli bool
         /// </summary>
@@ -46,7 +47,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Special instructions for menu item
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

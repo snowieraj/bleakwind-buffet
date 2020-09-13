@@ -7,13 +7,14 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
+using BleakwindBuffet.Data.Menu;
 
 namespace BleakwindBuffet.Data.Drinks
 {
     /// <summary>
     /// 2% Milk
     /// </summary>
-    public class MarkarthMilk
+    public class MarkarthMilk : Drink, IOrderItem
     {
         /// <summary>
         /// Default menu size
@@ -23,14 +24,11 @@ namespace BleakwindBuffet.Data.Drinks
             Size = Size.Small;
         }
 
-        /// <summary>
-        /// Size reference
-        /// </summary>
-        public Size Size { get; set; }
+ 
         /// <summary>
         /// Price for different size
         /// </summary>
-        public double Price
+        public override double Price
         {
             get
             {
@@ -44,7 +42,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Calories for different sizes
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
@@ -58,19 +56,16 @@ namespace BleakwindBuffet.Data.Drinks
         /// Ice option fault is false
         /// </summary>
         public bool Ice { get; set; } = false;
-        /// <summary>
-        /// Default soda flavor
-        /// </summary>
-        public SodaFlavor Soda { get; set; } = SodaFlavor.Cherry;
+  
 
         /// <summary>
         /// Private backing variable for specials
         /// </summary>
-        private List<string> specialInstructions = new List<string>();
+        //private List<string> specialInstructions = new List<string>();
         /// <summary>
         /// Special instructions for menu items
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

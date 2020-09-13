@@ -7,30 +7,28 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
-
+using BleakwindBuffet.Data.Menu;
 namespace BleakwindBuffet.Data.Drinks
 {
     /// <summary>
     /// Old-Fashioned Soda
     /// </summary>
-    public class SailorsSoda
+    public class SailorSoda : Drink, IOrderItem
     {
         /// <summary>
         /// Default item size
         /// </summary>
-        public SailorsSoda()
+        public SailorSoda()
         {
             Size = Size.Small;
         }
 
-        /// <summary>
-        /// Size reference
-        /// </summary>
-        public Size Size { get; set; }
+        //Size is now Virtual
+
         /// <summary>
         /// Prices for different sizes
         /// </summary>
-        public double Price
+        public override double Price
         {
             get
             {                
@@ -44,7 +42,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Calories for different sizes
         /// </summary>
-        public uint Calories 
+        public override uint Calories 
         {
             get
             {
@@ -61,16 +59,16 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Soda flavor defaulted to cherry
         /// </summary>
-        public SodaFlavor Soda { get; set; } = SodaFlavor.Cherry;
+        public SodaFlavor Flavor { get; set; } = SodaFlavor.Cherry;
 
         /// <summary>
         /// Private backing variable for specials
         /// </summary>
-        private List<string> specialInstructions = new List<string>();
+        //private List<string> specialInstructions = new List<string>();
         /// <summary>
         /// Special instructions for menu item
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {
@@ -85,7 +83,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <returns>Menu item name</returns>
         public override string ToString()
         {
-            return $"{Size} {Soda} Sailor Soda";
+            return $"{Size} {Flavor} Sailor Soda";
         }
     }
 }
