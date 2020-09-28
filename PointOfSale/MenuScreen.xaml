@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="PointOfSale.MenuScreen"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="800">
+  
+
+    <Grid>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="T:\Google Drive\School\CIS 400\MS1\Data\Images\B7.jpg"  Stretch="UniformToFill"  />
+
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="250" MaxWidth="500"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Name="menuBorder" BorderThickness="0">
+            <local:ButtonSelections/>
+        </Border>
+        <Border Name="tickerBorder"  Grid.Column="1" BorderThickness="0" >
+            <local:OrderTicket/>
+        </Border>
+
+
+
+    </Grid>
+
+</UserControl>
