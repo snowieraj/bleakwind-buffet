@@ -3,6 +3,8 @@
  *Purpose: Keep track of what has been ordered
  */
 
+using BleakwindBuffet.Data.Drinks;
+using PointOfSale.Drinks;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -27,6 +29,7 @@ namespace PointOfSale
         {
             InitializeComponent();
             Initialtotal();
+            
         }
 
         /// <summary>
@@ -36,10 +39,11 @@ namespace PointOfSale
         {
             //total.Text = $"Subtotal: {Subtotal}\nTax: {Tax}\nTotal: {String.Format("{0:00.00}", Subtotal+Tax)}";
             total.Text = "Subtotal: \nTax: \nTotal: ";
-           orderNumber.Text = "Order# 100";
+            orderNumber.Text = "Order# 100";
+            itemsOrdered.Items.Refresh();
         }
 
-        
+       
     }
     
 }

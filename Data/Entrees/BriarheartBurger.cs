@@ -7,6 +7,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Menu;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using System.Xml.Schema;
 
 namespace BleakwindBuffet.Data.Entrees
 {
@@ -15,8 +18,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// </summary>
     public class BriarheartBurger : Entree, IOrderItem
     {
-       
-
+  
         /// <summary>
         /// Gets the price of the burger
         /// </summary>
@@ -25,15 +27,41 @@ namespace BleakwindBuffet.Data.Entrees
         /// Gets the calories of the burger
         /// </summary>
         public override uint Calories => 743;
+
+
         /// <summary>
         /// Gets the Bun option
         /// </summary>
-        public bool Bun { get; set; } = true;
+        private bool bun = true;
+        public bool Bun
+        {
+            get { return bun; }
+            set
+            {
+                if (bun != value)
+                {
+                    bun = value;
+                    PropertyChangedNotification("Bun");
+                }
+            }
+        }
 
         /// <summary>
         /// Gets the ketchup option
         /// </summary>       
-        public bool Ketchup { get; set; } = true;
+        private bool ketchup = true;
+        public bool Ketchup
+        { 
+            get { return ketchup; }
+            set
+            {
+                if (ketchup != value)
+                {
+                    ketchup = value;
+                    PropertyChangedNotification("Ketchup");
+                }
+            }
+        }
         /// <summary>
         /// Gets the mustard option
         /// </summary>
@@ -41,7 +69,17 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Mustard
         {
             get => mustard;
-            set => mustard = value;
+
+            set
+            {
+                if (mustard != value)
+                {
+                    mustard = value;
+                    PropertyChangedNotification("Mustard");
+                }
+            }
+           
+            
         }
         /// <summary>
         /// Gets the pickle option
@@ -50,7 +88,14 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Pickle
         {
             get => pickle;
-            set => pickle = value;
+            set
+            {
+                if (pickle != value)
+                {
+                    pickle = value;
+                    PropertyChangedNotification("Pickle");
+                }
+            }
         }
         /// <summary>
         /// Gets the cheese option
@@ -59,7 +104,14 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Cheese
         {
             get => cheese;
-            set => cheese = value;
+            set
+            {
+                if (cheese != value)
+                {
+                    cheese = value;
+                    PropertyChangedNotification("Cheese");
+                }
+            }
         }
         /// <summary>
         /// Private backing variable

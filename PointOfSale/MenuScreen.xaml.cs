@@ -20,6 +20,7 @@ using BleakwindBuffet.Data.Drinks;
 using PointOfSale.Entrees;
 using PointOfSale.Drinks;
 using PointOfSale.Sides;
+using BleakwindBuffet.Data.Enums;
 
 namespace PointOfSale
 {
@@ -57,13 +58,13 @@ namespace PointOfSale
             //Entrees
             if (e.item.GetType().IsSubclassOf(typeof(BleakwindBuffet.Data.Entrees.Entree)))
             {
-                if (e.item is BriarheartBurger) menuBorder.Child = new BriarheartBurgerEdit(this);
-                else if (e.item is DoubleDraugr) menuBorder.Child = new DoubleDraugrEdit(this);
-                else if (e.item is GardenOrcOmelette) menuBorder.Child = new GardenOrcOmeletteEdit(this);
-                else if (e.item is PhillyPoacher) menuBorder.Child = new PhillyPoacherEdit(this);
-                else if (e.item is SmokehouseSkeleton) menuBorder.Child = new SmokehouseSkeletonEdit(this);
-                else if (e.item is ThalmorTriple) menuBorder.Child = new ThalmorTripleEdit(this);
-                else if (e.item is ThugsTBone) menuBorder.Child = new ThugsTBoneEdit(this);
+                if (e.item is BriarheartBurger) menuBorder.Child = new BriarheartBurgerEdit(this, new BriarheartBurger());
+                else if (e.item is DoubleDraugr) menuBorder.Child = new DoubleDraugrEdit(this , new DoubleDraugr());
+                else if (e.item is GardenOrcOmelette) menuBorder.Child = new GardenOrcOmeletteEdit(this, new GardenOrcOmelette());
+                else if (e.item is PhillyPoacher) menuBorder.Child = new PhillyPoacherEdit(this, new PhillyPoacher());
+                else if (e.item is SmokehouseSkeleton) menuBorder.Child = new SmokehouseSkeletonEdit(this, new SmokehouseSkeleton());
+                else if (e.item is ThalmorTriple) menuBorder.Child = new ThalmorTripleEdit(this, new ThalmorTriple());
+                else if (e.item is ThugsTBone) menuBorder.Child = new ThugsTBoneEdit(this, new ThugsTBone());
 
                
                 
@@ -71,20 +72,20 @@ namespace PointOfSale
             //Drinks
             if (e.item.GetType().IsSubclassOf(typeof(BleakwindBuffet.Data.Drinks.Drink)))
             {
-                if (e.item is AretinoAppleJuice) menuBorder.Child = new ArentinoAppleJuiceEdit(this);
-                else if (e.item is CandlehearthCoffee) menuBorder.Child = new CandlehearthCoffeeEdit(this);
-                else if (e.item is MarkarthMilk) menuBorder.Child = new MarkarthMilkEdit(this);
-                else if (e.item is SailorSoda) menuBorder.Child = new SailorSodaEdit(this);
-                else if (e.item is WarriorWater) menuBorder.Child = new WarriorWaterEdit(this);
+                if (e.item is AretinoAppleJuice) menuBorder.Child = new ArentinoAppleJuiceEdit(this, new AretinoAppleJuice());
+                else if (e.item is CandlehearthCoffee) menuBorder.Child = new CandlehearthCoffeeEdit(this, new CandlehearthCoffee());
+                else if (e.item is MarkarthMilk) menuBorder.Child = new MarkarthMilkEdit(this, new MarkarthMilk());
+                else if (e.item is SailorSoda) menuBorder.Child = new SailorSodaEdit(this, new SailorSoda());
+                else if (e.item is WarriorWater) menuBorder.Child = new WarriorWaterEdit(this, new WarriorWater());
             }
             
             //Sides
             if (e.item.GetType().IsSubclassOf(typeof(BleakwindBuffet.Data.Sides.Side)))
             {
-                if (e.item is DragonbornWaffleFries) menuBorder.Child = new DragonbornWaffleFriesEdit(this);
-                else if (e.item is FriedMiraak) menuBorder.Child = new FriedMiraakEdit(this);
-                else if (e.item is MadOtarGrits) menuBorder.Child = new MadOtarGritsEdit(this);
-                else if (e.item is VokunSalad) menuBorder.Child = new VokunSaladEdit(this);
+                if (e.item is DragonbornWaffleFries) menuBorder.Child = new DragonbornWaffleFriesEdit(this, new DragonbornWaffleFries());
+                else if (e.item is FriedMiraak) menuBorder.Child = new FriedMiraakEdit(this, new FriedMiraak());
+                else if (e.item is MadOtarGrits) menuBorder.Child = new MadOtarGritsEdit(this, new MadOtarGrits());
+                else if (e.item is VokunSalad) menuBorder.Child = new VokunSaladEdit(this, new VokunSalad());
             }
 
         }

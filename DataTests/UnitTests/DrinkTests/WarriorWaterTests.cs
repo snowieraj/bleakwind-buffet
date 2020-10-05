@@ -11,6 +11,7 @@ using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Menu;
 using System.Runtime.InteropServices.ComTypes;
+using System.Runtime.InteropServices;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
@@ -124,6 +125,65 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             WarriorWater drinkOrder = new WarriorWater();
             drinkOrder.Size = size;
             Assert.Equal(name, drinkOrder.ToString());
+        }
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangingSizeNotificationForSize(Size size)
+        {
+            var item = new WarriorWater();
+            if (size == Size.Small) item.Size = Size.Medium;
+            Assert.PropertyChanged(item, "Size", () => item.Size = size);
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangingSizeNotificationForPrice(Size size)
+        {
+            var item = new WarriorWater();
+            if (size == Size.Small) item.Size = Size.Medium;
+            Assert.PropertyChanged(item, "Price", () => item.Size = size);
+        }
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangingSizeNotificationForCalories(Size size)
+        {
+            var item = new WarriorWater();
+            if (size == Size.Small) item.Size = Size.Medium;
+            Assert.PropertyChanged(item, "Calories", () => item.Size = size);
+        }
+
+        [Fact]
+        public void ChangingIceNotification()
+        {
+            var item = new WarriorWater();
+            Assert.PropertyChanged(item, "Ice", () =>
+            {
+                item.Ice = false;
+            });
+            Assert.PropertyChanged(item, "Ice", () =>
+            {
+                item.Ice = true;
+            });
+        }
+
+        [Fact]
+        public void ChangingLemonNotification()
+        {
+            var item = new WarriorWater();
+            Assert.PropertyChanged(item, "Lemon", () =>
+            {
+                item.Lemon = true;
+            });
+            Assert.PropertyChanged(item, "Lemon", () =>
+            {
+                item.Lemon = false;
+            });
         }
     }
 }

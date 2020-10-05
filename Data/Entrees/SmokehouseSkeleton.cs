@@ -29,7 +29,14 @@ namespace BleakwindBuffet.Data.Entrees
         public bool SausageLink
         {
             get => sausageLink;
-            set => sausageLink = value;
+            set
+            {
+                if (sausageLink != value)
+                {
+                    sausageLink = value;
+                    PropertyChangedNotification("SausageLink");
+                }
+            }
         }
         /// <summary>
         /// Gets the option for egg
@@ -38,7 +45,14 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Egg
         {
             get => egg;
-            set => egg = value;
+            set
+            {
+                if (egg != value)
+                {
+                    egg = value;
+                    PropertyChangedNotification("Egg");
+                }
+            }
         }
         /// <summary>
         /// Get hashbrown value
@@ -47,7 +61,14 @@ namespace BleakwindBuffet.Data.Entrees
         public bool HashBrowns
         {
             get => hashBrowns;
-            set => hashBrowns = value;
+            set
+            {
+                if (hashBrowns != value)
+                {
+                    hashBrowns = value;
+                    PropertyChangedNotification("HashBrowns");
+                }
+            }
         }
         /// <summary>
         /// Gets pancake value
@@ -56,7 +77,14 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Pancake
         {
             get => pancake;
-            set => pancake = value;
+            set
+            {
+                if (pancake != value)
+                {
+                    pancake = value;
+                    PropertyChangedNotification("Pancake");
+                }
+            }
         }
 
         /// <summary>

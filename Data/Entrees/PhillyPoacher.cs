@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Xml.Schema;
 using BleakwindBuffet.Data.Menu;
 
 namespace BleakwindBuffet.Data.Entrees
@@ -26,15 +27,51 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Sirloin choice
         /// </summary>
-        public bool Sirloin { get; set; } = true;
+        private bool sirloin = true;
+        public bool Sirloin 
+        {
+            get => sirloin;
+            set
+            {
+                if (sirloin != value)
+                {
+                    sirloin = value;
+                    PropertyChangedNotification("Sirloin");
+                }
+            }
+        }
         /// <summary>
         /// Onion choice
         /// </summary>
-        public bool Onion { get; set; } = true;
+        private bool onion = true;
+        public bool Onion
+        {
+            get => onion;
+            set
+            {
+                if (onion != value)
+                {
+                    onion = value;
+                    PropertyChangedNotification("Onion");
+                }
+            }
+        }
         /// <summary>
         /// Roll choice
         /// </summary>
-        public bool Roll { get; set; } = true;
+        private bool roll = true;
+        public bool Roll
+        {
+            get => roll;
+            set
+            {
+                if (roll != value)
+                {
+                    roll = value;
+                    PropertyChangedNotification("Roll");
+                }
+            }
+        }
         /// <summary>
         /// Private backing variable for specials
         /// </summary>

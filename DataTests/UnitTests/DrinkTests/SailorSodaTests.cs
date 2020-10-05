@@ -158,5 +158,66 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             drinkOrder.Flavor = flavor;
             Assert.Equal(name, drinkOrder.ToString());
         }
+
+        [Fact]
+        public void ChangingIceNotification()
+        {
+            var item = new SailorSoda();
+            Assert.PropertyChanged(item, "Ice", () =>
+            {
+                item.Ice = false;
+            });
+            Assert.PropertyChanged(item, "Ice", () =>
+            {
+                item.Ice = true;
+            });
+        }
+
+        [Theory]
+        [InlineData(SodaFlavor.Cherry)]
+        [InlineData(SodaFlavor.Blackberry)]
+        [InlineData(SodaFlavor.Grapefruit)]
+        [InlineData(SodaFlavor.Lemon)]
+        [InlineData(SodaFlavor.Peach)]
+        [InlineData(SodaFlavor.Watermelon)]
+
+        public void ChangingFlavorNotification(SodaFlavor flavor)
+        {
+            var item = new SailorSoda();
+            if (flavor == SodaFlavor.Cherry) item.Flavor = SodaFlavor.Lemon;
+            Assert.PropertyChanged(item, "Flavor", () => item.Flavor = flavor);
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangingSizeNotificationForSize(Size size)
+        {
+            var item = new SailorSoda();
+            if (size == Size.Small) item.Size = Size.Medium;
+            Assert.PropertyChanged(item, "Size", () => item.Size = size);
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangingSizeNotificationForPrice(Size size)
+        {
+            var item = new SailorSoda();
+            if (size == Size.Small) item.Size = Size.Medium;
+            Assert.PropertyChanged(item, "Price", () => item.Size = size);
+        }
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangingSizeNotificationForCalories(Size size)
+        {
+            var item = new SailorSoda();
+            if (size == Size.Small) item.Size = Size.Medium;
+            Assert.PropertyChanged(item, "Calories", () => item.Size = size);
+        }
     }
 }

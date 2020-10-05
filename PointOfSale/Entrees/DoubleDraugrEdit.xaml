@@ -119,8 +119,9 @@
                 </Setter.Value>
             </Setter>
         </Style>
-
-
+        <BitmapImage x:Key="Death" UriSource="/Images/Death.png"/>
+        <BitmapImage x:Key="BackButton" UriSource="/Images/Back.png"/>
+        <BitmapImage x:Key="AddButton" UriSource="/Images/Add.png"/>
     </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -145,7 +146,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Image Source="T:\Google Drive\School\CIS 400\MS1\Data\Images\Death.png" Grid.ColumnSpan="3" Grid.RowSpan="4" Grid.Row="4" Margin="167,38,62,0" />
+            <Image Source="{StaticResource Death}" Grid.ColumnSpan="3" Grid.RowSpan="4" Grid.Row="4" Margin="167,38,62,0" />
             <Viewbox Grid.Column="1" Grid.Row="1">
                 <TextBlock Name="itemEdited" Grid.Column="1" 
                            TextWrapping="Wrap" 
@@ -160,10 +161,10 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Viewbox Grid.Row="0" HorizontalAlignment="Left" >
-                    <CheckBox Name="itemOne" FontWeight="Bold" Foreground="White">Bun</CheckBox>
+                    <CheckBox Name="itemOne" IsChecked="{Binding Path=Bun}" FontWeight="Bold" Foreground="White">Bun</CheckBox>
                 </Viewbox>
                 <Viewbox Grid.Row="1" HorizontalAlignment="Left">
-                    <CheckBox Name="itemTwo" FontWeight="Bold" Foreground="White">Ketchup</CheckBox>
+                    <CheckBox Name="itemTwo" IsChecked="{Binding Path=Ketchup}" FontWeight="Bold" Foreground="White">Ketchup</CheckBox>
                 </Viewbox>
             </Grid>
             <Grid Grid.Row="3">
@@ -172,10 +173,10 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Viewbox Grid.Row="0" HorizontalAlignment="Left">
-                    <CheckBox Name="itemThree" FontWeight="Bold" Foreground="White">Pickle</CheckBox>
+                    <CheckBox Name="itemThree" IsChecked="{Binding Path=Pickle}" FontWeight="Bold" Foreground="White">Pickle</CheckBox>
                 </Viewbox>
                 <Viewbox Grid.Row="1" HorizontalAlignment="Left">
-                    <CheckBox Name="itemFour" FontWeight="Bold" Foreground="White">Cheese</CheckBox>
+                    <CheckBox Name="itemFour" IsChecked="{Binding Path=Cheese}" FontWeight="Bold" Foreground="White">Cheese</CheckBox>
                 </Viewbox>
             </Grid>
             <Grid Grid.Row="4">
@@ -184,10 +185,10 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Viewbox Grid.Row="0" HorizontalAlignment="Left">
-                    <CheckBox Name="itemFive" FontWeight="Bold" Foreground="White">Tomato</CheckBox>
+                    <CheckBox Name="itemFive" FontWeight="Bold" IsChecked="{Binding Path=Tomato}" Foreground="White">Tomato</CheckBox>
                 </Viewbox>
                 <Viewbox Grid.Row="1" HorizontalAlignment="Left">
-                    <CheckBox Name="itemSix" FontWeight="Bold" Foreground="White">Lettuce</CheckBox>
+                    <CheckBox Name="itemSix" FontWeight="Bold" IsChecked="{Binding Path=Lettuce}" Foreground="White">Lettuce</CheckBox>
                 </Viewbox>
             </Grid>
             <Grid Grid.Row="5">
@@ -196,17 +197,26 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Viewbox Grid.Row="0" HorizontalAlignment="Left">
-                    <CheckBox Name="itemSeven" FontWeight="Bold" Foreground="White">Mayo</CheckBox>
+                    <CheckBox Name="itemSeven" FontWeight="Bold" IsChecked="{Binding Path=Mayo}" Foreground="White">Mayo</CheckBox>
                 </Viewbox>
                 <Viewbox Grid.Row="1" HorizontalAlignment="Left">
-                    <CheckBox Name="itemEight" FontWeight="Bold" Foreground="White">Mustard</CheckBox>
+                    <CheckBox Name="itemEight" FontWeight="Bold" IsChecked="{Binding Path=Mustard}" Foreground="White">Mustard</CheckBox>
                 </Viewbox>
             </Grid>
-            
+
             <Grid Grid.Row="7" Grid.Column="2">
-                <Viewbox MaxHeight="60">
-                    <Button Click="CancelButton_Click" Style="{DynamicResource RoundedAdd}"  HorizontalAlignment="Center" Width="55" Height="55" BorderThickness="0" VerticalAlignment="Center" FontWeight="Bold">
-                        <Image Source="T:\Google Drive\School\CIS 400\MS1\Data\Images\Back.png"/>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Viewbox MaxHeight="60" Grid.Column="0">
+                    <Button Click="CancelButton_Click" Style="{DynamicResource RoundedAdd}" HorizontalAlignment="Center" Width="55" Height="55" BorderThickness="0" VerticalAlignment="Center" FontWeight="Bold">
+                        <Image Source="{StaticResource BackButton}"/>
+                    </Button>
+                </Viewbox>
+                <Viewbox MaxHeight="60" Grid.Column="1">
+                    <Button  Style="{DynamicResource RoundedAdd}" HorizontalAlignment="Center" BorderThickness="0">
+                        <Image Source="{StaticResource AddButton}"/>
                     </Button>
                 </Viewbox>
             </Grid>

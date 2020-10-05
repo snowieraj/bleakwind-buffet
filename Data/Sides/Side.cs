@@ -8,18 +8,48 @@ using BleakwindBuffet.Data.Menu;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Sides
 {
     /// <summary>
     /// A base class representing the common properties of sides
     /// </summary>
-    public abstract class Side : IOrderItem
+    public abstract class Side : IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Property Changed Event Handler
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+        /// <summary>
+        /// Invoking property changed notification
+        /// </summary>
+        /// <param name="name"></param>
+        protected void PropertyChangedNotification(string name)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+        /// <summary>
+        /// Deafult Size 
+        /// </summary>
+        protected Size size = Size.Small;
         /// <summary>
         /// The size of the drink
         /// </summary>
-        public virtual Size Size { get; set; }//Declared here and overrided in different classes
+        public virtual Size Size //Declared here and overrided in different classes
+        {
+            get => size;
+            set
+            {
+                if (size != value)
+                {
+                    size = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+                }
+            }
+        }
         /// <summary>
         /// The price of the side
         /// </summary>

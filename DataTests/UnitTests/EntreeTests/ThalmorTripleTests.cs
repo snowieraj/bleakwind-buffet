@@ -251,5 +251,144 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             ThalmorTriple foodOrder = new ThalmorTriple();
             Assert.Equal("Thalmor Triple", foodOrder.ToString());
         }
+
+
+        [Fact]
+        public void ChangingBunNotification()
+        {
+            var item = new ThalmorTriple();
+            Assert.PropertyChanged(item, "Bun", () =>
+            {
+                item.Bun = false;
+            });
+            Assert.PropertyChanged(item, "Bun", () =>
+            {
+                item.Bun = true;
+            });
+
+        }
+
+        [Fact]
+        public void ChangingKetchupNotification()
+        {
+            var item = new ThalmorTriple();
+            Assert.PropertyChanged(item, "Ketchup", () =>
+            {
+                item.Ketchup = false;
+            });
+            Assert.PropertyChanged(item, "Ketchup", () =>
+            {
+                item.Ketchup = true;
+            });
+        }
+        [Fact]
+        public void ChangingMustardNotification()
+        {
+            var item = new ThalmorTriple();
+            Assert.PropertyChanged(item, "Mustard", () =>
+            {
+                item.Mustard = false;
+            });
+            Assert.PropertyChanged(item, "Mustard", () =>
+            {
+                item.Mustard = true;
+            });
+        }
+        [Fact]
+        public void ChangingPickleNotification()
+        {
+            var item = new ThalmorTriple();
+            Assert.PropertyChanged(item, "Pickle", () =>
+            {
+                item.Pickle = false;
+            });
+            Assert.PropertyChanged(item, "Pickle", () =>
+            {
+                item.Pickle = true;
+            });
+        }
+        [Fact]
+        public void ChangingCheeseNotification()
+        {
+            var item = new ThalmorTriple();
+            Assert.PropertyChanged(item, "Cheese", () =>
+            {
+                item.Cheese = false;
+            });
+            Assert.PropertyChanged(item, "Cheese", () =>
+            {
+                item.Cheese = true;
+            });
+        }
+
+        [Fact]
+        public void ChangingTomatoNotification()
+        {
+            var item = new ThalmorTriple();
+            Assert.PropertyChanged(item, "Tomato", () =>
+            {
+                item.Tomato = false;
+            });
+            Assert.PropertyChanged(item, "Tomato", () =>
+            {
+                item.Tomato = true;
+            });
+        }
+        [Fact]
+        public void ChangingLettuceNotification()
+        {
+            var item = new ThalmorTriple();
+            Assert.PropertyChanged(item, "Lettuce", () =>
+            {
+                item.Lettuce = false;
+            });
+            Assert.PropertyChanged(item, "Lettuce", () =>
+            {
+                item.Lettuce = true;
+            });
+        }
+        [Fact]
+        public void ChangingMayoNotification()
+        {
+            var item = new ThalmorTriple();
+            Assert.PropertyChanged(item, "Mayo", () =>
+            {
+                item.Mayo = false;
+            });
+            Assert.PropertyChanged(item, "Mayo", () =>
+            {
+                item.Mayo = true;
+            });
+        }
+
+        [Fact]
+        public void ChangingEggLinkNotification()
+        {
+            var item = new ThalmorTriple();
+            Assert.PropertyChanged(item, "Egg", () =>
+            {
+                item.Egg = false;
+            });
+            Assert.PropertyChanged(item, "Egg", () =>
+            {
+                item.Egg = true;
+            });
+        }
+
+        [Fact]
+        public void ChaningBaconNotification()
+        {
+            var item = new ThalmorTriple();
+            Assert.PropertyChanged(item, "Bacon", () =>
+            {
+                item.Bacon = false;
+
+            });
+            Assert.PropertyChanged(item, "Bacon", () =>
+            {
+                item.Bacon = true;
+
+            });
+        }
     }
 }

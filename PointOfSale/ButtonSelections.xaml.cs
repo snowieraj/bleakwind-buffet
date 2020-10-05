@@ -4,6 +4,7 @@
  */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -31,6 +32,7 @@ namespace PointOfSale
         /// Event handler when selected item
         /// </summary>
         public event EventHandler<SelectionEventHandler> SelectedItem;
+
         /// <summary>
         /// Button initializer
         /// </summary>
@@ -38,6 +40,7 @@ namespace PointOfSale
         {
             InitializeComponent();
         }
+
         //Entree Button Event Handlers
         void BriarheartBurger_Click(object sender, RoutedEventArgs e)
         {

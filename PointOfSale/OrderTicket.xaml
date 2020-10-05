@@ -10,15 +10,15 @@
         <DockPanel>
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="8*"/>
+                    <RowDefinition Height="5*"/>
                 </Grid.RowDefinitions>
-                <Viewbox VerticalAlignment="Top">
+                <Viewbox VerticalAlignment="Top" Height="0">
                     <TextBlock Name="orderNumber" Foreground="Orange" FontWeight="Bold"/>
                 </Viewbox>
                 <Viewbox Grid.Row="1">
-                    <ListView x:Name="itemsOrdered" Foreground="Black" BorderThickness="0" FontSize="15"/>
+                    <ListView x:Name="itemsOrdered" Foreground="Black" BorderThickness="0" Height="6" Width="12"/>
                 </Viewbox>
                 <Viewbox Grid.Row="2" MaxWidth="120">
                     <TextBlock Name="total" Foreground="Orange" FontWeight="Bold"/>

@@ -110,5 +110,51 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             mm.Size = size;
             Assert.Equal(name, mm.ToString());
         }
+
+        [Fact]
+        public void ChangingIceNotification()
+        {
+            var item = new MarkarthMilk();
+            Assert.PropertyChanged(item, "Ice", () =>
+            {
+                item.Ice = true;
+            });
+            Assert.PropertyChanged(item, "Ice", () =>
+            {
+                item.Ice = false;
+            });
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangingSizeNotificationForSize(Size size)
+        {
+            var item = new MarkarthMilk();
+            if (size == Size.Small) item.Size = Size.Medium;
+            Assert.PropertyChanged(item, "Size", () => item.Size = size);
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangingSizeNotificationForPrice(Size size)
+        {
+            var item = new MarkarthMilk();
+            if (size == Size.Small) item.Size = Size.Medium;
+            Assert.PropertyChanged(item, "Price", () => item.Size = size);
+        }
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangingSizeNotificationForCalories(Size size)
+        {
+            var item = new MarkarthMilk();
+            if (size == Size.Small) item.Size = Size.Medium;
+            Assert.PropertyChanged(item, "Calories", () => item.Size = size);
+        }
     }
 }

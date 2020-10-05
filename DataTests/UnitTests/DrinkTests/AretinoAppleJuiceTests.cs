@@ -10,6 +10,7 @@ using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Drinks;
 using System.Reflection.Metadata.Ecma335;
 using BleakwindBuffet.Data.Menu;
+using System.Xml.Serialization;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
@@ -111,5 +112,52 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             Assert.Equal(name, aj.ToString());
 
         }
+
+        [Fact]
+        public void ChangingIceNotification()
+        {
+            var aj = new AretinoAppleJuice();
+            Assert.PropertyChanged(aj, "Ice", () =>
+            {
+                aj.Ice = true;
+            });
+            Assert.PropertyChanged(aj, "Ice", () =>
+            {
+                aj.Ice = false;
+            });
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangingSizeNotificationForSize(Size size)
+        {
+            var aj = new AretinoAppleJuice();
+            if (size == Size.Small) aj.Size = Size.Medium;
+            Assert.PropertyChanged(aj, "Size", () => aj.Size = size);
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangingSizeNotificationForPrice(Size size)
+        {
+            var aj = new AretinoAppleJuice();
+            if (size == Size.Small) aj.Size = Size.Medium;
+            Assert.PropertyChanged(aj, "Price", () => aj.Size = size);
+        }
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangingSizeNotificationForCalories(Size size)
+        {
+            var aj = new AretinoAppleJuice();
+            if (size == Size.Small) aj.Size = Size.Medium;
+            Assert.PropertyChanged(aj, "Calories", () => aj.Size = size);
+        }
+
     }
 }

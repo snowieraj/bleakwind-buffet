@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Menu;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Drinks
 {
@@ -56,7 +57,19 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Ice property - option
         /// </summary>
-        public bool Ice { get; set; } = false;
+        private bool ice = false;
+        public bool Ice
+        {
+            get => ice;
+            set
+            {
+                if (ice != value)
+                {
+                    ice = value;
+                    PropertyChangedNotification("Ice");
+                }
+            }
+        }
   
 
         /// <summary>

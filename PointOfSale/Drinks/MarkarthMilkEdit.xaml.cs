@@ -2,8 +2,10 @@
  *Class: MarkarthMilkEdit.xaml.cs
  *Purpose: Control the buttons of this item
  */
+using BleakwindBuffet.Data.Drinks;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -14,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Size = BleakwindBuffet.Data.Enums.Size;
 
 namespace PointOfSale.Drinks
 {
@@ -22,6 +25,8 @@ namespace PointOfSale.Drinks
     /// </summary>
     public partial class MarkarthMilkEdit : UserControl
     {
+        //Temp data construct
+        MarkarthMilk itemTemp;
         /// <summary>
         /// Menu reference
         /// </summary>
@@ -30,10 +35,12 @@ namespace PointOfSale.Drinks
         /// Class contruct
         /// </summary>
         /// <param name="menuItem">item chosen</param>
-        public MarkarthMilkEdit(MenuScreen menuItem)
+        public MarkarthMilkEdit(MenuScreen menuItem, MarkarthMilk item)
         {
             InitializeComponent();
             menuScreen = menuItem;
+            DataContext = item;
+            itemTemp = item;
         }
         /// <summary>
         /// Go back button
@@ -43,6 +50,43 @@ namespace PointOfSale.Drinks
         void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             menuScreen.menuBorder.Child = menuScreen.buttonSelections;
+        }
+        /// <summary>
+        /// Check box data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void checkbox(object sender, RoutedEventArgs e)
+        {
+            Size itemSize;
+            if (sender is CheckBox check)
+            {
+                switch (check.Name)
+                {
+                    case "small":
+                        itemOne.IsChecked = true;
+                        itemTwo.IsChecked = false;
+                        itemThree.IsChecked = false;
+                        itemSize = Size.Small;
+                        break;
+                    case "medium":
+                        itemOne.IsChecked = false;
+                        itemTwo.IsChecked = true;
+                        itemThree.IsChecked = false;
+                        itemSize = Size.Medium;
+                        break;
+                    case "large":
+                        itemOne.IsChecked = false;
+                        itemTwo.IsChecked = false;
+                        itemThree.IsChecked = true;
+                        itemSize = Size.Large;
+                        break;
+                    default:
+                        throw new NotImplementedException();
+                }
+                itemTemp.Size = itemSize;
+                DataContext = itemTemp;
+            }
         }
     }
 }

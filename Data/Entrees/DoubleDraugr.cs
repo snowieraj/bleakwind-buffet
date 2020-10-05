@@ -28,12 +28,38 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Gets the Bun option
         /// </summary>
-        public bool Bun { get; set; } = true;
-
+             /// <summary>
+        /// Gets the Bun option
+        /// </summary>
+        private bool bun = true;
+        public bool Bun
+        {
+            get { return bun; }
+            set
+            {
+                if (bun != value)
+                {
+                    bun = value;
+                    PropertyChangedNotification("Bun");
+                }
+            }
+        }
         /// <summary>
         /// Gets the ketchup option
         /// </summary>       
-        public bool Ketchup { get; set; } = true;
+        private bool ketchup = true;
+        public bool Ketchup
+        {
+            get { return ketchup; }
+            set
+            {
+                if (ketchup != value)
+                {
+                    ketchup = value;
+                    PropertyChangedNotification("Ketchup");
+                }
+            }
+        }
         /// <summary>
         /// Gets the mustard option
         /// </summary>
@@ -41,7 +67,17 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Mustard
         {
             get => mustard;
-            set => mustard = value;
+
+            set
+            {
+                if (mustard != value)
+                {
+                    mustard = value;
+                    PropertyChangedNotification("Mustard");
+                }
+            }
+
+
         }
         /// <summary>
         /// Gets the pickle option
@@ -50,7 +86,14 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Pickle
         {
             get => pickle;
-            set => pickle = value;
+            set
+            {
+                if (pickle != value)
+                {
+                    pickle = value;
+                    PropertyChangedNotification("Pickle");
+                }
+            }
         }
         /// <summary>
         /// Gets the cheese option
@@ -59,7 +102,14 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Cheese
         {
             get => cheese;
-            set => cheese = value;
+            set
+            {
+                if (cheese != value)
+                {
+                    cheese = value;
+                    PropertyChangedNotification("Cheese");
+                }
+            }
         }
         /// <summary>
         /// Gets the tomato option
@@ -68,7 +118,14 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Tomato
         {
             get => tomato;
-            set => tomato = value;
+            set
+            {
+                if (tomato != value)
+                {
+                    tomato = value;
+                    PropertyChangedNotification("Tomato");
+                }
+            }
         }
         /// <summary>
         /// Gets the lettuce option
@@ -77,7 +134,14 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Lettuce
         {
             get => lettuce;
-            set => lettuce = value;
+            set
+            {
+                if (lettuce != value)
+                {
+                    lettuce = value;
+                    PropertyChangedNotification("Lettuce");
+                }
+            }
         }
         /// <summary>
         /// Gets the mayo option
@@ -86,7 +150,14 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Mayo
         {
             get => mayo;
-            set => mayo = value;
+            set
+            {
+                if (mayo != value)
+                {
+                    mayo = value;
+                    PropertyChangedNotification("Mayo");
+                }
+            }
         }
 
         /// <summary>

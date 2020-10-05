@@ -10,9 +10,30 @@
     <Optimize>false</Optimize>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Images\Add.png" />
+    <None Remove="Images\B7.jpg" />
+    <None Remove="Images\Back.png" />
+    <None Remove="Images\Chef.png" />
+    <None Remove="Images\Death.png" />
+    <None Remove="Images\Delete.png" />
+    <None Remove="Images\Logo.png" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <ProjectReference Include="..\Data\Data.csproj" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Resource Include="Images\Add.png" />
+    <Resource Include="Images\B7.jpg" />
+    <Resource Include="Images\Back.png" />
+    <Resource Include="Images\Chef.png" />
+    <Resource Include="Images\Death.png" />
+    <Resource Include="Images\Delete.png" />
+    <Resource Include="Images\Logo.png" />
   </ItemGroup>
 
 

@@ -52,13 +52,37 @@ namespace BleakwindBuffet.Data.Drinks
             }
         }
         /// <summary>
-        /// Ice option default
+        /// Ice property - option
         /// </summary>
-        public bool Ice { get; set; } = true;
+        private bool ice = true;
+        public bool Ice
+        {
+            get => ice;
+            set
+            {
+                if (ice != value)
+                {
+                    ice = value;
+                    PropertyChangedNotification("Ice");
+                }
+            }
+        }
         /// <summary>
         /// Lemon option defualt
         /// </summary>
-        public bool Lemon { get; set; } = false;
+        private bool lemon = false;
+        public bool Lemon
+        {
+            get => lemon;
+            set
+            {
+                if (lemon != value)
+                {
+                    lemon = value;
+                    PropertyChangedNotification("Lemon");
+                }
+            }
+        }
 
         /// <summary>
         /// Private backing variable for specials

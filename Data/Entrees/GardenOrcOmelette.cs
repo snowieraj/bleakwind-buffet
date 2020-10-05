@@ -26,19 +26,67 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Broccoli bool
         /// </summary>
-        public bool Broccoli { get; set; } = true;
+        private bool broccoli = true;
+        public bool Broccoli
+        {
+            get => broccoli;
+            set
+            {
+                if (broccoli != value)
+                {
+                    broccoli = value;
+                    PropertyChangedNotification("Broccoli");
+                }
+            }
+        }
         /// <summary>
         /// Mushroom bool value
         /// </summary>
-        public bool Mushrooms { get; set; } = true;
+        private bool mushrooms = true;
+        public bool Mushrooms
+        {
+            get => mushrooms;
+            set
+            {
+                if (mushrooms != value)
+                {
+                    mushrooms = value;
+                    PropertyChangedNotification("Mushrooms");
+                }
+            }
+        }
         /// <summary>
         /// Tomato bool value
         /// </summary>
-        public bool Tomato { get; set; } = true;
+        private bool tomato = true;
+        public bool Tomato
+        {
+            get => tomato;
+            set
+            {
+                if (tomato != value)
+                {
+                    tomato = value;
+                    PropertyChangedNotification("Tomato");
+                }
+            }
+        }
         /// <summary>
         /// Cheddar bool value
         /// </summary>
-        public bool Cheddar { get; set; } = true;
+        private bool cheddar = true;
+        public bool Cheddar
+        {
+            get => cheddar;
+            set
+            {
+                if (cheddar != value)
+                {
+                    cheddar = value;
+                    PropertyChangedNotification("Cheddar");
+                }
+            }
+        }
 
         /// <summary>
         /// Private backing variable for specials

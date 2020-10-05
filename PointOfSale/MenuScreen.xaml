@@ -6,14 +6,11 @@
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="800">
-  
+   
 
     <Grid>
-
-        <Grid.Background>
-            <ImageBrush ImageSource="T:\Google Drive\School\CIS 400\MS1\Data\Images\B7.jpg"  Stretch="UniformToFill"  />
-
-        </Grid.Background>
+        
+      
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="250" MaxWidth="500"/>

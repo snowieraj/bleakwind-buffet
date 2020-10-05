@@ -135,5 +135,60 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             GardenOrcOmelette foodOrder = new GardenOrcOmelette();
             Assert.Equal("Garden Orc Omelette", foodOrder.ToString());
         }
+
+        [Fact]
+        public void ChangingBroccoliNotification()
+        {
+            var item = new GardenOrcOmelette();
+            Assert.PropertyChanged(item, "Broccoli", () =>
+            {
+                item.Broccoli = false;
+            });
+            Assert.PropertyChanged(item, "Broccoli", () =>
+            {
+                item.Broccoli = true;
+            });
+        }
+
+        [Fact]
+        public void ChangingMushroomsNotification()
+        {
+            var item = new GardenOrcOmelette();
+            Assert.PropertyChanged(item, "Mushrooms", () =>
+            {
+                item.Mushrooms = false;
+            });
+            Assert.PropertyChanged(item, "Mushrooms", () =>
+            {
+                item.Mushrooms = true;
+            });
+        }
+        [Fact]
+        public void ChangingTomatoNotification()
+        {
+            var item = new GardenOrcOmelette();
+            Assert.PropertyChanged(item, "Tomato", () =>
+            {
+                item.Tomato = false;
+            });
+            Assert.PropertyChanged(item, "Tomato", () =>
+            {
+                item.Tomato = true;
+            });
+        }
+        [Fact]
+        public void ChangingCheddarNotification()
+        {
+            var item = new GardenOrcOmelette();
+            Assert.PropertyChanged(item, "Cheddar", () =>
+            {
+                item.Cheddar = false;
+            });
+            Assert.PropertyChanged(item, "Cheddar", () =>
+            {
+                item.Cheddar = true;
+            });
+        }
+
     }
 }

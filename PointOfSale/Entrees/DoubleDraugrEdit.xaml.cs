@@ -2,8 +2,10 @@
  *Class: DoubleDraugrEdit.xaml.cs
  *Purpose: Control the buttons of this item
  */
+using BleakwindBuffet.Data.Entrees;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,6 +24,8 @@ namespace PointOfSale.Entrees
     /// </summary>
     public partial class DoubleDraugrEdit : UserControl
     {
+        //Temp Data construct
+        DoubleDraugr itemTemp;
         /// <summary>
         /// menu ref
         /// </summary>
@@ -30,10 +34,12 @@ namespace PointOfSale.Entrees
         /// Class contruct to get item chosen
         /// </summary>
         /// <param name="menuItem">item chosen  </param>
-        public DoubleDraugrEdit(MenuScreen menuItem)
+        public DoubleDraugrEdit(MenuScreen menuItem, DoubleDraugr item)
         {
             InitializeComponent();
             menuScreen = menuItem;
+            DataContext = item;
+            itemTemp = item;
         }
         /// <summary>
         /// Go back button

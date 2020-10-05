@@ -154,5 +154,79 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             chc.Decaf = decaf;
             Assert.Equal(name, chc.ToString());
         }
+
+        [Fact]
+        public void ChangingIceNotification()
+        {
+            var aj = new CandlehearthCoffee();
+            Assert.PropertyChanged(aj, "Ice", () =>
+            {
+                aj.Ice = true;
+            });
+            Assert.PropertyChanged(aj, "Ice", () =>
+            {
+                aj.Ice = false;
+            });
+        }
+
+        [Fact]
+        public void ChangingDecafNotification()
+        {
+            var aj = new CandlehearthCoffee();
+            Assert.PropertyChanged(aj, "Decaf", () =>
+            {
+                aj.Decaf = true;
+            });
+            Assert.PropertyChanged(aj, "Decaf", () =>
+            {
+                aj.Decaf = false;
+            });
+        }
+
+        [Fact]
+        public void ChangingRoomForCreamNotification()
+        {
+            var aj = new CandlehearthCoffee();
+            Assert.PropertyChanged(aj, "Room For Cream", () =>
+            {
+                aj.RoomForCream = true;
+            });
+            Assert.PropertyChanged(aj, "Room For Cream", () =>
+            {
+                aj.RoomForCream = false;
+            });
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangingSizeNotificationForSize(Size size)
+        {
+            var aj = new CandlehearthCoffee();
+            if (size == Size.Small) aj.Size = Size.Medium;
+            Assert.PropertyChanged(aj, "Size", () => aj.Size = size);
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangingSizeNotificationForPrice(Size size)
+        {
+            var aj = new CandlehearthCoffee();
+            if (size == Size.Small) aj.Size = Size.Medium;
+            Assert.PropertyChanged(aj, "Price", () => aj.Size = size);
+        }
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangingSizeNotificationForCalories(Size size)
+        {
+            var aj = new CandlehearthCoffee();
+            if (size == Size.Small) aj.Size = Size.Medium;
+            Assert.PropertyChanged(aj, "Calories", () => aj.Size = size);
+        }
     }
 }

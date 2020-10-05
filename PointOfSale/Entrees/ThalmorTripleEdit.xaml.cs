@@ -1,8 +1,10 @@
 ﻿/*Author: Andrew Yi
  *Class: ThalmorTripleEdit.xaml.cs
  *Purpose: Control the buttons of this item
- */using System;
+ */using BleakwindBuffet.Data.Entrees;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,6 +23,8 @@ namespace PointOfSale.Entrees
     /// </summary>
     public partial class ThalmorTripleEdit : UserControl
     {
+        //Temp data construct
+        ThalmorTriple itemTemp;
         /// <summary>
         /// menu ref
         /// </summary>
@@ -29,11 +33,13 @@ namespace PointOfSale.Entrees
         /// Class contruct get the item chosen
         /// </summary>
         /// <param name="menuItem">iitem chosen</param>
-        public ThalmorTripleEdit(MenuScreen menuItem)
+        public ThalmorTripleEdit(MenuScreen menuItem, ThalmorTriple item)
         {
             InitializeComponent();
 
             menuScreen = menuItem;
+            DataContext = item;
+            itemTemp = item;
         }
         /// <summary>
         /// Go back button

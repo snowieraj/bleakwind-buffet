@@ -55,11 +55,38 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Ice option defaulted to tr0ue
         /// </summary>
-        public bool Ice { get; set; } = true;
+        /// <summary>
+        /// Ice property - option
+        /// </summary>
+        private bool ice = true;
+        public bool Ice
+        {
+            get => ice;
+            set
+            {
+                if (ice != value)
+                {
+                    ice = value;
+                    PropertyChangedNotification("Ice");
+                }
+            }
+        }
         /// <summary>
         /// Soda flavor defaulted to cherry
         /// </summary>
-        public SodaFlavor Flavor { get; set; } = SodaFlavor.Cherry;
+        private SodaFlavor flavor = SodaFlavor.Cherry;
+        public SodaFlavor Flavor
+        {
+            get => flavor;
+            set
+            {
+                if (flavor != value)
+                {
+                    flavor = value;
+                    PropertyChangedNotification("Flavor");
+                }
+            }
+        }
 
         /// <summary>
         /// Private backing variable for specials

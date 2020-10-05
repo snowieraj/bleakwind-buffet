@@ -2,8 +2,10 @@
  *Class: BriarheartBurgerEdit.xaml.cs
  *Purpose: Control the buttons of this item
  */
+using BleakwindBuffet.Data.Entrees;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,19 +24,25 @@ namespace PointOfSale
     /// </summary>
     public partial class BriarheartBurgerEdit : UserControl
     {
+        //Temp data construct
+        BriarheartBurger itemTemp;
         /// <summary>
         /// menu ref
         /// </summary>
         private MenuScreen menuScreen = new MenuScreen();
+
+    
+
         /// <summary>
         /// Class contrusct to get item chosen
         /// </summary>
         /// <param name="menuItem"></param>
-        public BriarheartBurgerEdit(MenuScreen menuItem)
+        public BriarheartBurgerEdit(MenuScreen menuItem, BriarheartBurger temp)
         {
             InitializeComponent();
             menuScreen = menuItem;
-            
+            DataContext = temp;
+            itemTemp = temp;
         }
         /// <summary>
         /// Go back button 

@@ -118,5 +118,47 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             PhillyPoacher foodOrder = new PhillyPoacher();
             Assert.Equal("Philly Poacher", foodOrder.ToString());
         }
+
+        [Fact]
+        public void ChangingSirloinNotification()
+        {
+            var item = new PhillyPoacher();
+            Assert.PropertyChanged(item, "Sirloin", () =>
+            {
+                item.Sirloin = false;
+            });
+            Assert.PropertyChanged(item, "Sirloin", () =>
+            {
+                item.Sirloin = true;
+            });
+        }
+
+        [Fact]
+        public void ChangingOnionNotification()
+        {
+            var item = new PhillyPoacher();
+            Assert.PropertyChanged(item, "Onion", () =>
+            {
+                item.Onion = false;
+            });
+            Assert.PropertyChanged(item, "Onion", () =>
+            {
+                item.Onion = true;
+            });
+        }
+
+        [Fact]
+        public void ChangingRollNotification()
+        {
+            var item = new PhillyPoacher();
+            Assert.PropertyChanged(item, "Roll", () =>
+            {
+                item.Roll = false;
+            });
+            Assert.PropertyChanged(item, "Roll", () =>
+            {
+                item.Roll = true;
+            });
+        }
     }
 }

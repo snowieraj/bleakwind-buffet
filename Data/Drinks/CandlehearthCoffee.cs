@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Menu;
+using System.ComponentModel;
+using System.Xml.Schema;
 
 namespace BleakwindBuffet.Data.Drinks
 {
@@ -53,17 +55,53 @@ namespace BleakwindBuffet.Data.Drinks
             }
         }
         /// <summary>
-        /// Ice option
+        /// Ice property - option
         /// </summary>
-        public bool Ice { get; set; } = false;
+        private bool ice = false;
+        public bool Ice
+        {
+            get => ice;
+            set
+            {
+                if (ice != value)
+                {
+                    ice = value;
+                    PropertyChangedNotification("Ice");
+                }
+            }
+        }
         /// <summary>
         /// cream option
         /// </summary>
-        public bool RoomForCream { get; set; } = false;
+        private bool roomforcream = false;
+        public bool RoomForCream
+        {
+            get => roomforcream;
+            set
+            {
+                if (roomforcream != value)
+                {
+                    roomforcream = value;
+                    PropertyChangedNotification("Room For Cream");
+                }
+            }
+        }
         /// <summary>
         /// Decaf option
         /// </summary>
-        public bool Decaf { get; set; } = false;
+        private bool decaf = false;
+        public bool Decaf
+        {
+            get => decaf;
+            set
+            {
+                if (decaf != value)
+                {
+                    decaf = value;
+                    PropertyChangedNotification("Decaf");
+                }
+            }
+        }
 
         /// <summary>
         /// Private backing variable for specials
