@@ -92,7 +92,7 @@
                            TextWrapping="Wrap" 
                            TextAlignment="Center" 
                            Foreground="White" 
-                           FontWeight="Bold" >Customize Warrior Water</TextBlock>
+                           FontWeight="Bold" >Customize Warrior Water</TextBlock> 
         </Viewbox>
 
         <Grid Grid.Row="2">
