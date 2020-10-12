@@ -35,6 +35,7 @@ namespace BleakwindBuffet.Data.Entrees
                 {
                     sausageLink = value;
                     PropertyChangedNotification("SausageLink");
+                    PropertyChangedNotification("SpecialInstructions");
                 }
             }
         }
@@ -51,6 +52,7 @@ namespace BleakwindBuffet.Data.Entrees
                 {
                     egg = value;
                     PropertyChangedNotification("Egg");
+                    PropertyChangedNotification("SpecialInstructions");
                 }
             }
         }
@@ -67,6 +69,7 @@ namespace BleakwindBuffet.Data.Entrees
                 {
                     hashBrowns = value;
                     PropertyChangedNotification("HashBrowns");
+                    PropertyChangedNotification("SpecialInstructions");
                 }
             }
         }
@@ -83,6 +86,7 @@ namespace BleakwindBuffet.Data.Entrees
                 {
                     pancake = value;
                     PropertyChangedNotification("Pancake");
+                    PropertyChangedNotification("SpecialInstructions");
                 }
             }
         }
@@ -107,6 +111,7 @@ namespace BleakwindBuffet.Data.Entrees
                 return instructions;
             }
         }
+        public string Name => this.ToString();
         /// <summary>
         /// Override basic ToString method to return class
         /// </summary>

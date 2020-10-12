@@ -86,7 +86,16 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             drinkOrder.Size = size;
             Assert.Equal(name, drinkOrder.ToString());
         }
-
+        [Theory]
+        [InlineData(Size.Small, "Small Fried Miraak")]
+        [InlineData(Size.Medium, "Medium Fried Miraak")]
+        [InlineData(Size.Large, "Large Fried Miraak")]
+        public void ShouldReturnCorrectToNameBasedOnSize(Size size, string name)
+        {
+            FriedMiraak drinkOrder = new FriedMiraak();
+            drinkOrder.Size = size;
+            Assert.Equal(name, drinkOrder.Name);
+        }
 
         [Theory]
         [InlineData(Size.Small)]

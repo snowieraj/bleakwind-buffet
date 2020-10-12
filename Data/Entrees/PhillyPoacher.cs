@@ -37,9 +37,11 @@ namespace BleakwindBuffet.Data.Entrees
                 {
                     sirloin = value;
                     PropertyChangedNotification("Sirloin");
+                    PropertyChangedNotification("SpecialInstructions");
                 }
             }
         }
+        public string Name => this.ToString();
         /// <summary>
         /// Onion choice
         /// </summary>
@@ -53,6 +55,7 @@ namespace BleakwindBuffet.Data.Entrees
                 {
                     onion = value;
                     PropertyChangedNotification("Onion");
+                    PropertyChangedNotification("SpecialInstructions");
                 }
             }
         }
@@ -69,6 +72,7 @@ namespace BleakwindBuffet.Data.Entrees
                 {
                     roll = value;
                     PropertyChangedNotification("Roll");
+                    PropertyChangedNotification("SpecialInstructions");
                 }
             }
         }

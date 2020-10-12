@@ -18,6 +18,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Size = BleakwindBuffet.Data.Enums.Size;
+using BleakwindBuffet.Data.Menu;
 
 
 namespace PointOfSale.Drinks
@@ -34,25 +35,48 @@ namespace PointOfSale.Drinks
         /// Menu ref
         /// </summary>
         private MenuScreen menuScreen = new MenuScreen();
+
+        private Order orderItem;
+
         /// <summary>
         /// Class constuct to get menu chosen
         /// </summary>
         /// <param name="menuItem">Item chosen</param>
-        public SailorSodaEdit(MenuScreen menuItem, SailorSoda item)
+        public SailorSodaEdit(MenuScreen menuItem, SailorSoda item, Order order)
         {
             InitializeComponent();
             menuScreen = menuItem;
             DataContext = item;
             itemTemp = item;
+            orderItem = order;
         }
         /// <summary>
-        /// Go back to menu screen
+        /// Go back button 
         /// </summary>
-        /// <param name="sender">click</param>
+        /// <param name="sender">Click</param>
         /// <param name="e">event</param>
         void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-            menuScreen.menuBorder.Child = menuScreen.buttonSelections;
+            menuScreen.menuBorder.Child = new ButtonSelections(menuScreen);
+
+            DataContext = orderItem;
+            if (DataContext is Order ordered)
+            {
+                var itemRemoved = itemTemp;
+                ordered.Remove(itemRemoved);
+            }
+
+        }
+        /// <summary>
+        /// Done button event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void DoneButton_Click(object sender, RoutedEventArgs e)
+        {
+            menuScreen.menuBorder.Child = new ButtonSelections(menuScreen);
+
+
         }
         /// <summary>
         /// Check box data
@@ -66,19 +90,19 @@ namespace PointOfSale.Drinks
             {
                 switch (check.Name)
                 {
-                    case "small":
+                    case "itemOne":
                         itemOne.IsChecked = true;
                         itemTwo.IsChecked = false;
                         itemThree.IsChecked = false;
                         itemSize = Size.Small;
                         break;
-                    case "medium":
+                    case "itemTwo":
                         itemOne.IsChecked = false;
                         itemTwo.IsChecked = true;
                         itemThree.IsChecked = false;
                         itemSize = Size.Medium;
                         break;
-                    case "large":
+                    case "itemThree":
                         itemOne.IsChecked = false;
                         itemTwo.IsChecked = false;
                         itemThree.IsChecked = true;

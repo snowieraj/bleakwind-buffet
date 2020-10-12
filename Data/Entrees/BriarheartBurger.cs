@@ -42,10 +42,11 @@ namespace BleakwindBuffet.Data.Entrees
                 {
                     bun = value;
                     PropertyChangedNotification("Bun");
+                    PropertyChangedNotification("SpecialInstructions");
                 }
             }
         }
-
+        public string Name => this.ToString();
         /// <summary>
         /// Gets the ketchup option
         /// </summary>       
@@ -59,6 +60,7 @@ namespace BleakwindBuffet.Data.Entrees
                 {
                     ketchup = value;
                     PropertyChangedNotification("Ketchup");
+                    PropertyChangedNotification("SpecialInstructions");
                 }
             }
         }
@@ -76,6 +78,7 @@ namespace BleakwindBuffet.Data.Entrees
                 {
                     mustard = value;
                     PropertyChangedNotification("Mustard");
+                    PropertyChangedNotification("SpecialInstructions");
                 }
             }
            
@@ -94,6 +97,7 @@ namespace BleakwindBuffet.Data.Entrees
                 {
                     pickle = value;
                     PropertyChangedNotification("Pickle");
+                    PropertyChangedNotification("SpecialInstructions");
                 }
             }
         }
@@ -110,6 +114,7 @@ namespace BleakwindBuffet.Data.Entrees
                 {
                     cheese = value;
                     PropertyChangedNotification("Cheese");
+                    PropertyChangedNotification("SpecialInstructions");
                 }
             }
         }

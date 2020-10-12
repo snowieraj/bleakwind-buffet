@@ -86,6 +86,18 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             Assert.Equal(name, foodOrder.ToString());
         }
 
+
+        [Theory]
+        [InlineData(Size.Small, "Small Vokun Salad")]
+        [InlineData(Size.Medium, "Medium Vokun Salad")]
+        [InlineData(Size.Large, "Large Vokun Salad")]
+        public void ShouldReturnCorrectToNameBasedOnSize(Size size, string name)
+        {
+            VokunSalad foodOrder = new VokunSalad();
+            foodOrder.Size = size;
+            Assert.Equal(name, foodOrder.Name);
+        }
+
         [Theory]
         [InlineData(Size.Small)]
         [InlineData(Size.Medium)]

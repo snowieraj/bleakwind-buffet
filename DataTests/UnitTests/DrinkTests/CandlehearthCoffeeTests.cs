@@ -154,6 +154,20 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             chc.Decaf = decaf;
             Assert.Equal(name, chc.ToString());
         }
+        [Theory]
+        [InlineData(true, Size.Small, "Small Decaf Candlehearth Coffee")]
+        [InlineData(true, Size.Medium, "Medium Decaf Candlehearth Coffee")]
+        [InlineData(true, Size.Large, "Large Decaf Candlehearth Coffee")]
+        [InlineData(false, Size.Small, "Small Candlehearth Coffee")]
+        [InlineData(false, Size.Medium, "Medium Candlehearth Coffee")]
+        [InlineData(false, Size.Large, "Large Candlehearth Coffee")]
+        public void ShouldReturnCorrectToNameasedOnSize(bool decaf, Size size, string name)
+        {
+            CandlehearthCoffee chc = new CandlehearthCoffee();
+            chc.Size = size;
+            chc.Decaf = decaf;
+            Assert.Equal(name, chc.Name);
+        }
 
         [Fact]
         public void ChangingIceNotification()
@@ -187,11 +201,11 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         public void ChangingRoomForCreamNotification()
         {
             var aj = new CandlehearthCoffee();
-            Assert.PropertyChanged(aj, "Room For Cream", () =>
+            Assert.PropertyChanged(aj, "RoomForCream", () =>
             {
                 aj.RoomForCream = true;
             });
-            Assert.PropertyChanged(aj, "Room For Cream", () =>
+            Assert.PropertyChanged(aj, "RoomForCream", () =>
             {
                 aj.RoomForCream = false;
             });

@@ -26,7 +26,7 @@ namespace BleakwindBuffet.Data.Sides
         {
             Size = Size.Small;
         }
-
+        public string Name => this.ToString();
         /// <summary>
         /// Prices for different sizes
         /// </summary>

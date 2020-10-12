@@ -24,7 +24,8 @@ namespace BleakwindBuffet.Data.Drinks
             Size = Size.Small;
         }
 
- 
+        public string Name => this.ToString();
+
         /// <summary>
         /// Price for different size
         /// </summary>
@@ -65,6 +66,7 @@ namespace BleakwindBuffet.Data.Drinks
                 {
                     ice = value;
                     PropertyChangedNotification("Ice");
+                    PropertyChangedNotification("SpecialInstructions");
                 }
             }
         }

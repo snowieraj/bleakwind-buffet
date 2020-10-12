@@ -162,6 +162,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         }
 
         [Fact]
+        public void ShouldReturnCorrectToStringName()
+        {
+            BriarheartBurger foodOrder = new BriarheartBurger();
+            Assert.Equal("Briarheart Burger", foodOrder.Name);
+        }
+
+        [Fact]
         public void ChangingBunNotification()
         {
             var bb = new BriarheartBurger();

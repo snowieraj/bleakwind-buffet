@@ -3,6 +3,7 @@
  *Purpose: Control the buttons of this item
  */
 using BleakwindBuffet.Data.Entrees;
+using BleakwindBuffet.Data.Menu;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,18 +32,20 @@ namespace PointOfSale
         /// </summary>
         private MenuScreen menuScreen = new MenuScreen();
 
-    
+        private Order orderItem;
 
         /// <summary>
         /// Class contrusct to get item chosen
         /// </summary>
         /// <param name="menuItem"></param>
-        public BriarheartBurgerEdit(MenuScreen menuItem, BriarheartBurger temp)
+        public BriarheartBurgerEdit(MenuScreen menuItem, BriarheartBurger temp, Order order)
         {
             InitializeComponent();
             menuScreen = menuItem;
             DataContext = temp;
             itemTemp = temp;
+            orderItem = order;
+
         }
         /// <summary>
         /// Go back button 
@@ -51,9 +54,27 @@ namespace PointOfSale
         /// <param name="e">event</param>
         void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-            menuScreen.menuBorder.Child = menuScreen.buttonSelections;
+            menuScreen.menuBorder.Child = new ButtonSelections(menuScreen);
+            
+            DataContext = orderItem;
+            if (DataContext is Order ordered)
+            {
+                var itemRemoved = itemTemp;
+                ordered.Remove(itemRemoved);
+            }
+            
         }
-
+        /// <summary>
+        /// Done button event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void DoneButton_Click(object sender, RoutedEventArgs e)
+        {
+            menuScreen.menuBorder.Child = new ButtonSelections(menuScreen);
+     
+           
+        }
 
     }
 }

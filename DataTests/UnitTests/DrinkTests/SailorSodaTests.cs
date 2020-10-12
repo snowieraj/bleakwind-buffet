@@ -158,7 +158,37 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             drinkOrder.Flavor = flavor;
             Assert.Equal(name, drinkOrder.ToString());
         }
+        [Theory]
+        [InlineData(SodaFlavor.Cherry, Size.Small, "Small Cherry Sailor Soda")]
+        [InlineData(SodaFlavor.Cherry, Size.Medium, "Medium Cherry Sailor Soda")]
+        [InlineData(SodaFlavor.Cherry, Size.Large, "Large Cherry Sailor Soda")]
 
+        [InlineData(SodaFlavor.Blackberry, Size.Small, "Small Blackberry Sailor Soda")]
+        [InlineData(SodaFlavor.Blackberry, Size.Medium, "Medium Blackberry Sailor Soda")]
+        [InlineData(SodaFlavor.Blackberry, Size.Large, "Large Blackberry Sailor Soda")]
+
+        [InlineData(SodaFlavor.Grapefruit, Size.Small, "Small Grapefruit Sailor Soda")]
+        [InlineData(SodaFlavor.Grapefruit, Size.Medium, "Medium Grapefruit Sailor Soda")]
+        [InlineData(SodaFlavor.Grapefruit, Size.Large, "Large Grapefruit Sailor Soda")]
+
+        [InlineData(SodaFlavor.Lemon, Size.Small, "Small Lemon Sailor Soda")]
+        [InlineData(SodaFlavor.Lemon, Size.Medium, "Medium Lemon Sailor Soda")]
+        [InlineData(SodaFlavor.Lemon, Size.Large, "Large Lemon Sailor Soda")]
+
+        [InlineData(SodaFlavor.Peach, Size.Small, "Small Peach Sailor Soda")]
+        [InlineData(SodaFlavor.Peach, Size.Medium, "Medium Peach Sailor Soda")]
+        [InlineData(SodaFlavor.Peach, Size.Large, "Large Peach Sailor Soda")]
+
+        [InlineData(SodaFlavor.Watermelon, Size.Small, "Small Watermelon Sailor Soda")]
+        [InlineData(SodaFlavor.Watermelon, Size.Medium, "Medium Watermelon Sailor Soda")]
+        [InlineData(SodaFlavor.Watermelon, Size.Large, "Large Watermelon Sailor Soda")]
+        public void ShouldHaveCorrectToNameBasedOnSizeAndFlavor(SodaFlavor flavor, Size size, string name)
+        {
+            SailorSoda drinkOrder = new SailorSoda();
+            drinkOrder.Size = size;
+            drinkOrder.Flavor = flavor;
+            Assert.Equal(name, drinkOrder.Name);
+        }
         [Fact]
         public void ChangingIceNotification()
         {

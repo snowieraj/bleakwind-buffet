@@ -135,6 +135,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             GardenOrcOmelette foodOrder = new GardenOrcOmelette();
             Assert.Equal("Garden Orc Omelette", foodOrder.ToString());
         }
+        [Fact]
+        public void ShouldReturnCorrectToStringName()
+        {
+            GardenOrcOmelette foodOrder = new GardenOrcOmelette();
+            Assert.Equal("Garden Orc Omelette", foodOrder.Name);
+        }
 
         [Fact]
         public void ChangingBroccoliNotification()

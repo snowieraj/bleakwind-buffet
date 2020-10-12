@@ -9,6 +9,7 @@ using System.Text;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Menu;
 using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace BleakwindBuffet.Data.Drinks
 {
@@ -25,7 +26,8 @@ namespace BleakwindBuffet.Data.Drinks
         {
             Size = Size.Small;
         }
-        
+
+        public string Name => this.ToString();
 
         /// <summary>
         /// Price for differents sizes
@@ -67,6 +69,7 @@ namespace BleakwindBuffet.Data.Drinks
                 {
                     ice = value;
                     PropertyChangedNotification("Ice");
+                    PropertyChangedNotification("SpecialInstructions");
                 }
             }
         }

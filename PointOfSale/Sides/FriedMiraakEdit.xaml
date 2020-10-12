@@ -99,10 +99,10 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Viewbox Grid.Row="0" HorizontalAlignment="Left" >
-                <CheckBox Name="itemOne" FontWeight="Bold" Foreground="White">Size Small</CheckBox>
+                <CheckBox Checked="checkbox" Name="itemOne" FontWeight="Bold" Foreground="White">Size Small</CheckBox>
             </Viewbox>
             <Viewbox Grid.Row="1" HorizontalAlignment="Left">
-                <CheckBox Name="itemTwo" FontWeight="Bold" Foreground="White">Size Medium</CheckBox>
+                <CheckBox Checked="checkbox" Name="itemTwo" FontWeight="Bold" Foreground="White">Size Medium</CheckBox>
             </Viewbox>
         </Grid>
         <Grid Grid.Row="3">
@@ -111,7 +111,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Viewbox Grid.Row="0" HorizontalAlignment="Left">
-                <CheckBox Name="itemThree" FontWeight="Bold" Foreground="White">Size Large</CheckBox>
+                <CheckBox Checked="checkbox" Name="itemThree" FontWeight="Bold" Foreground="White">Size Large</CheckBox>
             </Viewbox>
         </Grid>
         <Grid Grid.Row="7" Grid.Column="2">
@@ -125,8 +125,10 @@
                 </Button>
             </Viewbox>
             <Viewbox MaxHeight="60" Grid.Column="1">
-                <Button  Style="{DynamicResource RoundedAdd}" HorizontalAlignment="Center" BorderThickness="0">
-                    <Image Source="{StaticResource AddButton}"/>
+                <Button Click="DoneButton_Click" Style="{DynamicResource RoundedAdd}" HorizontalAlignment="Center" Background="White">
+                    <TextBlock FontWeight="Bold" Foreground="Orange" Background="Transparent">
+                            Done
+                    </TextBlock>
                 </Button>
             </Viewbox>
         </Grid>

@@ -36,9 +36,11 @@ namespace BleakwindBuffet.Data.Entrees
                 {
                     broccoli = value;
                     PropertyChangedNotification("Broccoli");
+                    PropertyChangedNotification("SpecialInstructions");
                 }
             }
         }
+        public string Name => this.ToString();
         /// <summary>
         /// Mushroom bool value
         /// </summary>
@@ -52,6 +54,7 @@ namespace BleakwindBuffet.Data.Entrees
                 {
                     mushrooms = value;
                     PropertyChangedNotification("Mushrooms");
+                    PropertyChangedNotification("SpecialInstructions");
                 }
             }
         }
@@ -68,6 +71,7 @@ namespace BleakwindBuffet.Data.Entrees
                 {
                     tomato = value;
                     PropertyChangedNotification("Tomato");
+                    PropertyChangedNotification("SpecialInstructions");
                 }
             }
         }
@@ -84,6 +88,7 @@ namespace BleakwindBuffet.Data.Entrees
                 {
                     cheddar = value;
                     PropertyChangedNotification("Cheddar");
+                    PropertyChangedNotification("SpecialInstructions");
                 }
             }
         }

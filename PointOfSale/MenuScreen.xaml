@@ -17,10 +17,10 @@
         </Grid.ColumnDefinitions>
 
         <Border Name="menuBorder" BorderThickness="0">
-            <local:ButtonSelections/>
+            
         </Border>
         <Border Name="tickerBorder"  Grid.Column="1" BorderThickness="0" >
-            <local:OrderTicket/>
+            
         </Border>
 
 

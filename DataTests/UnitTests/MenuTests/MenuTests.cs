@@ -170,5 +170,6 @@ namespace BleakwindBuffet.DataTests.UnitTests.MenuTests
             Assert.Contains(Menu.FullMenu(), (list) => { return list.ToString().Contains("Large Vokun Salad"); });
         }
 
+     
     }
 }

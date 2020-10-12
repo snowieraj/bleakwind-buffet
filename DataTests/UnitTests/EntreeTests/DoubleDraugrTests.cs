@@ -212,7 +212,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             DoubleDraugr foodOrder = new DoubleDraugr();
             Assert.Equal("Double Draugr", foodOrder.ToString());
         }
-
+        [Fact]
+        public void ShouldReturnCorrectToStringName()
+        {
+            DoubleDraugr foodOrder = new DoubleDraugr();
+            Assert.Equal("Double Draugr", foodOrder.Name);
+        }
 
         [Fact]
         public void ChangingBunNotification()

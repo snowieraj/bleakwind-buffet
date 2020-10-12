@@ -41,6 +41,7 @@ namespace BleakwindBuffet.Data.Entrees
                 {
                     bun = value;
                     PropertyChangedNotification("Bun");
+                    PropertyChangedNotification("SpecialInstructions");
                 }
             }
         }
@@ -57,6 +58,7 @@ namespace BleakwindBuffet.Data.Entrees
                 {
                     ketchup = value;
                     PropertyChangedNotification("Ketchup");
+                    PropertyChangedNotification("SpecialInstructions");
                 }
             }
         }
@@ -74,6 +76,7 @@ namespace BleakwindBuffet.Data.Entrees
                 {
                     mustard = value;
                     PropertyChangedNotification("Mustard");
+                    PropertyChangedNotification("SpecialInstructions");
                 }
             }
 
@@ -92,6 +95,7 @@ namespace BleakwindBuffet.Data.Entrees
                 {
                     pickle = value;
                     PropertyChangedNotification("Pickle");
+                    PropertyChangedNotification("SpecialInstructions");
                 }
             }
         }
@@ -108,6 +112,7 @@ namespace BleakwindBuffet.Data.Entrees
                 {
                     cheese = value;
                     PropertyChangedNotification("Cheese");
+                    PropertyChangedNotification("SpecialInstructions");
                 }
             }
         }
@@ -124,6 +129,7 @@ namespace BleakwindBuffet.Data.Entrees
                 {
                     tomato = value;
                     PropertyChangedNotification("Tomato");
+                    PropertyChangedNotification("SpecialInstructions");
                 }
             }
         }
@@ -140,6 +146,7 @@ namespace BleakwindBuffet.Data.Entrees
                 {
                     lettuce = value;
                     PropertyChangedNotification("Lettuce");
+                    PropertyChangedNotification("SpecialInstructions");
                 }
             }
         }
@@ -156,10 +163,11 @@ namespace BleakwindBuffet.Data.Entrees
                 {
                     mayo = value;
                     PropertyChangedNotification("Mayo");
+                    PropertyChangedNotification("SpecialInstructions");
                 }
             }
         }
-
+        public string Name => this.ToString();
         /// <summary>
         /// Private backing variable for specials
         /// </summary>

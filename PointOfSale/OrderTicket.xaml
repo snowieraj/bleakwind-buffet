@@ -6,24 +6,54 @@
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="600">
-    <Grid Background="White" MaxHeight="800" >
-        <DockPanel>
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="2*"/>
-                    <RowDefinition Height="8*"/>
-                    <RowDefinition Height="5*"/>
-                </Grid.RowDefinitions>
-                <Viewbox VerticalAlignment="Top" Height="0">
-                    <TextBlock Name="orderNumber" Foreground="Orange" FontWeight="Bold"/>
-                </Viewbox>
-                <Viewbox Grid.Row="1">
-                    <ListView x:Name="itemsOrdered" Foreground="Black" BorderThickness="0" Height="6" Width="12"/>
-                </Viewbox>
-                <Viewbox Grid.Row="2" MaxWidth="120">
-                    <TextBlock Name="total" Foreground="Orange" FontWeight="Bold"/>
-                </Viewbox>
-            </Grid>
-        </DockPanel>
-    </Grid>
+    <DockPanel Background="Wheat">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" DockPanel.Dock="Top">
+            <TextBlock Text="Order #" FontSize="20"/>
+            <TextBlock Name="currentOrderTextBlock" FontSize="20" TextAlignment="Center" Text="{Binding Path=Number}"/>
+        </StackPanel>
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal">
+            <TextBlock FontWeight="Bold" Text="Total: "/>
+            <TextBlock Text="$"/>
+            <TextBlock Name="totalTextBlock" Text="{Binding StringFormat={}{0:#.00}, Path=Total}"/>
+        </StackPanel>
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal">
+            <TextBlock FontWeight="Bold" Text="Tax: "/>
+            <TextBlock Text="$"/>
+            <TextBlock Name="taxTextBlock" Text="{Binding StringFormat={}{0:#.00}, Path=Tax}"/>
+        </StackPanel>
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal">
+            <TextBlock FontWeight="Bold"  Text="Subtotal: "/>
+            <TextBlock Text="$"/>
+            <TextBlock Name="subtotalTextBlock" Text="{Binding StringFormat={}{0:#.00}, Path=Subtotal}"/>
+        </StackPanel>
+     
+        <ListBox Name="currentOrder" DockPanel.Dock="Bottom" ItemsSource="{Binding}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontWeight="Bold" Text="{Binding Path=Name}"/>
+                            <TextBlock Text=": "/>
+                        </StackPanel>
+                        <StackPanel>
+                            <ListView Name="specialInstructionsTextBlock" ItemsSource="{Binding Path=SpecialInstructions}" >
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}"/>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Price: $"/>
+                                <TextBlock Name="currentPriceTextBlock" HorizontalAlignment="Right" Text="{Binding Path=Price}"/>
+                            </StackPanel>
+                            <Button x:Name="Edit" Content="Edit Item" Click="EditSelecteditem"/>
+                            <Button x:Name="Delete" Content="Remove From Order" Click="DeleteItemFromOrder"/>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </DockPanel>
+
 </UserControl>

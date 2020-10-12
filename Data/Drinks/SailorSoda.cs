@@ -68,6 +68,7 @@ namespace BleakwindBuffet.Data.Drinks
                 {
                     ice = value;
                     PropertyChangedNotification("Ice");
+                    PropertyChangedNotification("SpecialInstructions");
                 }
             }
         }
@@ -84,10 +85,11 @@ namespace BleakwindBuffet.Data.Drinks
                 {
                     flavor = value;
                     PropertyChangedNotification("Flavor");
+                    PropertyChangedNotification("SpecialInstructions");
                 }
             }
         }
-
+        public string Name => this.ToString();
         /// <summary>
         /// Private backing variable for specials
         /// </summary>

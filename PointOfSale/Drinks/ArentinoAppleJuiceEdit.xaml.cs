@@ -19,6 +19,7 @@ using System.ComponentModel;
 using System.Xml.Serialization;
 using BleakwindBuffet.Data.Enums;
 using Size = BleakwindBuffet.Data.Enums.Size;
+using BleakwindBuffet.Data.Menu;
 
 namespace PointOfSale.Drinks
 {
@@ -34,35 +35,53 @@ namespace PointOfSale.Drinks
         //Temp data construct
         AretinoAppleJuice itemTemp;
 
+        private Order orderItem;
+
         /// <summary>
         /// Class constructor
         /// </summary>
         /// <param name="menuItem"></param>
-        public ArentinoAppleJuiceEdit(MenuScreen menuItem, AretinoAppleJuice item)
+        public ArentinoAppleJuiceEdit(MenuScreen menuItem, AretinoAppleJuice item, Order order)
         {
             InitializeComponent();
             menuScreen = menuItem;
             DataContext = item;
             itemTemp = item;
+            orderItem = order;
         }
 
-       
 
 
         /// <summary>
-        /// Go back button
+        /// Go back button 
         /// </summary>
         /// <param name="sender">Click</param>
         /// <param name="e">event</param>
         void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-            menuScreen.menuBorder.Child = menuScreen.buttonSelections;
+            menuScreen.menuBorder.Child = new ButtonSelections(menuScreen);
+
+            DataContext = orderItem;
+            if (DataContext is Order ordered)
+            {
+                var itemRemoved = itemTemp;
+                ordered.Remove(itemRemoved);
+            }
+
+        }
+        /// <summary>
+        /// Done button event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void DoneButton_Click(object sender, RoutedEventArgs e)
+        {
+            menuScreen.menuBorder.Child = new ButtonSelections(menuScreen);
+
+
         }
 
-        void AddButton_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
+
         /// <summary>
         /// Check box data
         /// </summary>
@@ -75,19 +94,19 @@ namespace PointOfSale.Drinks
             {
                 switch (check.Name)
                 {
-                    case "small":
+                    case "itemOne":
                         itemOne.IsChecked = true;
                         itemTwo.IsChecked = false;
                         itemThree.IsChecked = false;
                         itemSize = Size.Small;
                         break;
-                    case "medium":
+                    case "itemTwo":
                         itemOne.IsChecked = false;
                         itemTwo.IsChecked = true;
                         itemThree.IsChecked = false;
                         itemSize = Size.Medium;
                         break;
-                    case "large":
+                    case "itemThree":
                         itemOne.IsChecked = false;
                         itemTwo.IsChecked = false;
                         itemThree.IsChecked = true;

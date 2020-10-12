@@ -131,6 +131,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         }
 
         [Fact]
+        public void ShouldReturnCorrectToStringName()
+        {
+            SmokehouseSkeleton foodOrder = new SmokehouseSkeleton();
+            Assert.Equal("Smokehouse Skeleton", foodOrder.Name);
+        }
+        [Fact]
         public void ShouldReturnCorrectToString()
         {
             SmokehouseSkeleton foodOrder = new SmokehouseSkeleton();

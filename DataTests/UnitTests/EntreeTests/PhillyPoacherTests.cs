@@ -118,6 +118,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             PhillyPoacher foodOrder = new PhillyPoacher();
             Assert.Equal("Philly Poacher", foodOrder.ToString());
         }
+        [Fact]
+        public void ShouldReturnCorrectToStringName()
+        {
+            PhillyPoacher foodOrder = new PhillyPoacher();
+            Assert.Equal("Philly Poacher", foodOrder.Name);
+        }
 
         [Fact]
         public void ChangingSirloinNotification()

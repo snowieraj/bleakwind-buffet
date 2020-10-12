@@ -310,14 +310,15 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Viewbox MaxHeight="60">
-                    <Button Style="{DynamicResource RoundedCircle}" HorizontalAlignment="Center" Width="55" Height="55" BorderThickness="0" VerticalAlignment="Center" FontWeight="Bold">
-                        <Image Source="{StaticResource DeleteButton}"/>
-                    </Button>
-                </Viewbox>
-                <Viewbox Grid.Column="1" MaxHeight="60">
-                    <Button Style="{DynamicResource RoundedAdd}"  HorizontalAlignment="Center" Width="55" Height="55"  BorderThickness="0">
-                        <Image Source="{StaticResource AddButton}"/>
+                <Viewbox MaxHeight="60"/>
+                <Viewbox MaxHeight="60" Grid.Column="1">
+                    <Button Click="NewOrder_Click" Style="{DynamicResource RoundedButtonStyle}" HorizontalAlignment="Center" Background="LightSkyBlue">
+                        <Viewbox>
+                            <TextBlock FontWeight="Bold" Foreground="White" Background="Transparent" FontSize="2">
+                            New Order
+                            </TextBlock>
+                        </Viewbox>
+                        
                     </Button>
                 </Viewbox>
             </Grid>

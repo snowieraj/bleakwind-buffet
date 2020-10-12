@@ -85,6 +85,16 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             foodOrder.Size = size;
             Assert.Equal(name, foodOrder.ToString());
         }
+        [Theory]
+        [InlineData(Size.Small, "Small Mad Otar Grits")]
+        [InlineData(Size.Medium, "Medium Mad Otar Grits")]
+        [InlineData(Size.Large, "Large Mad Otar Grits")]
+        public void ShouldReturnCorrectToNameBasedOnSize(Size size, string name)
+        {
+            MadOtarGrits foodOrder = new MadOtarGrits();
+            foodOrder.Size = size;
+            Assert.Equal(name, foodOrder.Name);
+        }
 
         [Theory]
         [InlineData(Size.Small)]

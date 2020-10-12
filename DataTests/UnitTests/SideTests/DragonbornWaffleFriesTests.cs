@@ -88,6 +88,17 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             Assert.Equal(name, foodOrder.ToString());
         }
 
+        [Theory]
+        [InlineData(Size.Small, "Small Dragonborn Waffle Fries")]
+        [InlineData(Size.Medium, "Medium Dragonborn Waffle Fries")]
+        [InlineData(Size.Large, "Large Dragonborn Waffle Fries")]
+        public void ShouldReturnCorrectToNameBasedOnSize(Size size, string name)
+        {
+            DragonbornWaffleFries foodOrder = new DragonbornWaffleFries();
+            foodOrder.Size = size;
+            Assert.Equal(name, foodOrder.Name);
+        }
+
 
         [Theory]
         [InlineData(Size.Small)]

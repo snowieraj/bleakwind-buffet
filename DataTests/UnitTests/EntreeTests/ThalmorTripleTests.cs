@@ -251,6 +251,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             ThalmorTriple foodOrder = new ThalmorTriple();
             Assert.Equal("Thalmor Triple", foodOrder.ToString());
         }
+        [Fact]
+        public void ShouldReturnCorrectToStringName()
+        {
+            ThalmorTriple foodOrder = new ThalmorTriple();
+            Assert.Equal("Thalmor Triple", foodOrder.Name);
+        }
 
 
         [Fact]
