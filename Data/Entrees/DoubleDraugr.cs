@@ -167,6 +167,9 @@ namespace BleakwindBuffet.Data.Entrees
                 }
             }
         }
+        /// <summary>
+        /// Set name of item
+        /// </summary>
         public string Name => this.ToString();
         /// <summary>
         /// Private backing variable for specials

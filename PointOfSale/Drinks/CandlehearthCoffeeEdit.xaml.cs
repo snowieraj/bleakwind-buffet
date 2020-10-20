@@ -32,19 +32,22 @@ namespace PointOfSale.Drinks
         /// Menu contruct
         /// </summary>
         private MenuScreen menuScreen = new MenuScreen();
-
+        //ordered ticket
         private Order orderItem;
+        //Combo item
+        private Combination comboItem;
         /// <summary>
         /// menu constructor
         /// </summary>
         /// <param name="menuItem">Menu item chosen</param>
-        public CandlehearthCoffeeEdit(MenuScreen menuItem, CandlehearthCoffee item, Order order)
+        public CandlehearthCoffeeEdit(MenuScreen menuItem, CandlehearthCoffee item, Order order, Combination combo)
         {
             InitializeComponent();
             menuScreen = menuItem;
             DataContext = item;
             itemTemp = item;
             orderItem = order;
+            comboItem = combo;
         }
         /// <summary>
         /// Go back button 

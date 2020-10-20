@@ -22,6 +22,9 @@ namespace BleakwindBuffet.Data.Entrees
         /// Gets the calories
         /// </summary>
         public override uint Calories => 982;
+        /// <summary>
+        /// Set name of item
+        /// </summary>
         public string Name => this.ToString();
         /// <summary>
         /// Private backing variable for specials

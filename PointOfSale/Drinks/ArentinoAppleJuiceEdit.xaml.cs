@@ -34,20 +34,25 @@ namespace PointOfSale.Drinks
         private MenuScreen menuScreen = new MenuScreen();
         //Temp data construct
         AretinoAppleJuice itemTemp;
-
+        //ordered ticket
         private Order orderItem;
+        //Combo item
+        private Combination comboItem;
+
 
         /// <summary>
         /// Class constructor
         /// </summary>
         /// <param name="menuItem"></param>
-        public ArentinoAppleJuiceEdit(MenuScreen menuItem, AretinoAppleJuice item, Order order)
+        public ArentinoAppleJuiceEdit(MenuScreen menuItem, AretinoAppleJuice item, Order order, Combination combo)
         {
             InitializeComponent();
             menuScreen = menuItem;
             DataContext = item;
             itemTemp = item;
             orderItem = order;
+            comboItem = combo;
+            combo.Drink = new AretinoAppleJuice();
         }
 
 
@@ -77,8 +82,6 @@ namespace PointOfSale.Drinks
         void DoneButton_Click(object sender, RoutedEventArgs e)
         {
             menuScreen.menuBorder.Child = new ButtonSelections(menuScreen);
-
-
         }
 
 

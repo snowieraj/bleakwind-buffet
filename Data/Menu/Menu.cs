@@ -131,91 +131,131 @@ namespace BleakwindBuffet.Data.Menu
             list.Add(l3);
 
             //Blackberry - Default/Small
-            SailorSoda smallBlackBerry = new SailorSoda();//Small
-            smallBlackBerry.Size = Size.Small;
-            smallBlackBerry.Flavor = SodaFlavor.Blackberry;
+            SailorSoda smallBlackBerry = new SailorSoda
+            {
+                Size = Size.Small,
+                Flavor = SodaFlavor.Blackberry
+            };//Small
             list.Add(smallBlackBerry);
-            SailorSoda medBlackBerry = new SailorSoda();
-            medBlackBerry.Size = Size.Medium;
-            medBlackBerry.Flavor = SodaFlavor.Blackberry;
+            SailorSoda medBlackBerry = new SailorSoda
+            {
+                Size = Size.Medium,
+                Flavor = SodaFlavor.Blackberry
+            };
             list.Add(medBlackBerry);
-            SailorSoda larBlackberry = new SailorSoda();
-            larBlackberry.Flavor = SodaFlavor.Blackberry;
-            larBlackberry.Size = Size.Large;
+            SailorSoda larBlackberry = new SailorSoda
+            {
+                Flavor = SodaFlavor.Blackberry,
+                Size = Size.Large
+            };
             list.Add(larBlackberry);
             //Cherry
-            SailorSoda smallCherry = new SailorSoda();
-            smallCherry.Flavor = SodaFlavor.Cherry;
-            smallCherry.Size = Size.Small;
+            SailorSoda smallCherry = new SailorSoda
+            {
+                Flavor = SodaFlavor.Cherry,
+                Size = Size.Small
+            };
             list.Add(smallCherry);
-            SailorSoda medCherry = new SailorSoda();
-            medCherry.Flavor = SodaFlavor.Cherry;
-            medCherry.Size = Size.Medium;
+            SailorSoda medCherry = new SailorSoda
+            {
+                Flavor = SodaFlavor.Cherry,
+                Size = Size.Medium
+            };
             list.Add(medCherry);
-            SailorSoda larCherry = new SailorSoda();
-            larCherry.Flavor = SodaFlavor.Cherry;
-            larCherry.Size = Size.Large;
+            SailorSoda larCherry = new SailorSoda
+            {
+                Flavor = SodaFlavor.Cherry,
+                Size = Size.Large
+            };
             list.Add(larCherry);
             //Grapefruit
-            SailorSoda smaGrape = new SailorSoda();
-            smaGrape.Flavor = SodaFlavor.Grapefruit;
-            smaGrape.Size = Size.Small;
+            SailorSoda smaGrape = new SailorSoda
+            {
+                Flavor = SodaFlavor.Grapefruit,
+                Size = Size.Small
+            };
             list.Add(smaGrape);
-            SailorSoda medGrape = new SailorSoda();
-            medGrape.Flavor = SodaFlavor.Grapefruit;
-            medGrape.Size = Size.Medium;
+            SailorSoda medGrape = new SailorSoda
+            {
+                Flavor = SodaFlavor.Grapefruit,
+                Size = Size.Medium
+            };
             list.Add(medGrape);
-            SailorSoda larGrape = new SailorSoda();
-            larGrape.Flavor = SodaFlavor.Grapefruit;
-            larGrape.Size = Size.Large;
+            SailorSoda larGrape = new SailorSoda
+            {
+                Flavor = SodaFlavor.Grapefruit,
+                Size = Size.Large
+            };
             list.Add(larGrape);
             //Lemon
-            SailorSoda smaLemon = new SailorSoda();
-            smaLemon.Flavor = SodaFlavor.Lemon;
-            smaLemon.Size = Size.Small;
+            SailorSoda smaLemon = new SailorSoda
+            {
+                Flavor = SodaFlavor.Lemon,
+                Size = Size.Small
+            };
             list.Add(smaLemon);
-            SailorSoda medLemon = new SailorSoda();
-            medLemon.Flavor = SodaFlavor.Lemon;
-            medLemon.Size = Size.Medium;
+            SailorSoda medLemon = new SailorSoda
+            {
+                Flavor = SodaFlavor.Lemon,
+                Size = Size.Medium
+            };
             list.Add(medLemon);
-            SailorSoda larLemon = new SailorSoda();
-            larLemon.Flavor = SodaFlavor.Lemon;
-            larLemon.Size = Size.Large;
+            SailorSoda larLemon = new SailorSoda
+            {
+                Flavor = SodaFlavor.Lemon,
+                Size = Size.Large
+            };
             list.Add(larLemon);
             //Peach
-            SailorSoda smaPeach = new SailorSoda();
-            smaPeach.Flavor = SodaFlavor.Peach;
-            smaPeach.Size = Size.Small;
+            SailorSoda smaPeach = new SailorSoda
+            {
+                Flavor = SodaFlavor.Peach,
+                Size = Size.Small
+            };
             list.Add(smaPeach);
-            SailorSoda medPeach = new SailorSoda();
-            medPeach.Flavor = SodaFlavor.Peach;
-            medPeach.Size = Size.Medium;
+            SailorSoda medPeach = new SailorSoda
+            {
+                Flavor = SodaFlavor.Peach,
+                Size = Size.Medium
+            };
             list.Add(medPeach);
-            SailorSoda larPeach = new SailorSoda();
-            larPeach.Flavor = SodaFlavor.Peach;
-            larPeach.Size = Size.Large;
+            SailorSoda larPeach = new SailorSoda
+            {
+                Flavor = SodaFlavor.Peach,
+                Size = Size.Large
+            };
             list.Add(larPeach);
             //Watermelon
-            SailorSoda smaWatermelon = new SailorSoda();
-            smaWatermelon.Flavor = SodaFlavor.Watermelon;
-            smaWatermelon.Size = Size.Small;
+            SailorSoda smaWatermelon = new SailorSoda
+            {
+                Flavor = SodaFlavor.Watermelon,
+                Size = Size.Small
+            };
             list.Add(smaWatermelon);
-            SailorSoda medWatermelon = new SailorSoda();
-            medWatermelon.Flavor = SodaFlavor.Watermelon;
-            medWatermelon.Size = Size.Medium;
+            SailorSoda medWatermelon = new SailorSoda
+            {
+                Flavor = SodaFlavor.Watermelon,
+                Size = Size.Medium
+            };
             list.Add(medWatermelon);
-            SailorSoda larWatermelon = new SailorSoda();
-            larWatermelon.Flavor = SodaFlavor.Watermelon;
-            larWatermelon.Size = Size.Large;
+            SailorSoda larWatermelon = new SailorSoda
+            {
+                Flavor = SodaFlavor.Watermelon,
+                Size = Size.Large
+            };
             list.Add(larWatermelon);
 
             WarriorWater s1 = new WarriorWater();
             list.Add(s1);
-            WarriorWater m4 = new WarriorWater();
-            m4.Size = Size.Medium;
+            WarriorWater m4 = new WarriorWater
+            {
+                Size = Size.Medium
+            };
             list.Add(m4);
-            WarriorWater l4 = new WarriorWater();
-            l4.Size = Size.Large;
+            WarriorWater l4 = new WarriorWater
+            {
+                Size = Size.Large
+            };
             list.Add(l4);
 
             return list;
@@ -312,91 +352,131 @@ namespace BleakwindBuffet.Data.Menu
             list.Add(l6);
 
             //Blackberry - Default/Small
-            SailorSoda smallBlackBerry = new SailorSoda();//Small
-            smallBlackBerry.Size = Size.Small;
-            smallBlackBerry.Flavor = SodaFlavor.Blackberry;
+            SailorSoda smallBlackBerry = new SailorSoda
+            {
+                Size = Size.Small,
+                Flavor = SodaFlavor.Blackberry
+            };//Small
             list.Add(smallBlackBerry);
-            SailorSoda medBlackBerry = new SailorSoda();
-            medBlackBerry.Size = Size.Medium;
-            medBlackBerry.Flavor = SodaFlavor.Blackberry;
+            SailorSoda medBlackBerry = new SailorSoda
+            {
+                Size = Size.Medium,
+                Flavor = SodaFlavor.Blackberry
+            };
             list.Add(medBlackBerry);
-            SailorSoda larBlackberry = new SailorSoda();
-            larBlackberry.Flavor = SodaFlavor.Blackberry;
-            larBlackberry.Size = Size.Large;
+            SailorSoda larBlackberry = new SailorSoda
+            {
+                Flavor = SodaFlavor.Blackberry,
+                Size = Size.Large
+            };
             list.Add(larBlackberry);
             //Cherry
-            SailorSoda smallCherry = new SailorSoda();
-            smallCherry.Flavor = SodaFlavor.Cherry;
-            smallCherry.Size = Size.Small;
+            SailorSoda smallCherry = new SailorSoda
+            {
+                Flavor = SodaFlavor.Cherry,
+                Size = Size.Small
+            };
             list.Add(smallCherry);
-            SailorSoda medCherry = new SailorSoda();
-            medCherry.Flavor = SodaFlavor.Cherry;
-            medCherry.Size = Size.Medium;
+            SailorSoda medCherry = new SailorSoda
+            {
+                Flavor = SodaFlavor.Cherry,
+                Size = Size.Medium
+            };
             list.Add(medCherry);
-            SailorSoda larCherry = new SailorSoda();
-            larCherry.Flavor = SodaFlavor.Cherry;
-            larCherry.Size = Size.Large;
+            SailorSoda larCherry = new SailorSoda
+            {
+                Flavor = SodaFlavor.Cherry,
+                Size = Size.Large
+            };
             list.Add(larCherry);
             //Grapefruit
-            SailorSoda smaGrape = new SailorSoda();
-            smaGrape.Flavor = SodaFlavor.Grapefruit;
-            smaGrape.Size = Size.Small;
+            SailorSoda smaGrape = new SailorSoda
+            {
+                Flavor = SodaFlavor.Grapefruit,
+                Size = Size.Small
+            };
             list.Add(smaGrape);
-            SailorSoda medGrape = new SailorSoda();
-            medGrape.Flavor = SodaFlavor.Grapefruit;
-            medGrape.Size = Size.Medium;
+            SailorSoda medGrape = new SailorSoda
+            {
+                Flavor = SodaFlavor.Grapefruit,
+                Size = Size.Medium
+            };
             list.Add(medGrape);
-            SailorSoda larGrape = new SailorSoda();
-            larGrape.Flavor = SodaFlavor.Grapefruit;
-            larGrape.Size = Size.Large;
+            SailorSoda larGrape = new SailorSoda
+            {
+                Flavor = SodaFlavor.Grapefruit,
+                Size = Size.Large
+            };
             list.Add(larGrape);
             //Lemon
-            SailorSoda smaLemon = new SailorSoda();
-            smaLemon.Flavor = SodaFlavor.Lemon;
-            smaLemon.Size = Size.Small;
+            SailorSoda smaLemon = new SailorSoda
+            {
+                Flavor = SodaFlavor.Lemon,
+                Size = Size.Small
+            };
             list.Add(smaLemon);
-            SailorSoda medLemon = new SailorSoda();
-            medLemon.Flavor = SodaFlavor.Lemon;
-            medLemon.Size = Size.Medium;
+            SailorSoda medLemon = new SailorSoda
+            {
+                Flavor = SodaFlavor.Lemon,
+                Size = Size.Medium
+            };
             list.Add(medLemon);
-            SailorSoda larLemon = new SailorSoda();
-            larLemon.Flavor = SodaFlavor.Lemon;
-            larLemon.Size = Size.Large;
+            SailorSoda larLemon = new SailorSoda
+            {
+                Flavor = SodaFlavor.Lemon,
+                Size = Size.Large
+            };
             list.Add(larLemon);
             //Peach
-            SailorSoda smaPeach = new SailorSoda();
-            smaPeach.Flavor = SodaFlavor.Peach;
-            smaPeach.Size = Size.Small;
+            SailorSoda smaPeach = new SailorSoda
+            {
+                Flavor = SodaFlavor.Peach,
+                Size = Size.Small
+            };
             list.Add(smaPeach);
-            SailorSoda medPeach = new SailorSoda();
-            medPeach.Flavor = SodaFlavor.Peach;
-            medPeach.Size = Size.Medium;
+            SailorSoda medPeach = new SailorSoda
+            {
+                Flavor = SodaFlavor.Peach,
+                Size = Size.Medium
+            };
             list.Add(medPeach);
-            SailorSoda larPeach = new SailorSoda();
-            larPeach.Flavor = SodaFlavor.Peach;
-            larPeach.Size = Size.Large;
+            SailorSoda larPeach = new SailorSoda
+            {
+                Flavor = SodaFlavor.Peach,
+                Size = Size.Large
+            };
             list.Add(larPeach);
             //Watermelon
-            SailorSoda smaWatermelon = new SailorSoda();
-            smaWatermelon.Flavor = SodaFlavor.Watermelon;
-            smaWatermelon.Size = Size.Small;
+            SailorSoda smaWatermelon = new SailorSoda
+            {
+                Flavor = SodaFlavor.Watermelon,
+                Size = Size.Small
+            };
             list.Add(smaWatermelon);
-            SailorSoda medWatermelon = new SailorSoda();
-            medWatermelon.Flavor = SodaFlavor.Watermelon;
-            medWatermelon.Size = Size.Medium;
+            SailorSoda medWatermelon = new SailorSoda
+            {
+                Flavor = SodaFlavor.Watermelon,
+                Size = Size.Medium
+            };
             list.Add(medWatermelon);
-            SailorSoda larWatermelon = new SailorSoda();
-            larWatermelon.Flavor = SodaFlavor.Watermelon;
-            larWatermelon.Size = Size.Large;
+            SailorSoda larWatermelon = new SailorSoda
+            {
+                Flavor = SodaFlavor.Watermelon,
+                Size = Size.Large
+            };
             list.Add(larWatermelon);
 
             WarriorWater s1 = new WarriorWater();
             list.Add(s1);
-            WarriorWater m5 = new WarriorWater();
-            m5.Size = Size.Medium;
+            WarriorWater m5 = new WarriorWater
+            {
+                Size = Size.Medium
+            };
             list.Add(m5);
-            WarriorWater l5 = new WarriorWater();
-            l5.Size = Size.Large;
+            WarriorWater l5 = new WarriorWater
+            {
+                Size = Size.Large
+            };
             list.Add(l5);
 
             return list;

@@ -6,37 +6,114 @@
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="600">
+    <UserControl.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" StrokeDashArray="1 2" SnapsToDevicePixels="true" StrokeThickness="1" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style x:Key="RoundedStyle" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" CornerRadius="10" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter"  Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="orange"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
     <DockPanel Background="Wheat">
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" DockPanel.Dock="Top">
-            <TextBlock Text="Order #" FontSize="20"/>
-            <TextBlock Name="currentOrderTextBlock" FontSize="20" TextAlignment="Center" Text="{Binding Path=Number}"/>
+            <TextBlock Text="Order #" FontWeight="Bold" FontSize="20"/>
+            <TextBlock Name="currentOrderTextBlock" FontWeight="Bold" FontSize="20" TextAlignment="Center" Text="{Binding Path=Number}"></TextBlock>
         </StackPanel>
         <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal">
-            <TextBlock FontWeight="Bold" Text="Total: "/>
-            <TextBlock Text="$"/>
-            <TextBlock Name="totalTextBlock" Text="{Binding StringFormat={}{0:#.00}, Path=Total}"/>
+            <TextBlock FontSize="20" FontWeight="Bold" Text="Total: "/>
+            <TextBlock FontSize="20" Text="$"/>
+            <TextBlock FontSize="20" Name="totalTextBlock" Text="{Binding StringFormat={}{0:#.00}, Path=Total}"/>
         </StackPanel>
         <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal">
-            <TextBlock FontWeight="Bold" Text="Tax: "/>
-            <TextBlock Text="$"/>
-            <TextBlock Name="taxTextBlock" Text="{Binding StringFormat={}{0:#.00}, Path=Tax}"/>
+            <TextBlock FontWeight="Bold" FontSize="20" Text="Tax: "/>
+            <TextBlock FontSize="20" Text="$"/>
+            <TextBlock FontSize="20" Name="taxTextBlock" Text="{Binding StringFormat={}{0:#.00}, Path=Tax}"/>
         </StackPanel>
+        
         <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal">
-            <TextBlock FontWeight="Bold"  Text="Subtotal: "/>
-            <TextBlock Text="$"/>
-            <TextBlock Name="subtotalTextBlock" Text="{Binding StringFormat={}{0:#.00}, Path=Subtotal}"/>
+            <TextBlock FontSize="20" FontWeight="Bold"  Text="Subtotal: "/>
+            <TextBlock FontSize="20" Text="$"/>
+            <TextBlock FontSize="20" Name="subtotalTextBlock" Text="{Binding StringFormat={}{0:#.00}, Path=Subtotal}"/>
         </StackPanel>
-     
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" >
+
+            <Button Margin="1" Style="{DynamicResource RoundedStyle}" Click="NewOrder_Click" Background="OrangeRed" FontWeight="Bold" Height="60" Width="120" >
+                <Viewbox MaxHeight="40">
+                    <TextBlock TextAlignment="Center">
+                <Run Text="Cancel" />
+                <LineBreak/>
+                <Run Text="Order" />
+                    </TextBlock>
+                </Viewbox>
+            </Button>
+            <Button Click="CompleteOrder_Click" Margin="1" Style="{DynamicResource RoundedStyle}" Background="LightGreen" FontWeight="Bold" Height="60" Width="120">
+                <Viewbox MaxHeight="40">
+                    <TextBlock TextAlignment="Center">
+                    <Run Text="Complete" /><LineBreak/><Run Text="Order" />
+                    </TextBlock>
+                </Viewbox>
+            </Button>
+           
+        </StackPanel>
         <ListBox Name="currentOrder" DockPanel.Dock="Bottom" ItemsSource="{Binding}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock FontWeight="Bold" Text="{Binding Path=Name}"/>
-                            <TextBlock Text=": "/>
+                            <TextBlock FontWeight="Bold" Text="Order "/>
+                            <TextBlock FontWeight="Bold" Text="{Binding Path=Name}"/>                            
                         </StackPanel>
                         <StackPanel>
-                            <ListView Name="specialInstructionsTextBlock" ItemsSource="{Binding Path=SpecialInstructions}" >
+                            <ListView Name="specialInstructionsTextBlock" Background="Transparent" BorderThickness="0" ItemsSource="{Binding Path=SpecialInstructions}" >
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
                                         <TextBlock Text="{Binding}"/>
@@ -45,10 +122,12 @@
                             </ListView>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="Price: $"/>
-                                <TextBlock Name="currentPriceTextBlock" HorizontalAlignment="Right" Text="{Binding Path=Price}"/>
+                                <TextBlock Name="currentPriceTextBlock" VerticalAlignment="Center" HorizontalAlignment="Right" Text="{Binding Path=Price}"/>
                             </StackPanel>
-                            <Button x:Name="Edit" Content="Edit Item" Click="EditSelecteditem"/>
-                            <Button x:Name="Delete" Content="Remove From Order" Click="DeleteItemFromOrder"/>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Height="30">
+                            <Button  Style="{DynamicResource RoundedStyle}" FontWeight="Bold" x:Name="Edit" Content="Edit Item" Click="EditSelecteditem"/>
+                            <Button  Style="{DynamicResource RoundedStyle}" FontWeight="Bold" Foreground="White" Background="DarkRed" x:Name="Delete" Content="Remove From Order" Click="DeleteItemFromOrder"/>
+                            </StackPanel>
                         </StackPanel>
                     </StackPanel>
                 </DataTemplate>

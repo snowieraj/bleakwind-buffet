@@ -1,4 +1,10 @@
-﻿using BleakwindBuffet.Data.Drinks;
+﻿/*
+* Author: Andrew Yi
+* Class name: Combination.cs
+* Purpose: Combo order
+*/
+
+using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data.Sides;
 using System;
@@ -33,9 +39,9 @@ namespace BleakwindBuffet.Data.Menu
             {
                 if (drink != value)
                 {
-                    if (drink != null) entree.PropertyChanged -= SelectedItemChangedListener;
+                    if (drink != null) drink.PropertyChanged -= SelectedItemChangedListener;
                     drink = value;
-                    entree.PropertyChanged += SelectedItemChangedListener;
+                    drink.PropertyChanged += SelectedItemChangedListener;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
@@ -55,9 +61,9 @@ namespace BleakwindBuffet.Data.Menu
             {
                 if (side != value)
                 {
-                    if (side != null) entree.PropertyChanged -= SelectedItemChangedListener;
+                    if (side != null) side.PropertyChanged -= SelectedItemChangedListener;
                     side = value;
-                    entree.PropertyChanged += SelectedItemChangedListener;
+                    side.PropertyChanged += SelectedItemChangedListener;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
@@ -89,12 +95,18 @@ namespace BleakwindBuffet.Data.Menu
             }
         }
 
-
+        /// <summary>
+        /// Create a combo order
+        /// </summary>
+        /// <param name="entree"></param>
+        /// <param name="side"></param>
+        /// <param name="drink"></param>
         public Combination(Entree entree, Side side, Drink drink)
         {
             this.entree = entree;
             this.side = side;
             this.drink = drink;
+            
         }
 
         /// <summary>
@@ -113,6 +125,7 @@ namespace BleakwindBuffet.Data.Menu
                 special.AddRange(Drink.SpecialInstructions);
                 return special;
             }
+           
         }
         /// <summary>
         /// Total price
@@ -122,7 +135,11 @@ namespace BleakwindBuffet.Data.Menu
         /// Total calories
         /// </summary>
         public uint Calories => Drink.Calories + Entree.Calories + Side.Calories;
-
+        /// <summary>
+        /// Listener from when items update
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void SelectedItemChangedListener(object sender, PropertyChangedEventArgs e)
         {
             switch(e.PropertyName)

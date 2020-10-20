@@ -28,6 +28,7 @@ namespace BleakwindBuffet.Data.Drinks
         protected void PropertyChangedNotification(string name)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Name"));
         }
         /// <summary>
         /// Deafult Size 

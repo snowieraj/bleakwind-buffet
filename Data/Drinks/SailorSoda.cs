@@ -24,7 +24,10 @@ namespace BleakwindBuffet.Data.Drinks
         }
 
         //Size is now Virtual
-
+        /// <summary>
+        /// Updates name when switched
+        /// </summary>
+        public string Name => this.ToString();
         /// <summary>
         /// Prices for different sizes
         /// </summary>
@@ -89,7 +92,6 @@ namespace BleakwindBuffet.Data.Drinks
                 }
             }
         }
-        public string Name => this.ToString();
         /// <summary>
         /// Private backing variable for specials
         /// </summary>

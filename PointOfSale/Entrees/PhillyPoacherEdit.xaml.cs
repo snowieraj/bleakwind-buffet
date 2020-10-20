@@ -31,19 +31,22 @@ namespace PointOfSale.Entrees
         /// Menu ref
         /// </summary>
         private MenuScreen menuScreen = new MenuScreen();
-
+        //order ticket
         private Order orderItem;
+        //combo item
+        private Combination comboItem;
         /// <summary>
         /// Class contruct to get item chosen
         /// </summary>
         /// <param name="menuItem">item chosen</param>
-        public PhillyPoacherEdit(MenuScreen menuItem, PhillyPoacher item, Order order)
+        public PhillyPoacherEdit(MenuScreen menuItem, PhillyPoacher item, Order order, Combination combo)
         {
             InitializeComponent();
             menuScreen = menuItem;
             DataContext = item;
             itemTemp = item;
             orderItem = order;
+            comboItem = combo;
         }
         /// <summary>
         /// Go back button 

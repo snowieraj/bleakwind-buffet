@@ -32,19 +32,22 @@ namespace PointOfSale.Drinks
         /// Menu reference
         /// </summary>
         private MenuScreen menuScreen = new MenuScreen();
-
+        //ordered ticket
         private Order orderItem;
+        //Combo item
+        private Combination comboItem;
         /// <summary>
         /// Class contruct
         /// </summary>
         /// <param name="menuItem">item chosen</param>
-        public MarkarthMilkEdit(MenuScreen menuItem, MarkarthMilk item, Order order)
+        public MarkarthMilkEdit(MenuScreen menuItem, MarkarthMilk item, Order order, Combination combo)
         {
             InitializeComponent();
             menuScreen = menuItem;
             DataContext = item;
             itemTemp = item;
             orderItem = order;
+            comboItem = combo;
         }
         /// <summary>
         /// Go back button 

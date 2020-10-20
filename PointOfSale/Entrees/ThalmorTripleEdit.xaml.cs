@@ -30,13 +30,15 @@ namespace PointOfSale.Entrees
         /// menu ref
         /// </summary>
         private MenuScreen menuScreen = new MenuScreen();
-
+        //order ticket
         private Order orderItem;
+        //combo item
+        private Combination comboItem;
         /// <summary>
         /// Class contruct get the item chosen
         /// </summary>
         /// <param name="menuItem">iitem chosen</param>
-        public ThalmorTripleEdit(MenuScreen menuItem, ThalmorTriple item, Order order)
+        public ThalmorTripleEdit(MenuScreen menuItem, ThalmorTriple item, Order order, Combination combo)
         {
             InitializeComponent();
 
@@ -44,6 +46,7 @@ namespace PointOfSale.Entrees
             DataContext = item;
             itemTemp = item;
             orderItem = order;
+            comboItem = combo;
         }
         /// <summary>
         /// Go back button 

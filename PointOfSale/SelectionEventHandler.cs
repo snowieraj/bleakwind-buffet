@@ -10,8 +10,12 @@ using BleakwindBuffet.Data.Menu;
 
 namespace PointOfSale
 {
+    /// <summary>
+    /// Chooses items in Data
+    /// </summary>
     public class SelectionEventHandler : EventArgs
     {
+        //Menu items 
         public IOrderItem item;
     }
 }

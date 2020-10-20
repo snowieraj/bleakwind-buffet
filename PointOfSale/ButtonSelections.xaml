@@ -38,7 +38,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
-                        <Border x:Name="border" CornerRadius="20" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" SnapsToDevicePixels="true">
+                        <Border x:Name="border" Margin="1" CornerRadius="10" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" SnapsToDevicePixels="true">
                             <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
 
                         </Border>
@@ -178,10 +178,63 @@
         <BitmapImage x:Key="Chef" UriSource="Images/Chef.png"/>
         <BitmapImage x:Key="DeleteButton" UriSource="Images/Delete.png"/>
         <BitmapImage x:Key="AddButton" UriSource="Images/Add.png"/>
+        <Style x:Key="FocusVisual3">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" StrokeDashArray="1 2" SnapsToDevicePixels="true" StrokeThickness="1" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background3" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border3" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background3" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border3" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background3" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border3" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground3" Color="#FF838383"/>
+        <Style x:Key="Rounded" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual3}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background3}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border3}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" BorderThickness="0" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="2" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="orange"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="white"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background3}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border3}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background3}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border3}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground3}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
 
     </UserControl.Resources>
-    
+
     <Grid Background="Transparent">
         <Grid>
             <Grid.ColumnDefinitions>
@@ -205,102 +258,104 @@
                 <Image Source="{StaticResource BuffetLogo}" Stretch="Uniform" />
             </Grid>
             <Grid Grid.RowSpan="9" Grid.ColumnSpan="1" Grid.Column="2" Grid.Row="3">
-                <Image Source="{StaticResource Chef}" Margin="64,173,51,9"  />
+                <Image Source="{StaticResource Chef}" Margin="44,165,72,17"  />
             </Grid>
-            <Viewbox Grid.Column="1" Grid.Row="1">
-                <TextBlock Grid.Column="1" TextWrapping="Wrap" TextAlignment="Center" Foreground="White" FontWeight="Bold" ><Run/><LineBreak/><Run/><LineBreak/><Run Text="Add to Order"/></TextBlock>
+            <Viewbox Grid.Column="1" MaxHeight="30" Grid.Row="1">
+                <TextBlock Grid.Column="1" TextWrapping="Wrap" TextAlignment="Center" Foreground="White" FontWeight="Bold" >Add to Order</TextBlock>
             </Viewbox>
             <Viewbox Grid.Column="0" Grid.Row="2" MaxWidth="400">
-                <Button Click="BriarheartBurger_Click" Grid.Column="0" Grid.Row="1" Width="115" Height="25" Foreground="White" Background="LightSkyBlue" FontWeight="Bold" FontSize="9" Style="{DynamicResource RoundedButtonStyle}" >
+                <Button x:Name="BriarheartBurgerButton" Click="BriarheartBurger_Click" Grid.Column="0" Grid.Row="1" Width="115" Height="25" Foreground="White" Background="LightSkyBlue" FontWeight="Bold" FontSize="9" Style="{DynamicResource RoundedButtonStyle}" >
                     <TextBlock TextWrapping="Wrap" TextAlignment="Center">Briarheart Burger</TextBlock>
                 </Button>
             </Viewbox>
             <Viewbox Grid.Column="0" Grid.Row="3" MaxWidth="400">
-                <Button Click="DoubleDraugr_Click" Grid.Column="0" Grid.Row="2" Width="115" Height="25" Foreground="White" Background="LightSkyBlue" FontWeight="Bold" FontSize="9" Style="{DynamicResource RoundedButtonStyle}">
+                <Button x:Name="DoubleDraugrButton" Click="DoubleDraugr_Click" Grid.Column="0" Grid.Row="2" Width="115" Height="25" Foreground="White" Background="LightSkyBlue" FontWeight="Bold" FontSize="9" Style="{DynamicResource RoundedButtonStyle}">
                     <TextBlock TextWrapping="Wrap" TextAlignment="Center">Double Draugr</TextBlock>
                 </Button>
             </Viewbox>
 
             <Viewbox Grid.Column="0" Grid.Row="4" MaxWidth="400">
-                <Button Click="ThalmorTriple_Click" Grid.Column="0" Grid.Row="3" Width="115" Height="25" Foreground="White" Background="LightSkyBlue" FontWeight="Bold" FontSize="9" Style="{DynamicResource RoundedButtonStyle}">
+                <Button x:Name="ThalmorTripleButton" Click="ThalmorTriple_Click" Grid.Column="0" Grid.Row="3" Width="115" Height="25" Foreground="White" Background="LightSkyBlue" FontWeight="Bold" FontSize="9" Style="{DynamicResource RoundedButtonStyle}">
                     <TextBlock TextWrapping="Wrap" TextAlignment="Center">Thalmor Triple</TextBlock>
                 </Button>
             </Viewbox>
 
             <Viewbox Grid.Column="0" Grid.Row="5" MaxWidth="400">
-                <Button Click="SmokehouseSkeleton_Click" Grid.Column="0" Grid.Row="4" Width="115" Height="25" Foreground="White" Background="LightSkyBlue" FontWeight="Bold" FontSize="9" Style="{DynamicResource RoundedButtonStyle}">
+                <Button x:Name="SmokehouseSkeletonButton" Click="SmokehouseSkeleton_Click" Grid.Column="0" Grid.Row="4" Width="115" Height="25" Foreground="White" Background="LightSkyBlue" FontWeight="Bold" FontSize="9" Style="{DynamicResource RoundedButtonStyle}">
                     <TextBlock TextWrapping="Wrap" TextAlignment="Center">Smokehouse Skeleton</TextBlock>
                 </Button>
             </Viewbox>
 
             <Viewbox Grid.Column="0" Grid.Row="6" MaxWidth="400">
-                <Button Click="GardenOrcOmelette_Click" Grid.Column="0" Grid.Row="5" Width="115" Height="25" Foreground="White" Background="LightSkyBlue" FontWeight="Bold" FontSize="9" Style="{DynamicResource RoundedButtonStyle}">
+                <Button x:Name="GardenOrdOmeletteButton" Click="GardenOrcOmelette_Click" Grid.Column="0" Grid.Row="5" Width="115" Height="25" Foreground="White" Background="LightSkyBlue" FontWeight="Bold" FontSize="9" Style="{DynamicResource RoundedButtonStyle}">
                     <TextBlock TextWrapping="Wrap" TextAlignment="Center">Garden Orc Omlette</TextBlock>
                 </Button>
             </Viewbox>
 
             <Viewbox Grid.Column="0" Grid.Row="7" MaxWidth="400">
-                <Button Click="ThugsTBone_Click" Grid.Column="0" Grid.Row="6" Width="115" Height="25" Foreground="White" Background="LightSkyBlue" FontWeight="Bold" FontSize="9" Style="{DynamicResource RoundedButtonStyle}">
+                <Button x:Name="ThugsTBoneButton" Click="ThugsTBone_Click" Grid.Column="0" Grid.Row="6" Width="115" Height="25" Foreground="White" Background="LightSkyBlue" FontWeight="Bold" FontSize="9" Style="{DynamicResource RoundedButtonStyle}">
                     <TextBlock TextWrapping="Wrap" TextAlignment="Center">Thugs T-Bone</TextBlock>
                 </Button>
             </Viewbox>
 
             <Viewbox Grid.Column="0" Grid.Row="8" MaxWidth="400">
-                <Button Click="PhillyPoacher_Click" Grid.Column="0" Width="115" Height="25" Foreground="White" Background="LightSkyBlue" FontWeight="Bold" FontSize="9" Style="{DynamicResource RoundedButtonStyle}" >
+                <Button x:Name="PhillyPoacherButton" Click="PhillyPoacher_Click" Grid.Column="0" Width="115" Height="25" Foreground="White" Background="LightSkyBlue" FontWeight="Bold" FontSize="9" Style="{DynamicResource RoundedButtonStyle}" >
                     <TextBlock TextWrapping="Wrap" TextAlignment="Center">Philly Poacher</TextBlock>
                 </Button>
             </Viewbox>
 
             <Viewbox Grid.Column="1" Grid.Row="2" MaxWidth="400">
-                <Button Click="SailorSoda_Click"  Grid.Column="1" Grid.Row="1" Width="115" Height="25" Foreground="White" Background="LightSkyBlue" FontWeight="Bold" FontSize="9" Style="{DynamicResource RoundedButtonStyle}">
+                <Button x:Name="SailorSodaButton" Click="SailorSoda_Click"  Grid.Column="1" Grid.Row="1" Width="115" Height="25" Foreground="White" Background="LightSkyBlue" FontWeight="Bold" FontSize="9" Style="{DynamicResource RoundedButtonStyle}">
                     <TextBlock TextWrapping="Wrap" TextAlignment="Center">Sailor Soda</TextBlock>
                 </Button>
             </Viewbox>
 
             <Viewbox Grid.Column="1" Grid.Row="3" MaxWidth="400">
-                <Button Click="MarkarthMilk_Click" Grid.Column="1" Grid.Row="2" Width="115" Height="25" Foreground="White" Background="LightSkyBlue" FontWeight="Bold" FontSize="9" Style="{DynamicResource RoundedButtonStyle}">
+                <Button x:Name="MarkarthMilkButton" Click="MarkarthMilk_Click" Grid.Column="1" Grid.Row="2" Width="115" Height="25" Foreground="White" Background="LightSkyBlue" FontWeight="Bold" FontSize="9" Style="{DynamicResource RoundedButtonStyle}">
                     <TextBlock TextWrapping="Wrap" TextAlignment="Center">Markarth Milk</TextBlock>
                 </Button>
             </Viewbox>
 
             <Viewbox Grid.Column="1" Grid.Row="4" MaxWidth="400">
-                <Button Click="AretinoAppleJuice_Click" Grid.Column="1" Grid.Row="3" Width="115" Height="25" Foreground="White" Background="LightSkyBlue" FontWeight="Bold" FontSize="9" Style="{DynamicResource RoundedButtonStyle}">
+                <Button x:Name="AretinoAppleJuiceButton" Click="AretinoAppleJuice_Click" Grid.Column="1" Grid.Row="3" Width="115" Height="25" Foreground="White" Background="LightSkyBlue" FontWeight="Bold" FontSize="9" Style="{DynamicResource RoundedButtonStyle}">
                     <TextBlock TextWrapping="Wrap" TextAlignment="Center">Aretino Apple Juice</TextBlock>
                 </Button>
             </Viewbox>
 
             <Viewbox Grid.Column="1" Grid.Row="5" MaxWidth="400">
-                <Button Click="CandlehearthCoffee_Click" Grid.Column="1" Grid.Row="4" Width="115" Height="25" Foreground="White" Background="LightSkyBlue" FontWeight="Bold" FontSize="9" Style="{DynamicResource RoundedButtonStyle}">
+                <Button x:Name="CandlehearthCoffeeButton" Click="CandlehearthCoffee_Click" Grid.Column="1" Grid.Row="4" Width="115" Height="25" Foreground="White" Background="LightSkyBlue" FontWeight="Bold" FontSize="9" Style="{DynamicResource RoundedButtonStyle}">
                     <TextBlock TextWrapping="Wrap" TextAlignment="Center">Candlehearth Coffee</TextBlock>
                 </Button>
             </Viewbox>
 
             <Viewbox Grid.Column="1" Grid.Row="6" MaxWidth="400">
-                <Button Click="WarriorWater_Click" Grid.Column="1" Grid.Row="5" Width="115" Height="25" Foreground="White" Background="LightSkyBlue" FontWeight="Bold" FontSize="9" Style="{DynamicResource RoundedButtonStyle}">
+                <Button x:Name="WarriorWaterButton" Click="WarriorWater_Click" Grid.Column="1" Grid.Row="5" Width="115" Height="25" Foreground="White" Background="LightSkyBlue" FontWeight="Bold" FontSize="9" Style="{DynamicResource RoundedButtonStyle}">
                     <TextBlock TextWrapping="Wrap" TextAlignment="Center">Warrior Water</TextBlock>
                 </Button>
             </Viewbox>
 
+            
+
             <Viewbox Grid.Column="2" Grid.Row="2" MaxWidth="400">
-                <Button Click="VokunSalad_Click" Grid.Column="2" Grid.Row="1" Width="115" Height="25" Foreground="White" Background="LightSkyBlue" FontWeight="Bold" FontSize="9" Style="{DynamicResource RoundedButtonStyle}">
+                <Button x:Name="VokunSaladButton" Click="VokunSalad_Click" Grid.Column="2" Grid.Row="1" Width="115" Height="25" Foreground="White" Background="LightSkyBlue" FontWeight="Bold" FontSize="9" Style="{DynamicResource RoundedButtonStyle}">
                     <TextBlock TextWrapping="Wrap" TextAlignment="Center">Vokun Salad</TextBlock>
                 </Button>
             </Viewbox>
 
             <Viewbox Grid.Column="2" Grid.Row="3" MaxWidth="400">
-                <Button Click="FriedMiraak_Click" Grid.Column="2" Grid.Row="2" Width="115" Height="25" Foreground="White" Background="LightSkyBlue"  FontWeight="Bold" FontSize="9" Style="{DynamicResource RoundedButtonStyle}">
+                <Button x:Name="FriedMiraakButton" Click="FriedMiraak_Click" Grid.Column="2" Grid.Row="2" Width="115" Height="25" Foreground="White" Background="LightSkyBlue"  FontWeight="Bold" FontSize="9" Style="{DynamicResource RoundedButtonStyle}">
                     <TextBlock TextWrapping="Wrap" TextAlignment="Center">Fried Miraak</TextBlock>
                 </Button>
             </Viewbox>
 
             <Viewbox Grid.Column="2" Grid.Row="4" MaxWidth="400" >
-                <Button Click="MadOtarGrits_Click" Grid.Column="2" Grid.Row="3" Width="115" Height="25" Foreground="White" Background="LightSkyBlue" FontWeight="Bold" FontSize="9" Style="{DynamicResource RoundedButtonStyle}">
+                <Button x:Name="MadOtarGritsButton" Click="MadOtarGrits_Click" Grid.Column="2" Grid.Row="3" Width="115" Height="25" Foreground="White" Background="LightSkyBlue" FontWeight="Bold" FontSize="9" Style="{DynamicResource RoundedButtonStyle}">
                     <TextBlock TextWrapping="Wrap" TextAlignment="Center">Mad Otar Grits</TextBlock>
                 </Button>
             </Viewbox>
 
             <Viewbox Grid.Column="2" Grid.Row="5"  MaxWidth="400">
-                <Button Click="DragonbornWaffleFries_Click" Grid.Column="2" Grid.Row="4" Width="115" Height="25" Foreground="White" Background="LightSkyBlue" FontSize="9" FontWeight="Bold" Style="{DynamicResource RoundedButtonStyle}">
+                <Button x:Name="DragonbornWaffleFriesButton" Click="DragonbornWaffleFries_Click" Grid.Column="2" Grid.Row="4" Width="115" Height="25" Foreground="White" Background="LightSkyBlue" FontSize="9" FontWeight="Bold" Style="{DynamicResource RoundedButtonStyle}">
                     <TextBlock TextWrapping="Wrap" TextAlignment="Center">Dragonborn Waffle Fries</TextBlock>
                 </Button>
             </Viewbox>
@@ -310,15 +365,24 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Viewbox MaxHeight="60"/>
-                <Viewbox MaxHeight="60" Grid.Column="1">
-                    <Button Click="NewOrder_Click" Style="{DynamicResource RoundedButtonStyle}" HorizontalAlignment="Center" Background="LightSkyBlue">
+                <Viewbox Margin="1" MaxHeight="60">
+                    <Button Click="Combo_Click" Style="{DynamicResource Rounded}" HorizontalAlignment="Center" Background="LightSalmon">
                         <Viewbox>
-                            <TextBlock FontWeight="Bold" Foreground="White" Background="Transparent" FontSize="2">
-                            New Order
+                            <TextBlock FontWeight="Bold" Foreground="White" Background="Transparent" FontSize="2" >
+                                Combo
                             </TextBlock>
                         </Viewbox>
-                        
+
+                    </Button>
+                </Viewbox>
+                <Viewbox Margin="1" MaxHeight="60" Grid.Column="1">
+                    <Button Click="NewOrder_Click" Style="{DynamicResource Rounded}" HorizontalAlignment="Center" Background="LightSalmon">
+                        <Viewbox>
+                            <TextBlock FontWeight="Bold" Foreground="White" Background="Transparent" FontSize="2" >
+                                New Order
+                            </TextBlock>
+                        </Viewbox>
+
                     </Button>
                 </Viewbox>
             </Grid>

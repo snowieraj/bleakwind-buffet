@@ -25,7 +25,9 @@ namespace BleakwindBuffet.Data.Drinks
         {
             Size = Size.Small;
         }
-
+        /// <summary>
+        /// Set name of item
+        /// </summary>
         public string Name => this.ToString();
 
         /// <summary>

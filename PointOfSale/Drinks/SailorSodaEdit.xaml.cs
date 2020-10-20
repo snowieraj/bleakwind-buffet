@@ -35,20 +35,22 @@ namespace PointOfSale.Drinks
         /// Menu ref
         /// </summary>
         private MenuScreen menuScreen = new MenuScreen();
-
+        //ordered ticket
         private Order orderItem;
-
+        //combo item
+        private Combination comboItem;
         /// <summary>
         /// Class constuct to get menu chosen
         /// </summary>
         /// <param name="menuItem">Item chosen</param>
-        public SailorSodaEdit(MenuScreen menuItem, SailorSoda item, Order order)
+        public SailorSodaEdit(MenuScreen menuItem, SailorSoda item, Order order, Combination combo)
         {
             InitializeComponent();
             menuScreen = menuItem;
             DataContext = item;
             itemTemp = item;
             orderItem = order;
+            comboItem = combo;
         }
         /// <summary>
         /// Go back button 
@@ -123,7 +125,7 @@ namespace PointOfSale.Drinks
             {
                 switch (check.Name)
                 {
-                    case "cherry":
+                    case "itemFive":
                         itemFive.IsChecked = true;
                         itemSix.IsChecked = false;
                         itemSeven.IsChecked = false;
@@ -132,7 +134,7 @@ namespace PointOfSale.Drinks
                         itemTen.IsChecked = false;
                         sodaFlavor = SodaFlavor.Cherry;
                         break;
-                    case "watermelon":
+                    case "itemSix":
                         itemFive.IsChecked = false;
                         itemSix.IsChecked = true;
                         itemSeven.IsChecked = false;
@@ -141,7 +143,7 @@ namespace PointOfSale.Drinks
                         itemTen.IsChecked = false;
                         sodaFlavor = SodaFlavor.Watermelon;
                         break;
-                    case "blackberry":
+                    case "itemSeven":
                         itemFive.IsChecked = false;
                         itemSix.IsChecked = false;
                         itemSeven.IsChecked = true;
@@ -150,7 +152,7 @@ namespace PointOfSale.Drinks
                         itemTen.IsChecked = false;
                         sodaFlavor = SodaFlavor.Blackberry;
                         break;
-                    case "grapefruit":
+                    case "itemEight":
                         itemFive.IsChecked = false;
                         itemSix.IsChecked = false;
                         itemSeven.IsChecked = false;
@@ -159,7 +161,7 @@ namespace PointOfSale.Drinks
                         itemTen.IsChecked = false;
                         sodaFlavor = SodaFlavor.Grapefruit;
                         break;
-                    case "lemon":
+                    case "itemNine":
                         itemFive.IsChecked = false;
                         itemSix.IsChecked = false;
                         itemSeven.IsChecked = false;
@@ -168,13 +170,13 @@ namespace PointOfSale.Drinks
                         itemTen.IsChecked = false;
                         sodaFlavor = SodaFlavor.Lemon;
                         break;
-                    case "peach":
+                    case "itemTen":
                         itemFive.IsChecked = false;
                         itemSix.IsChecked = false;
                         itemSeven.IsChecked = false;
                         itemEight.IsChecked = false;
-                        itemNine.IsChecked = true;
-                        itemTen.IsChecked = false;
+                        itemNine.IsChecked = false;
+                        itemTen.IsChecked = true;
                         sodaFlavor = SodaFlavor.Peach;
                         break;
                     default:

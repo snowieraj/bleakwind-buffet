@@ -30,7 +30,13 @@ namespace PointOfSale
     /// </summary>
     public partial class MenuScreen : UserControl
     {
+        /// <summary>
+        /// Menu items
+        /// </summary>
         private ButtonSelections buttonSelections;
+        /// <summary>
+        /// Order ticket
+        /// </summary>
         private OrderTicket orderTicket;
         /// <summary>
         /// Constructs a new MenuScreen
@@ -56,18 +62,18 @@ namespace PointOfSale
         /// <param name="e">event</param>
         void NewOrder_Click(object sender, SelectionEventHandler e)
         {
-            if (DataContext is Order order)
+            if (DataContext is Order order && DataContext is Combination combo)
             {
                 //Entrees
                 if (e.item.GetType().IsSubclassOf(typeof(BleakwindBuffet.Data.Entrees.Entree)))
                 {
-                    if (e.item is BriarheartBurger) menuBorder.Child = new BriarheartBurgerEdit(this, new BriarheartBurger(), order);
-                    else if (e.item is DoubleDraugr) menuBorder.Child = new DoubleDraugrEdit(this, new DoubleDraugr(), order);
-                    else if (e.item is GardenOrcOmelette) menuBorder.Child = new GardenOrcOmeletteEdit(this, new GardenOrcOmelette(), order);
-                    else if (e.item is PhillyPoacher) menuBorder.Child = new PhillyPoacherEdit(this, new PhillyPoacher(), order);
-                    else if (e.item is SmokehouseSkeleton) menuBorder.Child = new SmokehouseSkeletonEdit(this, new SmokehouseSkeleton(), order);
-                    else if (e.item is ThalmorTriple) menuBorder.Child = new ThalmorTripleEdit(this, new ThalmorTriple(), order);
-                    else if (e.item is ThugsTBone) menuBorder.Child = new ThugsTBoneEdit(this, new ThugsTBone(), order);
+                    if (e.item is BriarheartBurger) menuBorder.Child = new BriarheartBurgerEdit(this, new BriarheartBurger(), order, combo);
+                    else if (e.item is DoubleDraugr) menuBorder.Child = new DoubleDraugrEdit(this, new DoubleDraugr(), order, combo);
+                    else if (e.item is GardenOrcOmelette) menuBorder.Child = new GardenOrcOmeletteEdit(this, new GardenOrcOmelette(), order, combo);
+                    else if (e.item is PhillyPoacher) menuBorder.Child = new PhillyPoacherEdit(this, new PhillyPoacher(), order, combo);
+                    else if (e.item is SmokehouseSkeleton) menuBorder.Child = new SmokehouseSkeletonEdit(this, new SmokehouseSkeleton(), order, combo);
+                    else if (e.item is ThalmorTriple) menuBorder.Child = new ThalmorTripleEdit(this, new ThalmorTriple(), order, combo);
+                    else if (e.item is ThugsTBone) menuBorder.Child = new ThugsTBoneEdit(this, new ThugsTBone(), order, combo);
 
 
 
@@ -75,20 +81,20 @@ namespace PointOfSale
                 //Drinks
                 if (e.item.GetType().IsSubclassOf(typeof(BleakwindBuffet.Data.Drinks.Drink)))
                 {
-                    if (e.item is AretinoAppleJuice) menuBorder.Child = new ArentinoAppleJuiceEdit(this, new AretinoAppleJuice(), order);
-                    else if (e.item is CandlehearthCoffee) menuBorder.Child = new CandlehearthCoffeeEdit(this, new CandlehearthCoffee(), order);
-                    else if (e.item is MarkarthMilk) menuBorder.Child = new MarkarthMilkEdit(this, new MarkarthMilk(), order);
-                    else if (e.item is SailorSoda) menuBorder.Child = new SailorSodaEdit(this, new SailorSoda(), order);
-                    else if (e.item is WarriorWater) menuBorder.Child = new WarriorWaterEdit(this, new WarriorWater(), order);
+                    if (e.item is AretinoAppleJuice) menuBorder.Child = new ArentinoAppleJuiceEdit(this, new AretinoAppleJuice(), order, combo);
+                    else if (e.item is CandlehearthCoffee) menuBorder.Child = new CandlehearthCoffeeEdit(this, new CandlehearthCoffee(), order, combo);
+                    else if (e.item is MarkarthMilk) menuBorder.Child = new MarkarthMilkEdit(this, new MarkarthMilk(), order, combo);
+                    else if (e.item is SailorSoda) menuBorder.Child = new SailorSodaEdit(this, new SailorSoda(), order, combo);
+                    else if (e.item is WarriorWater) menuBorder.Child = new WarriorWaterEdit(this, new WarriorWater(), order, combo);
                 }
 
                 //Sides
                 if (e.item.GetType().IsSubclassOf(typeof(BleakwindBuffet.Data.Sides.Side)))
                 {
-                    if (e.item is DragonbornWaffleFries) menuBorder.Child = new DragonbornWaffleFriesEdit(this, new DragonbornWaffleFries(), order);
-                    else if (e.item is FriedMiraak) menuBorder.Child = new FriedMiraakEdit(this, new FriedMiraak(), order);
-                    else if (e.item is MadOtarGrits) menuBorder.Child = new MadOtarGritsEdit(this, new MadOtarGrits(), order);
-                    else if (e.item is VokunSalad) menuBorder.Child = new VokunSaladEdit(this, new VokunSalad(), order);
+                    if (e.item is DragonbornWaffleFries) menuBorder.Child = new DragonbornWaffleFriesEdit(this, new DragonbornWaffleFries(), order, combo);
+                    else if (e.item is FriedMiraak) menuBorder.Child = new FriedMiraakEdit(this, new FriedMiraak(), order, combo);
+                    else if (e.item is MadOtarGrits) menuBorder.Child = new MadOtarGritsEdit(this, new MadOtarGrits(), order, combo);
+                    else if (e.item is VokunSalad) menuBorder.Child = new VokunSaladEdit(this, new VokunSalad(), order, combo);
                 }
             }
 

@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="PointOfSale.ComboEditor.ComboEdit"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale.ComboEditor"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Viewbox Margin="200">
+        <StackPanel Width="250">
+            <TextBlock TextAlignment="Center" FontWeight="Bold" FontSize="20" Foreground="White">
+                Customize Combo
+            </TextBlock>
+            <Button Click="ChangeEntree_Click"  Style="{DynamicResource DoneRound}" Background="SkyBlue" Foreground="White">
+                <TextBlock TextAlignment="Center" FontWeight="Bold" FontSize="20">
+                Change Entree
+                </TextBlock>
+            </Button>
+            <Button Click="ChangeSide_Click" Style="{DynamicResource DoneRound}" Background="SkyBlue" Foreground="White">
+                <TextBlock TextAlignment="Center" FontWeight="Bold" FontSize="20">
+                Change Side
+                </TextBlock>
+            </Button >
+            <Button Click="ChangeDrink_Click" Style="{DynamicResource DoneRound}" Background="SkyBlue" Foreground="White">
+                <TextBlock TextAlignment="Center" FontWeight="Bold" FontSize="20">
+                Change Drink
+                </TextBlock>
+            </Button>
+            <Button Click="ConfirmOrder_Click" Style="{DynamicResource DoneRound}" Background="SkyBlue" Foreground="White">
+                <TextBlock TextAlignment="Center" FontWeight="Bold" FontSize="20">
+                Confirm Order
+                </TextBlock>
+            </Button>
+            <Button Click="Cancel_Click" Style="{DynamicResource ReturnRound}" Background="SkyBlue" Foreground="White">
+                <TextBlock TextAlignment="Center" FontWeight="Bold" FontSize="20">
+                Cancel
+                </TextBlock>
+            </Button>
+        </StackPanel>
+        </Viewbox>
+    </Grid>
+</UserControl>

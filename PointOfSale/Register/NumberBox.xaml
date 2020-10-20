@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="PointOfSale.Register.NumberBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale.Register"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button Style="{DynamicResource AddSub}" Name="IncrementButton" Click="Increment_Click" Grid.Column="0" Content="+"/>
+        <TextBlock Grid.Column="1" Text="{Binding Path=Value, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:NumberBox}}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button Style="{DynamicResource AddSub}" Name="DecrementButton" Click="Decrement_Click" Grid.Column="2" Content="-"/>
+    </Grid>
+</UserControl>

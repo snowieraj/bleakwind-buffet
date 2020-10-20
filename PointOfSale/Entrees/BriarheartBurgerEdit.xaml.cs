@@ -31,20 +31,22 @@ namespace PointOfSale
         /// menu ref
         /// </summary>
         private MenuScreen menuScreen = new MenuScreen();
-
+        //order ticket
         private Order orderItem;
-
+        //combo item
+        private Combination comboItem;
         /// <summary>
         /// Class contrusct to get item chosen
         /// </summary>
         /// <param name="menuItem"></param>
-        public BriarheartBurgerEdit(MenuScreen menuItem, BriarheartBurger temp, Order order)
+        public BriarheartBurgerEdit(MenuScreen menuItem, BriarheartBurger temp, Order order, Combination combo)
         {
             InitializeComponent();
             menuScreen = menuItem;
             DataContext = temp;
             itemTemp = temp;
             orderItem = order;
+            comboItem = combo;
 
         }
         /// <summary>

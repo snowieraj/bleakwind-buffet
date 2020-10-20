@@ -27,6 +27,13 @@
 
 
   <ItemGroup>
+    <Reference Include="RoundRegister">
+      <HintPath>RoundRegister.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+
+  <ItemGroup>
     <Resource Include="Images\Add.png" />
     <Resource Include="Images\B7.jpg" />
     <Resource Include="Images\Back.png" />
