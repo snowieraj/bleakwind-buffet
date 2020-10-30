@@ -1,0 +1,72 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<h1>Welcome to Bleakwind Buffet</h1>
+<p>We at Bleakwind Buffet are proud to bring you authentic fantasy meals straight from the world of Skyrim. 
+    Shake the blood off your sword and sake your thirst with one of our old-fashioned sailor sodas. 
+    Hack into a Smokehouse Skeleton with your dagger. Or vanquish the the mighty Thalmor Triple Burger!
+    You’ve had a hard adventure and earned your loot, so spend it with us!.</p>
+<h2>Combo Details</h2>
+<div>
+    <p>
+        Any entree, side, and drink can be conbined into a Combo with a $1 discount!
+    </p>
+</div>
+<h2>Entrees</h2>
+<div class="menu-item">
+    <!---Name of the item, its price and its calories-->
+    @foreach(IOrderItem orderItems in Menu.Entrees())
+    {
+        
+        <div>
+            <h4>@orderItems.ToString()</h4>
+            <p>Price: $@orderItems.Price<br/>Calories: @orderItems.Calories</p>
+
+        </div>
+        
+    }
+</div>
+<h2>Sides</h2>
+<div class="menu-item">
+    <!---Name of the item, its price and its calories-->
+    @foreach (IOrderItem orderItems in Menu.Sides())
+    {         
+            <h4>@orderItems.ToString()</h4>
+            <p>Price: $@orderItems.Price<br />Calories: @orderItems.Calories</p>
+    }
+</div>
+<h2>Drinks</h2>
+<div class="menu-item">
+    <!---Name of the item, its price and its calories-->
+    @foreach (IOrderItem orderItems in Menu.Drinks())
+    {
+
+    <div>
+        @if (!(orderItems.ToString().Contains("Sailor Soda")))
+        {
+            <h4>@orderItems.ToString()</h4>
+            <p>Price: $@orderItems.Price<br />Calories: @orderItems.Calories</p>
+        }
+        
+        
+    </div>
+    }
+    <h4>Sailor Soda</h4>
+    @foreach(IOrderItem orderItems in Menu.Drinks())
+    {
+        <div>
+            @if(orderItems.ToString().Contains("Sailor Soda"))
+            {
+                <h5>@orderItems.ToString()</h5>
+                <p>
+                    Price: $@orderItems.Price
+                    <br/>
+                    Calories: @orderItems.Calories
+                </p>
+            }
+        </div>
+    }
+</div>
+
