@@ -9,14 +9,17 @@ using System.Data.Common;
 using System.Dynamic;
 using System.Linq;
 using System.Net.Http.Headers;
+using System.Net.Mail;
 using System.Net.NetworkInformation;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Text;
+using System.Xml.Schema;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Sides;
+using System.IO;
 
 namespace BleakwindBuffet.Data.Menu
 {
@@ -41,6 +44,7 @@ namespace BleakwindBuffet.Data.Menu
             list.Add(new ThugsTBone());
             return list;
         }
+
         /// <summary>
         /// All side items
         /// </summary>
@@ -482,5 +486,122 @@ namespace BleakwindBuffet.Data.Menu
             return list;
         }
 
+        /// <summary>
+        /// Return the search of the item 
+        /// </summary>
+        /// <param name="orderitem">menu</param>
+        /// <param name="searching">item searching for</param>
+        /// <returns></returns>
+        public static IEnumerable<IOrderItem> Search(IEnumerable<IOrderItem> orderitem, string Searching)
+        {
+            List<IOrderItem> results = new List<IOrderItem>();
+            if (Searching == null) return orderitem;
+
+            foreach (IOrderItem item in orderitem)
+            {
+                if(item.ToString() != null && item.ToString().ToLower().Contains(Searching))//if the item conatins the string
+                {
+                    results.Add(item);
+                }
+            }
+            return results;
+
+        }
+        /// <summary>
+        /// Returns menu items with calories in a range
+        /// </summary>
+        /// <param name="orderitem">menu</param>
+        /// <param name="caloriemin">minumim range</param>
+        /// <param name="caloriemax">max range</param>
+        /// <returns></returns>
+        public static IEnumerable<IOrderItem> FilterByCalories(IEnumerable<IOrderItem> orderitem, int? caloriemin, int? caloriemax)
+        {
+            List<IOrderItem> results = new List<IOrderItem>();
+
+            if (caloriemin == null && caloriemax == null) return orderitem;
+
+            if (caloriemin == null)
+            {
+                foreach (IOrderItem item in orderitem)
+                {
+                    if (item.Calories <= caloriemax) results.Add(item);
+                }
+                return results;
+            }
+            if (caloriemax == null)
+            {
+                foreach (IOrderItem item in orderitem)
+                {
+                    if (item.Calories >= caloriemin) results.Add(item);
+                }
+                return results;
+            }
+            foreach (IOrderItem item in orderitem)
+            {
+                if (item.Calories >= caloriemin && item.Calories <= caloriemax) results.Add(item);
+            }
+            return results;
+        }
+        /// <summary>
+        /// Filter by min and max of price
+        /// </summary>
+        /// <param name="orderitem"></param>
+        /// <param name="pricemin"></param>
+        /// <param name="pricemax"></param>
+        /// <returns></returns>
+        public static IEnumerable<IOrderItem> FilterByPrice(IEnumerable<IOrderItem> orderitem, double? pricemin, double? pricemax)
+        {
+            List<IOrderItem> results = new List<IOrderItem>();
+
+            if (pricemin == null && pricemax == null) return orderitem;
+
+            if (pricemin == null)
+            {
+                foreach(IOrderItem item in orderitem)
+                {
+                    if (item.Price <= pricemax) results.Add(item);
+                }
+                return results;
+            }
+            if (pricemax == null)
+            {
+                foreach (IOrderItem item in orderitem)
+                {
+                    if (item.Price >= pricemin) results.Add(item);
+                }
+                return results;
+            }
+            foreach(IOrderItem item in orderitem)
+            {
+                if (item.Price >= pricemin && item.Price <= pricemax) results.Add(item);
+            }
+            return results;
+            
+        }
+
+        public static IEnumerable<IOrderItem> FilterByChoice(IEnumerable<IOrderItem> orderitem, IEnumerable<string> choice)
+        {
+            List<IOrderItem> results = new List<IOrderItem>();
+            if (choice.Count() == 0) return orderitem; 
+        
+
+            foreach(IOrderItem item in orderitem)
+            {
+                if (item is Entree && choice.Contains("Entree"))
+                {
+                    results.Add(item);
+                }
+                if(item is Drink && choice.Contains("Drink"))
+                {
+                    results.Add(item);
+                }
+                if(item is Side && choice.Contains("Side"))
+                {
+                    results.Add(item);
+                }    
+            }
+           
+            return results;
+        }
     }
 }

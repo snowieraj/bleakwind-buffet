@@ -4,69 +4,78 @@
     ViewData["Title"] = "Home page";
 }
 <h1>Welcome to Bleakwind Buffet</h1>
-<p>We at Bleakwind Buffet are proud to bring you authentic fantasy meals straight from the world of Skyrim. 
-    Shake the blood off your sword and sake your thirst with one of our old-fashioned sailor sodas. 
+<p>
+    We at Bleakwind Buffet are proud to bring you authentic fantasy meals straight from the world of Skyrim.
+    Shake the blood off your sword and sake your thirst with one of our old-fashioned sailor sodas.
     Hack into a Smokehouse Skeleton with your dagger. Or vanquish the the mighty Thalmor Triple Burger!
-    You’ve had a hard adventure and earned your loot, so spend it with us!.</p>
+    You’ve had a hard adventure and earned your loot, so spend it with us!.
+</p>
 <h2>Combo Details</h2>
 <div>
     <p>
         Any entree, side, and drink can be conbined into a Combo with a $1 discount!
     </p>
 </div>
-<h2>Entrees</h2>
-<div class="menu-item">
-    <!---Name of the item, its price and its calories-->
-    @foreach(IOrderItem orderItems in Menu.Entrees())
-    {
-        
-        <div>
-            <h4>@orderItems.ToString()</h4>
-            <p>Price: $@orderItems.Price<br/>Calories: @orderItems.Calories</p>
 
-        </div>
-        
-    }
-</div>
-<h2>Sides</h2>
-<div class="menu-item">
-    <!---Name of the item, its price and its calories-->
-    @foreach (IOrderItem orderItems in Menu.Sides())
-    {         
-            <h4>@orderItems.ToString()</h4>
-            <p>Price: $@orderItems.Price<br />Calories: @orderItems.Calories</p>
-    }
-</div>
-<h2>Drinks</h2>
-<div class="menu-item">
-    <!---Name of the item, its price and its calories-->
-    @foreach (IOrderItem orderItems in Menu.Drinks())
-    {
+<form id="item-database">
 
-    <div>
-        @if (!(orderItems.ToString().Contains("Sailor Soda")))
-        {
-            <h4>@orderItems.ToString()</h4>
-            <p>Price: $@orderItems.Price<br />Calories: @orderItems.Calories</p>
-        }
-        
-        
+    <div id="search">
+        <input type="text" name="Searching" value="@Model.SearchTerms"/>
+        <input type="submit" value="Search">
     </div>
-    }
-    <h4>Sailor Soda</h4>
-    @foreach(IOrderItem orderItems in Menu.Drinks())
-    {
-        <div>
-            @if(orderItems.ToString().Contains("Sailor Soda"))
-            {
-                <h5>@orderItems.ToString()</h5>
-                <p>
-                    Price: $@orderItems.Price
-                    <br/>
-                    Calories: @orderItems.Calories
-                </p>
-            }
-        </div>
-    }
-</div>
+
+    <div id="filters">
+        <h4>Menu Choice</h4>
+        <label>
+            <input type="checkbox" name="MenuChoice" value="Entree"/>
+            Entree
+        </label>
+        <label>
+            <input type="checkbox" name="MenuChoice" value="Side" />
+            Side
+        </label>
+        <label>
+            <input type="checkbox" name="MenuChoice" value="Drink" />
+            Drink
+        </label>
+   
+        <h4>Calories</h4>
+        Between
+        <input name="CalorieMin" type="number" min="0.00" max="10.00" step="1" placeholder="min" />
+        and
+        <input name="CalorieMax" type="number" min="0.00" max="10.00" step="1" placeholder="max" />
+  
+        <h4>Price</h4>
+        Between
+        <input name="PriceMin" type="number" min="0.00" max="10.00" step="0.1" placeholder="min" />
+        and
+        <input name="PriceMax" type="number" min="0.00" max="10.00" step="0.1" placeholder="max" />
+    </div>
+
+    
+    
+
+    <div id="item-database">
+        <h1>Menu Results</h1>
+
+        <h1>Entrees</h1>
+        @foreach (Entree item in @Model.Entree)
+        {
+            <h4>@item.ToString()</h4>
+            <p>Price: $@item.Price<br />Calories: @item.Calories</p>
+        }
+        <h1>Sides</h1>
+        @foreach (Side item in @Model.Side)
+        {
+            <h4>@item.ToString()</h4>
+            <p>Price: $@item.Price<br />Calories: @item.Calories</p>
+        }
+        <h1>Drinks</h1>
+        @foreach (IOrderItem item in @Model.Drink)
+        {
+            <h4>@item.ToString()</h4>
+            <p>Price: $@item.Price<br />Calories: @item.Calories</p>
+        }
+    </div>
+</form>
 
