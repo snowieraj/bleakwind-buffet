@@ -31,6 +31,10 @@ namespace BleakwindBuffet.Data.Sides
 
         }
         /// <summary>
+        /// The desc of the item
+        /// </summary>
+        public abstract string Description { get; }
+        /// <summary>
         /// Deafult Size 
         /// </summary>
         protected Size size = Size.Small;

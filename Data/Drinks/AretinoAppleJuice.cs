@@ -18,7 +18,7 @@ namespace BleakwindBuffet.Data.Drinks
     /// </summary>
     public class AretinoAppleJuice : Drink, IOrderItem
     {
-        
+        public override string Description => "Fresh squeezed apple juice.";
         /// <summary>
         /// Default item size
         /// </summary>

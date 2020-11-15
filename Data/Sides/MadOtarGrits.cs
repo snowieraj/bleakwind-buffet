@@ -16,6 +16,7 @@ namespace BleakwindBuffet.Data.Sides
     /// </summary>
     public class MadOtarGrits : Side, IOrderItem
     {
+        public override string Description => "Cheesey Grits.";
         /// <summary>
         /// Default item sizes 
         /// </summary>

@@ -14,6 +14,8 @@ namespace BleakwindBuffet.Data.Entrees
     /// </summary>
     public class SmokehouseSkeleton : Entree, IOrderItem
     {
+        public override string Description => " Put some meat on those bones with a small stack of pancakes. " +
+            "Includes sausage links, eggs, and hash browns on the side. Topped with the syrup of your choice.";
         /// <summary>
         /// Gets the price for the breakfast combo
         /// </summary>

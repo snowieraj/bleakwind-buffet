@@ -18,6 +18,7 @@ namespace BleakwindBuffet.Data.Drinks
     /// </summary>
     public class CandlehearthCoffee : Drink, IOrderItem
     {
+        public override string Description => "Fair trade, fresh ground dark roast coffee.";
         /// <summary>
         /// Default size for menu item
         /// </summary>

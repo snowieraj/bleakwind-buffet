@@ -17,8 +17,10 @@ namespace BleakwindBuffet.Data.Menu
     /// </summary>
     public interface IOrderItem : INotifyPropertyChanged
     {
-        
-
+        /// <summary>
+        /// Gets the desc of the item
+        /// </summary>
+        string Description { get; }
         /// <summary>
         /// The price of the item
         /// </summary>

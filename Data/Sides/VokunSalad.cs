@@ -16,6 +16,7 @@ namespace BleakwindBuffet.Data.Sides
     /// </summary>
     public class VokunSalad : Side, IOrderItem
     {
+        public override string Description => "A seasonal fruit salad of mellons, berries, mango, grape, apple, and oranges.";
         /// <summary>
         /// Default menu size
         /// </summary>

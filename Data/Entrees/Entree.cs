@@ -33,6 +33,10 @@ namespace BleakwindBuffet.Data.Entrees
 
         }
         /// <summary>
+        /// The desc of the item
+        /// </summary>
+        public abstract string Description { get; }
+        /// <summary>
         /// The price of the entree
         /// </summary>
         /// </value>

@@ -18,7 +18,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// </summary>
     public class BriarheartBurger : Entree, IOrderItem
     {
-  
+        public override string Description => "Single patty burger on a brioche bun. Comes with ketchup, mustard, pickle, and cheese.";
         /// <summary>
         /// Gets the price of the burger
         /// </summary>

@@ -16,6 +16,7 @@ namespace BleakwindBuffet.Data.Sides
     /// </summary>
     public class FriedMiraak : Side, IOrderItem
     {
+        public override string Description => "Perfectly prepared hash brown pancakes.";
         /// <summary>
         /// Default item size
         /// </summary>

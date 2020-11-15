@@ -16,6 +16,7 @@ namespace BleakwindBuffet.Data.Drinks
     /// </summary>
     public class WarriorWater : Drink, IOrderItem
     {
+        public override string Description => "It's water. Just water.";
         /// <summary>
         /// Default menu item size
         /// </summary>

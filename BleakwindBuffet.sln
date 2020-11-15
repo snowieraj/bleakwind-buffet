@@ -11,9 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PointOfSale", "PointOfSale\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PointOfSaleTests", "PointOfSaleTests\PointOfSaleTests.csproj", "{5658F876-1D80-4EF6-AE97-129FD163E93E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Website", "Website\Website.csproj", "{46DDF0D1-5547-4AC0-8E1A-6F448CA7EB91}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebsiteTests", "WebsiteTests\WebsiteTests.csproj", "{BD51BA38-DD02-4EF0-847D-B48F9E0E6E1E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Website", "Website\Website.csproj", "{46DDF0D1-5547-4AC0-8E1A-6F448CA7EB91}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,10 +39,6 @@ Global
 		{46DDF0D1-5547-4AC0-8E1A-6F448CA7EB91}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46DDF0D1-5547-4AC0-8E1A-6F448CA7EB91}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46DDF0D1-5547-4AC0-8E1A-6F448CA7EB91}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BD51BA38-DD02-4EF0-847D-B48F9E0E6E1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BD51BA38-DD02-4EF0-847D-B48F9E0E6E1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BD51BA38-DD02-4EF0-847D-B48F9E0E6E1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BD51BA38-DD02-4EF0-847D-B48F9E0E6E1E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

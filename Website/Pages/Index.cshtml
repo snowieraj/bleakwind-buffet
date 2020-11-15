@@ -19,15 +19,16 @@
 
 <form id="item-database">
 
+
     <div id="search">
-        <input type="text" name="Searching" value="@Model.SearchTerms"/>
+        <input type="text" name="Searching" value="@Model.SearchTerms" />
         <input type="submit" value="Search">
     </div>
 
     <div id="filters">
         <h4>Menu Choice</h4>
         <label>
-            <input type="checkbox" name="MenuChoice" value="Entree"/>
+            <input type="checkbox" name="MenuChoice" value="Entree" />
             Entree
         </label>
         <label>
@@ -38,44 +39,47 @@
             <input type="checkbox" name="MenuChoice" value="Drink" />
             Drink
         </label>
-   
+
         <h4>Calories</h4>
         Between
-        <input name="CalorieMin" type="number" min="0.00" max="10.00" step="1" placeholder="min" />
+        <input name="CalorieMin" type="number" min="0.00" max="841" step="1" placeholder="min" />
         and
-        <input name="CalorieMax" type="number" min="0.00" max="10.00" step="1" placeholder="max" />
-  
+        <input name="CalorieMax" type="number" min="0.00" max="842" step="1" placeholder="max" />
+
         <h4>Price</h4>
         Between
-        <input name="PriceMin" type="number" min="0.00" max="10.00" step="0.1" placeholder="min" />
+        <input name="PriceMin" type="number" min="0.00" max="8.31" step="0.1" placeholder="min" />
         and
-        <input name="PriceMax" type="number" min="0.00" max="10.00" step="0.1" placeholder="max" />
+        <input name="PriceMax" type="number" min="0.00" max="8.32" step="0.1" placeholder="max" />
     </div>
-
-    
-    
-
-    <div id="item-database">
-        <h1>Menu Results</h1>
-
-        <h1>Entrees</h1>
-        @foreach (Entree item in @Model.Entree)
-        {
-            <h4>@item.ToString()</h4>
-            <p>Price: $@item.Price<br />Calories: @item.Calories</p>
-        }
-        <h1>Sides</h1>
-        @foreach (Side item in @Model.Side)
-        {
-            <h4>@item.ToString()</h4>
-            <p>Price: $@item.Price<br />Calories: @item.Calories</p>
-        }
-        <h1>Drinks</h1>
-        @foreach (IOrderItem item in @Model.Drink)
-        {
-            <h4>@item.ToString()</h4>
-            <p>Price: $@item.Price<br />Calories: @item.Calories</p>
-        }
+    <div class="flex-columns">
+        <div>
+            <h1>Entrees</h1>
+            @foreach (Entree item in @Model.Entree)
+            {
+                <h4>@item.ToString()</h4>
+                <p>@item.Description</p>
+                <p>Price: $@item.Price<br />Calories: @item.Calories</p>
+            }
+        </div>
+        <div>
+            <h1>Sides</h1>
+            @foreach (Side item in @Model.Side)
+            {
+                <h4>@item.ToString()</h4>
+                <p>@item.Description</p>
+                <p>Price: $@item.Price<br />Calories: @item.Calories</p>
+            }
+        </div>
+        <div>
+            <h1>Drinks</h1>
+            @foreach (IOrderItem item in @Model.Drink)
+            {
+                <h4>@item.ToString()</h4>
+                <p>@item.Description</p>
+                <p>Price: $@item.Price<br />Calories: @item.Calories</p>
+            }
+        </div>
     </div>
 </form>
-
+<div class="clearfix"></div>

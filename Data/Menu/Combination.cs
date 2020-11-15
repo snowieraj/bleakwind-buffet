@@ -19,15 +19,11 @@ namespace BleakwindBuffet.Data.Menu
 {
     public class Combination : IOrderItem, INotifyPropertyChanged
     {
-
+        
         /// <summary>
         /// Property notification when side, entree, drink change
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
-
-        
-        
-
         /// <summary>
         /// Drink property changed
         /// </summary>
@@ -135,6 +131,9 @@ namespace BleakwindBuffet.Data.Menu
         /// Total calories
         /// </summary>
         public uint Calories => Drink.Calories + Entree.Calories + Side.Calories;
+
+        public string Description => throw new NotImplementedException();
+
         /// <summary>
         /// Listener from when items update
         /// </summary>

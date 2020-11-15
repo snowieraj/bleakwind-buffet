@@ -16,6 +16,7 @@ namespace BleakwindBuffet.Data.Drinks
     /// </summary>
     public class MarkarthMilk : Drink, IOrderItem
     {
+        public override string Description => "Hormone-free organic 2% milk.";
         /// <summary>
         /// Default menu size
         /// </summary>

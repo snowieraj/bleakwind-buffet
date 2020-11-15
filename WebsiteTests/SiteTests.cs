@@ -11,9 +11,10 @@ namespace WebsiteTests
     public class SiteTests
     {
         [Fact]
-        public void SiteShouldContain()
+        public void FilterBySearchShouldGiveCorrectItems()
         {
-            
+            IEnumerable<IOrderItem> flavor = Menu.Search("Cherry");
+
         }
     }
 }

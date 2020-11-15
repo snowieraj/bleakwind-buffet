@@ -485,6 +485,8 @@ namespace BleakwindBuffet.Data.Menu
 
             return list;
         }
+        
+        public static IEnumerable<IOrderItem> All { get { return FullMenu(); } }
 
         /// <summary>
         /// Return the search of the item 
@@ -579,11 +581,11 @@ namespace BleakwindBuffet.Data.Menu
             
         }
 
-        public static IEnumerable<IOrderItem> FilterByChoice(IEnumerable<IOrderItem> orderitem, IEnumerable<string> choice)
+        public static IEnumerable<IOrderItem> FilterByChoice(IEnumerable<IOrderItem> orderitem, string[] choice)
         {
             List<IOrderItem> results = new List<IOrderItem>();
-            if (choice.Count() == 0) return orderitem; 
-        
+            if (choice == null || choice.Length == 0) return orderitem; 
+            
 
             foreach(IOrderItem item in orderitem)
             {
@@ -603,5 +605,6 @@ namespace BleakwindBuffet.Data.Menu
            
             return results;
         }
+
     }
 }

@@ -17,7 +17,7 @@ namespace BleakwindBuffet.Data.Sides
     /// </summary>
     public class DragonbornWaffleFries : Side, IOrderItem
     {
-        
+        public override string Description => "Crispy fried potato waffle fries.";
         /// <summary>
         /// Setting default size
         /// </summary>

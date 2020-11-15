@@ -17,6 +17,8 @@ namespace BleakwindBuffet.Data.Entrees
     /// </summary>
     public class DoubleDraugr : Entree, IOrderItem
     {
+        public override string Description => "Double patty burger on a brioche bun. Comes with ketchup, mustard, " +
+            "pickle, cheese, tomato, lettuce, and mayo.";
         /// <summary>
         /// Gets the price of the burger
         /// </summary>
