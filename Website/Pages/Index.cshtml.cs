@@ -50,14 +50,17 @@ namespace Website.Pages
             {
                 string temp = Searching;
                 string[] words = temp.Split(' ', StringSplitOptions.RemoveEmptyEntries);
-               
-                OrderItems = OrderItems.Where(item =>
-                item.ToString() != null && item.ToString().Contains(Searching, StringComparison.CurrentCultureIgnoreCase) ||
-                item.Description != null && item.Description.Contains(Searching, StringComparison.CurrentCultureIgnoreCase) ||
-                item.Description != null && item.Description.Contains(words[0]) ||
-                item.Description != null && words.Length == 2 && item.Description.Contains(words[1]) ||
-                item.Description != null && words.Length == 3 && item.Description.Contains(words[1]) ||
-                item.Description != null && words.Length == 3 && item.Description.Contains(words[2]));
+                List<IOrderItem> multiSearch = new List<IOrderItem>();
+                foreach(string search in words)
+                {
+                    OrderItems = OrderItems.Where(items =>
+                    items.ToString() != null && items.ToString().Contains(search, StringComparison.CurrentCultureIgnoreCase) ||
+                    items.Description != null && items.Description.Contains(search, StringComparison.CurrentCultureIgnoreCase));
+                    multiSearch.AddRange(OrderItems);
+                    OrderItems = Menu.All;
+                }
+                OrderItems = multiSearch;
+
               
             }
 
